@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aion Studio — Agencia de Inteligencia Artificial</title>
+  <meta name="description" content="Aion Studio: agencia especializada en automatización e inteligencia artificial para empresas. Agentes de voz, flujos automatizados, bandeja inteligente y webs con IA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios" data-i18n="nav_services">Servicios</a></li>
+        <li><a href="#mision" data-i18n="nav_mission">Misión</a></li>
+        <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content container">
+      <div class="hero-badge" data-i18n="hero_badge">Agencia de Inteligencia Artificial</div>
+      <h1 class="hero-title" data-i18n="hero_title">
+        Automatiza tu empresa.<br />
+        <span class="hero-highlight">Multiplica tus resultados.</span>
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        Implementamos soluciones de IA que trabajan 24/7 para tu negocio: agentes de voz, flujos automatizados y sistemas inteligentes que reducen costes y disparan tu ROI.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary btn-lg" data-i18n="hero_cta1">Agenda tu Auditoría</a>
+        <a href="#servicios" class="btn btn-outline btn-lg" data-i18n="hero_cta2">Ver Servicios</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section id="metricas" class="metricas">
+    <div class="container">
+      <div class="metricas-grid">
+        <div class="metrica-card" data-target="50" data-suffix="+">
+          <div class="metrica-number">
+            <span class="counter" data-target="50">0</span><span class="metrica-suffix">+</span>
+          </div>
+          <div class="metrica-label" data-i18n="metric1_label">Clientes satisfechos</div>
+        </div>
+        <div class="metrica-card" data-target="12" data-suffix="x">
+          <div class="metrica-number">
+            <span class="counter" data-target="12">0</span><span class="metrica-suffix">x</span>
+          </div>
+          <div class="metrica-label" data-i18n="metric2_label">ROI promedio</div>
+        </div>
+        <div class="metrica-card" data-target="0.1" data-suffix="s" data-decimal="1">
+          <div class="metrica-number">
+            <span class="counter" data-target="0.1" data-decimal="1">0.0</span><span class="metrica-suffix">s</span>
+          </div>
+          <div class="metrica-label" data-i18n="metric3_label">Respuesta Voz IA</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-number">
+            <span class="counter" data-target="24">0</span><span class="metrica-suffix">/7</span>
+          </div>
+          <div class="metrica-label" data-i18n="metric4_label">Disponibilidad</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="servicios">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="services_title">Nuestros Servicios</h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">Soluciones de IA diseñadas para transformar tu operativa</p>
+      </div>
+      <div class="servicios-grid">
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8v2H16v-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="14" y="22" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="21" cy="28" r="1.5" fill="currentColor"/>
+              <circle cx="27" cy="28" r="1.5" fill="currentColor"/>
+              <path d="M21 31c0.8 0.8 2.4 1.2 3 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s1_tag">Agente de Voz</div>
+          <h3 class="servicio-title">AionVoice</h3>
+          <p class="servicio-desc" data-i18n="s1_desc">
+            Agentes de voz con IA que atienden llamadas, cualifican leads y gestionan reservas de forma autónoma, 24 horas al día.
+          </p>
+          <ul class="servicio-features">
+            <li data-i18n="s1_f1">Atención ininterrumpida 24/7</li>
+            <li data-i18n="s1_f2">Cualificación automática de leads</li>
+            <li data-i18n="s1_f3">Integración con tu CRM</li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more">Más información →</a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <rect x="28" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <rect x="18" y="28" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 20v4h20v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 24v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s2_tag">Automatización</div>
+          <h3 class="servicio-title">AionFlow</h3>
+          <p class="servicio-desc" data-i18n="s2_desc">
+            Automatiza flujos de trabajo complejos: desde onboarding de clientes hasta facturación y reportes, sin intervención manual.
+          </p>
+          <ul class="servicio-features">
+            <li data-i18n="s2_f1">Flujos multi-plataforma</li>
+            <li data-i18n="s2_f2">Onboarding automatizado</li>
+            <li data-i18n="s2_f3">Reportes automáticos</li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more">Más información →</a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 12h32v24H8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 12l16 14L40 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="36" cy="36" r="8" fill="#0a0a14" stroke="currentColor" stroke-width="2"/>
+              <path d="M33 36l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s3_tag">Bandeja IA</div>
+          <h3 class="servicio-title">AionInbox</h3>
+          <p class="servicio-desc" data-i18n="s3_desc">
+            Centraliza y gestiona todas tus comunicaciones con IA: emails, WhatsApp y chats clasificados, priorizados y respondidos automáticamente.
+          </p>
+          <ul class="servicio-features">
+            <li data-i18n="s3_f1">Clasificación inteligente</li>
+            <li data-i18n="s3_f2">Respuestas automáticas</li>
+            <li data-i18n="s3_f3">Multi-canal unificado</li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more">Más información →</a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 40h16M24 32v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 18h4M16 23h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="34" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M32.5 20l1 1 2-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s4_tag">Web con IA</div>
+          <h3 class="servicio-title">Web IA</h3>
+          <p class="servicio-desc" data-i18n="s4_desc">
+            Webs de alto rendimiento con asistentes inteligentes integrados, personalización dinámica y analítica avanzada para maximizar conversiones.
+          </p>
+          <ul class="servicio-features">
+            <li data-i18n="s4_f1">Chat IA embebido</li>
+            <li data-i18n="s4_f2">Personalización dinámica</li>
+            <li data-i18n="s4_f3">Analytics avanzado</li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more">Más información →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section id="mision" class="mision">
+    <div class="container">
+      <div class="mision-grid">
+        <div class="mision-content">
+          <div class="mision-block">
+            <div class="mision-label" data-i18n="mission_label">Nuestra Misión</div>
+            <h2 class="mision-title" data-i18n="mission_title">Democratizar la IA para empresas que quieren crecer</h2>
+            <p class="mision-text" data-i18n="mission_text">
+              En Aion Studio creemos que la inteligencia artificial no debe ser exclusiva de las grandes corporaciones. Nuestra misión es poner al alcance de cualquier empresa las herramientas de automatización e IA que multiplican su capacidad operativa sin disparar sus costes.
+            </p>
+          </div>
+          <div class="mision-block vision-block">
+            <div class="mision-label" data-i18n="vision_label">Nuestra Visión</div>
+            <p class="mision-text" data-i18n="vision_text">
+              Ser el partner tecnológico de referencia para empresas latinoamericanas y europeas que buscan liderar su sector mediante la adopción estratégica de inteligencia artificial, construyendo un futuro donde humanos y máquinas trabajan en perfecta sinergia.
+            </p>
+          </div>
+          <div class="mision-valores">
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value1">Resultados medibles</span>
+            </div>
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value2">Implementación ágil</span>
+            </div>
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value3">Soporte continuo</span>
+            </div>
+          </div>
+        </div>
+        <div class="mision-visual">
+          <div class="founder-card">
+            <div class="founder-photo">
+              <div class="photo-initials">DCA</div>
+            </div>
+            <div class="founder-info">
+              <div class="founder-name">Diego Camiña Alonso</div>
+              <div class="founder-role" data-i18n="founder_role">Fundador & Lead Engineer</div>
+              <p class="founder-quote" data-i18n="founder_quote">"La IA no sustituirá a las Pymes, pero las Pymes con IA sustituirán a las que no la usen."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <h2 class="contacto-title" data-i18n="form_title">Agenda tu Auditoría Gratuita</h2>
+          <p class="contacto-desc" data-i18n="form_desc">
+            En 30 minutos analizamos tu empresa y te mostramos exactamente qué procesos pueden automatizarse y cuánto podrías ahorrar.
+          </p>
+          <div class="contacto-beneficios">
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit1">Sin compromiso ni coste</span>
+            </div>
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit2">Análisis personalizado</span>
+            </div>
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit3">Plan de acción inmediato</span>
+            </div>
+          </div>
+        </div>
+        <form class="contacto-form" id="contact-form" action="mailto:diego@aionstudio.tech" method="POST" enctype="text/plain" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" data-i18n="form_name">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" data-i18n-placeholder="form_name_ph" />
+            </div>
+            <div class="form-group">
+              <label for="empresa" data-i18n="form_company">Empresa</label>
+              <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa" data-i18n-placeholder="form_company_ph" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form_email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+          </div>
+          <div class="form-group">
+            <label for="servicio" data-i18n="form_service">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option value="" data-i18n="form_service_ph">Selecciona un servicio</option>
+              <option value="aionvoice">AionVoice — Agente de Voz</option>
+              <option value="aionflow">AionFlow — Automatización</option>
+              <option value="aioninbox">AionInbox — Bandeja IA</option>
+              <option value="webai">Web IA</option>
+              <option value="otro" data-i18n="form_other">Otro / No sé aún</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje" data-i18n="form_message">Cuéntanos tu reto</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Qué proceso te gustaría automatizar?" data-i18n-placeholder="form_message_ph"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full" data-i18n="form_submit">
+            Solicitar Auditoría Gratuita
+          </button>
+          <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">
+            <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Inteligencia Artificial para empresas que no se conforman.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_services">Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="#servicios">AionVoice</a></li>
+            <li><a href="#servicios">AionFlow</a></li>
+            <li><a href="#servicios">AionInbox</a></li>
+            <li><a href="#servicios" data-i18n="footer_webai">Web con IA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_company">Empresa</h4>
+          <ul class="footer-links">
+            <li><a href="#mision" data-i18n="footer_mission">Misión & Visión</a></li>
+            <li><a href="#contacto" data-i18n="footer_audit">Auditoría Gratuita</a></li>
+            <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_contact">Contacto</h4>
+          <ul class="footer-links footer-contact-list">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span data-i18n="footer_location">Pennautier, Francia</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+        </p>
+        <div class="footer-legal-links">
+          <a href="#" data-i18n="footer_privacy">Política de Privacidad</a>
+          <a href="#" data-i18n="footer_terms">Términos de Uso</a>
+          <a href="#" data-i18n="footer_cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
