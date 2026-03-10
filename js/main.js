@@ -63,6 +63,19 @@ const translations = {
     footer_contact: 'Contacto', footer_location: 'Pennautier, Francia',
     footer_rights: 'Todos los derechos reservados.',
     footer_privacy: 'Política de Privacidad', footer_terms: 'Términos de Uso', footer_cookies: 'Cookies',
+    // Blog
+    nav_blog: 'Blog',
+    blog_title: 'Blog',
+    blog_subtitle: 'Inteligencia artificial para empresas que quieren crecer',
+    blog_read_more: 'Leer más →',
+    blog_back: '← Volver al blog',
+    blog_cat_health: 'Sector Salud',
+    blog_cat_automation: 'Automatización',
+    blog_coming_soon: 'Próximamente',
+    art1_title: 'Cómo la IA está transformando las clínicas dentales en 2026',
+    art1_desc: 'Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.',
+    art2_title: '5 procesos que toda gestoría debería automatizar con IA en 2026',
+    art2_desc: 'Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.',
   },
 
   fr: {
@@ -120,6 +133,19 @@ const translations = {
     footer_contact: 'Contact', footer_location: 'Pennautier, France',
     footer_rights: 'Tous droits réservés.',
     footer_privacy: 'Politique de Confidentialité', footer_terms: 'Conditions d\'Utilisation', footer_cookies: 'Cookies',
+    // Blog
+    nav_blog: 'Blog',
+    blog_title: 'Blog',
+    blog_subtitle: 'Intelligence artificielle pour les entreprises qui veulent grandir',
+    blog_read_more: 'Lire plus →',
+    blog_back: '← Retour au blog',
+    blog_cat_health: 'Secteur Santé',
+    blog_cat_automation: 'Automatisation',
+    blog_coming_soon: 'Prochainement',
+    art1_title: 'Comment l\'IA transforme les cliniques dentaires en 2026',
+    art1_desc: 'Appels manqués, rendez-vous non confirmés, absences... Les cliniques qui utilisent l\'IA économisent du temps, réduisent les no-shows et augmentent leurs revenus.',
+    art2_title: '5 processus que toute fiduciaire devrait automatiser avec l\'IA en 2026',
+    art2_desc: 'De la réception des documents aux rappels fiscaux, voici les automatisations qui font le plus gagner du temps dans les cabinets comptables.',
   },
 
   en: {
@@ -177,6 +203,19 @@ const translations = {
     footer_contact: 'Contact', footer_location: 'Pennautier, France',
     footer_rights: 'All rights reserved.',
     footer_privacy: 'Privacy Policy', footer_terms: 'Terms of Use', footer_cookies: 'Cookies',
+    // Blog
+    nav_blog: 'Blog',
+    blog_title: 'Blog',
+    blog_subtitle: 'AI for businesses that want to grow',
+    blog_read_more: 'Read more →',
+    blog_back: '← Back to blog',
+    blog_cat_health: 'Healthcare',
+    blog_cat_automation: 'Automation',
+    blog_coming_soon: 'Coming soon',
+    art1_title: 'How AI is transforming dental clinics in 2026',
+    art1_desc: 'Missed calls, unconfirmed appointments, no-shows... Clinics already using AI save time, reduce absences and increase revenue with systems that work 24/7.',
+    art2_title: '5 processes every accounting firm should automate with AI in 2026',
+    art2_desc: 'From document intake to tax reminders, these are the automations that save the most time in accounting practices and advisory firms.',
   }
 };
 

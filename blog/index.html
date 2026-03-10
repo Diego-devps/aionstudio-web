@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Aion Studio — Inteligencia Artificial para Pymes</title>
+  <meta name="description" content="Artículos sobre inteligencia artificial, automatización y transformación digital para pymes. Casos de uso reales, guías prácticas y análisis del sector." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Aion Studio" />
+  <link rel="canonical" href="https://aionstudio.tech/blog/" />
+  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/" />
+  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/" />
+  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/blog/" />
+  <meta property="og:title" content="Blog | Aion Studio" />
+  <meta property="og:description" content="Artículos sobre inteligencia artificial y automatización para pymes en España y Francia." />
+  <meta property="og:url" content="https://aionstudio.tech/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog | Aion Studio" />
+  <meta name="twitter:description" content="Artículos sobre inteligencia artificial y automatización para pymes." />
+  <meta name="twitter:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .blog-hero {
+      padding: 140px 0 72px;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid var(--border-cyan);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .blog-hero-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .blog-hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+    }
+    .blog-section {
+      padding: 72px 0 100px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .blog-card:hover {
+      border-color: var(--border-cyan);
+      box-shadow: 0 0 30px rgba(0,212,255,0.08);
+    }
+    .blog-card.draft {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .blog-card-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+    .blog-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .blog-card-title a {
+      color: var(--text-primary);
+      transition: color var(--transition);
+    }
+    .blog-card-title a:hover { color: var(--cyan); }
+    .blog-card-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .blog-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .blog-card-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--cyan);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+      align-self: flex-start;
+    }
+    .blog-card-link:hover { gap: 10px; }
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-hero { padding: 110px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="../" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
+        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
+        <li><a href="../#contacto" data-i18n="nav_contact">Contacto</a></li>
+        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="../#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="blog-hero-badge" data-i18n="nav_blog">Blog</div>
+      <h1 class="blog-hero-title" data-i18n="blog_title">Blog</h1>
+      <p class="blog-hero-subtitle" data-i18n="blog_subtitle">Inteligencia artificial para empresas que quieren crecer</p>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <!-- Artículo 1 — publicado -->
+        <article class="blog-card">
+          <div class="blog-card-category" data-i18n="blog_cat_health">Sector Salud</div>
+          <h2 class="blog-card-title">
+            <a href="ia-para-clinicas-dentales.html" data-i18n="art1_title">Cómo la IA está transformando las clínicas dentales en 2026</a>
+          </h2>
+          <div class="blog-card-date">10 marzo 2026</div>
+          <p class="blog-card-desc" data-i18n="art1_desc">Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.</p>
+          <a href="ia-para-clinicas-dentales.html" class="blog-card-link" data-i18n="blog_read_more">Leer más →</a>
+        </article>
+
+        <!-- Artículo 2 — próximamente -->
+        <article class="blog-card draft">
+          <div class="blog-card-category" data-i18n="blog_cat_automation">Automatización</div>
+          <h2 class="blog-card-title">
+            <a href="#" data-i18n="art2_title">5 procesos que toda gestoría debería automatizar con IA en 2026</a>
+          </h2>
+          <div class="blog-card-date" data-i18n="blog_coming_soon">Próximamente</div>
+          <p class="blog-card-desc" data-i18n="art2_desc">Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.</p>
+          <span class="blog-card-link" data-i18n="blog_read_more">Leer más →</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../" class="nav-logo">
+            <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Inteligencia Artificial para empresas que no se conforman.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_services">Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="../#servicios">AionVoice</a></li>
+            <li><a href="../#servicios">AionFlow</a></li>
+            <li><a href="../#servicios">AionInbox</a></li>
+            <li><a href="../#servicios" data-i18n="footer_webai">Web con IA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_company">Empresa</h4>
+          <ul class="footer-links">
+            <li><a href="../#mision" data-i18n="footer_mission">Misión & Visión</a></li>
+            <li><a href="../#contacto" data-i18n="footer_audit">Auditoría Gratuita</a></li>
+            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_contact">Contacto</h4>
+          <ul class="footer-links footer-contact-list">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span data-i18n="footer_location">Pennautier, Francia</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+        </p>
+        <div class="footer-legal-links">
+          <a href="#" data-i18n="footer_privacy">Política de Privacidad</a>
+          <a href="#" data-i18n="footer_terms">Términos de Uso</a>
+          <a href="#" data-i18n="footer_cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
