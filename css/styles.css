@@ -606,8 +606,8 @@ img { max-width: 100%; display: block; }
 }
 
 .founder-photo {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 2px solid var(--border-cyan);
   overflow: hidden;
