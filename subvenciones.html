@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subvenciones IA para Pymes | Aion Studio</title>
+  <meta name="description" content="Guía de ayudas y subvenciones disponibles en España y Francia para financiar proyectos de inteligencia artificial y automatización en pymes." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aionstudio.tech/subvenciones" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── PAGE SPECIFIC ── */
+    .sub-hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    .sub-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sub-badge {
+      display: inline-block;
+      background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.3);
+      color: #00d4ff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .sub-title {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .sub-title span { color: #00d4ff; }
+    .sub-subtitle {
+      font-size: 18px;
+      color: #8892a4;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+    .sub-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+    .sub-stat { text-align: center; }
+    .sub-stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: #00d4ff;
+      letter-spacing: -0.03em;
+    }
+    .sub-stat-label {
+      font-size: 13px;
+      color: #8892a4;
+      margin-top: 4px;
+    }
+
+    /* ── TABS ── */
+    .tabs-wrapper { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+    .tabs-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 6px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      color: #8892a4;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tab-btn.active {
+      background: rgba(0,212,255,0.1);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+    .tab-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.04); }
+    .tab-flag { font-size: 20px; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── ACCORDION ── */
+    .accordion { display: flex; flex-direction: column; gap: 12px; }
+    .acc-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .acc-item:hover { border-color: rgba(0,212,255,0.2); }
+    .acc-item.open { border-color: rgba(0,212,255,0.3); }
+    .acc-header {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .acc-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0,212,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .acc-meta { flex: 1; }
+    .acc-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .acc-tagline { font-size: 13px; color: #8892a4; }
+    .acc-amount {
+      font-size: 15px;
+      font-weight: 700;
+      color: #00d4ff;
+      white-space: nowrap;
+      text-align: right;
+    }
+    .acc-amount small { display: block; font-size: 11px; font-weight: 400; color: #8892a4; }
+    .acc-arrow {
+      width: 24px;
+      height: 24px;
+      color: #8892a4;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .acc-item.open .acc-arrow { transform: rotate(180deg); color: #00d4ff; }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .acc-body-inner {
+      padding: 0 24px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 0;
+    }
+    .acc-body-inner p {
+      font-size: 14px;
+      color: #8892a4;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      padding-top: 16px;
+    }
+    .acc-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .acc-detail {
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .acc-detail-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555c6e;
+      margin-bottom: 4px;
+    }
+    .acc-detail-val {
+      font-size: 13px;
+      font-weight: 600;
+      color: #c8d0de;
+    }
+    .acc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .acc-tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(0,212,255,0.2);
+      color: #00d4ff;
+      background: rgba(0,212,255,0.06);
+    }
+    .acc-tag.green {
+      border-color: rgba(52,211,153,0.3);
+      color: #34d399;
+      background: rgba(52,211,153,0.06);
+    }
+    .acc-tag.yellow {
+      border-color: rgba(251,191,36,0.3);
+      color: #fbbf24;
+      background: rgba(251,191,36,0.06);
+    }
+    .acc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #00d4ff;
+      text-decoration: none;
+      margin-top: 4px;
+    }
+    .acc-link:hover { opacity: 0.8; }
+
+    /* ── CTA BOTTOM ── */
+    .sub-cta {
+      background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,212,255,0.02) 100%);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 24px;
+      padding: 56px 40px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 80px;
+    }
+    .sub-cta h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .sub-cta p {
+      color: #8892a4;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .sub-cta .btn { text-decoration: none; }
+
+    /* ── NAV BACK ── */
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #8892a4;
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: #00d4ff; }
+
+    @media (max-width: 640px) {
+      .sub-stats { gap: 28px; }
+      .acc-header { padding: 18px 16px; gap: 12px; }
+      .acc-body-inner { padding: 0 16px 20px; }
+      .acc-amount { display: none; }
+      .sub-cta { padding: 40px 24px; }
+      .tabs-wrapper { padding: 0 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="/" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <div class="nav-right">
+        <a href="/#contacto" class="btn btn-primary">Auditoría Gratuita</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="sub-hero">
+      <div class="sub-badge">💰 Subvenciones &amp; Ayudas</div>
+      <h1 class="sub-title">Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span></h1>
+      <p class="sub-subtitle">Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.</p>
+      <div class="sub-stats">
+        <div class="sub-stat">
+          <div class="sub-stat-num">80%</div>
+          <div class="sub-stat-label">Coste cubierto (máx.)</div>
+        </div>
+        <div class="sub-stat">
+          <div class="sub-stat-num">29.000€</div>
+          <div class="sub-stat-label">Bono máximo España</div>
+        </div>
+        <div class="sub-stat">
+          <div class="sub-stat-num">+300M€</div>
+          <div class="sub-stat-label">Movilizados en Francia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS + ACCORDION -->
+    <div class="tabs-wrapper">
+      <a href="/" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Volver a inicio
+      </a>
+
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('es', this)">
+          <span class="tab-flag">🇪🇸</span> España
+        </button>
+        <button class="tab-btn" onclick="switchTab('fr', this)">
+          <span class="tab-flag">🇫🇷</span> France
+        </button>
+      </div>
+
+      <!-- ESPAÑA -->
+      <div class="tab-panel active" id="tab-es">
+        <div class="accordion">
+
+          <div class="acc-item" id="acc-1">
+            <button class="acc-header" onclick="toggleAcc('acc-1')">
+              <div class="acc-icon-wrap">🎯</div>
+              <div class="acc-meta">
+                <div class="acc-name">Kit Digital</div>
+                <div class="acc-tagline">Red.es · Agenda España Digital 2026 · Next Generation EU</div>
+              </div>
+              <div class="acc-amount">hasta 29.000€<small>a fondo perdido</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>El programa más accesible para pymes y autónomos. Financia la adopción de soluciones digitales del mercado: automatización, IA, CRM, comercio electrónico y más. Se gestiona a través de la plataforma Acelera Pyme con un agente digitalizador adherido al programa (como Aion Studio).</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Segmento I (10-49 emp.)</div><div class="acc-detail-val">hasta 12.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Segmento II (3-9 emp.)</div><div class="acc-detail-val">hasta 6.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Segmento III (0-2 emp.)</div><div class="acc-detail-val">hasta 3.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Segmento IV-V (50-250 emp.)</div><div class="acc-detail-val">hasta 29.000€</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag green">✓ Convocatoria activa</span>
+                  <span class="acc-tag">Autónomos</span>
+                  <span class="acc-tag">Pymes</span>
+                  <span class="acc-tag">Sin devolución</span>
+                </div>
+                <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener" class="acc-link">Ver convocatoria oficial →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-2">
+            <button class="acc-header" onclick="toggleAcc('acc-2')">
+              <div class="acc-icon-wrap">🧠</div>
+              <div class="acc-meta">
+                <div class="acc-name">Ayudas IA en Cadenas de Valor</div>
+                <div class="acc-tagline">Red.es · España Digital 2026 · FEDER 2021-2027</div>
+              </div>
+              <div class="acc-amount">hasta 60.000€<small>40% del proyecto</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Programa específico para integrar IA en los procesos productivos de pymes. Cubre software, consultoría e implementación de soluciones de inteligencia artificial aplicadas a la cadena de valor empresarial.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Cobertura</div><div class="acc-detail-val">40% del coste</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Máximo</div><div class="acc-detail-val">60.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Tipo</div><div class="acc-detail-val">Subvención directa</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Gestión</div><div class="acc-detail-val">Red.es</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag yellow">⏳ Consultar estado</span>
+                  <span class="acc-tag">IA aplicada</span>
+                  <span class="acc-tag">Industria</span>
+                  <span class="acc-tag">Retail</span>
+                </div>
+                <a href="https://espanadigital.gob.es/lineas-de-actuacion/ayudas-para-la-integracion-de-ia-en-las-cadenas-de-valor" target="_blank" rel="noopener" class="acc-link">Ver convocatoria oficial →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-3">
+            <button class="acc-header" onclick="toggleAcc('acc-3')">
+              <div class="acc-icon-wrap">🔬</div>
+              <div class="acc-meta">
+                <div class="acc-name">I+D en IA y Tecnologías Duales</div>
+                <div class="acc-tagline">Red.es · FEDER · Convocatoria 2025</div>
+              </div>
+              <div class="acc-amount">400K – 5M€<small>Desarrollo experimental</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Para proyectos de desarrollo experimental en IA: procesamiento de lenguaje, visión computacional, machine learning, conectividad avanzada y ciberseguridad. Dirigido a empresas con proyectos de mayor envergadura técnica.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Presupuesto mínimo</div><div class="acc-detail-val">400.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Presupuesto máximo</div><div class="acc-detail-val">5.000.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Intensidad ayuda</div><div class="acc-detail-val">Según tamaño empresa</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Gestión</div><div class="acc-detail-val">Red.es / Sede electrónica</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag green">✓ Convocatoria 2025 abierta</span>
+                  <span class="acc-tag">I+D</span>
+                  <span class="acc-tag">IA avanzada</span>
+                  <span class="acc-tag">Grandes proyectos</span>
+                </div>
+                <a href="https://sede.red.gob.es" target="_blank" rel="noopener" class="acc-link">Ver convocatoria oficial →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-4">
+            <button class="acc-header" onclick="toggleAcc('acc-4')">
+              <div class="acc-icon-wrap">📋</div>
+              <div class="acc-meta">
+                <div class="acc-name">Kit Consulting</div>
+                <div class="acc-tagline">Red.es · Complementario al Kit Digital</div>
+              </div>
+              <div class="acc-amount">hasta 24.000€<small>consultoría estratégica</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Complementario al Kit Digital, financia el asesoramiento estratégico para la transformación digital avanzada. Compatible con Kit Digital — el 82% de beneficiarios usa ambos programas. Ideal para definir la hoja de ruta de digitalización con IA antes de la implementación.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Pymes 10-49 emp.</div><div class="acc-detail-val">hasta 24.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Pymes 3-9 emp.</div><div class="acc-detail-val">hasta 12.000€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Compatible con</div><div class="acc-detail-val">Kit Digital</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Tipo</div><div class="acc-detail-val">Consultoría</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag yellow">⏳ Consultar estado</span>
+                  <span class="acc-tag">Estrategia digital</span>
+                  <span class="acc-tag">Compatible Kit Digital</span>
+                </div>
+                <a href="https://acelerapyme.gob.es" target="_blank" rel="noopener" class="acc-link">Ver en Acelera Pyme →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FRANCE -->
+      <div class="tab-panel" id="tab-fr">
+        <div class="accordion">
+
+          <div class="acc-item" id="acc-fr-1">
+            <button class="acc-header" onclick="toggleAcc('acc-fr-1')">
+              <div class="acc-icon-wrap">🚀</div>
+              <div class="acc-meta">
+                <div class="acc-name">Diagnostic Data IA — Bpifrance</div>
+                <div class="acc-tagline">Programme "Osez l'IA" · France 2030</div>
+              </div>
+              <div class="acc-amount">80% pris en charge<small>reste à charge ~7.500€</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Point d'entrée principal pour toute PME souhaitant initier un projet IA. Un expert réalise un diagnostic complet de vos données et identifie les cas d'usage IA adaptés à votre métier. Bpifrance finance 80% du coût total de la prestation.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Coût total prestation</div><div class="acc-detail-val">3.900€ – 13.000€ HT</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Prise en charge</div><div class="acc-detail-val">80% par Bpifrance</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Reste à charge</div><div class="acc-detail-val">~780€ – 2.600€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Éligibilité</div><div class="acc-detail-val">PME/ETI 10-2000 sal.</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag green">✓ Dispositif actif 2025-2026</span>
+                  <span class="acc-tag">PME</span>
+                  <span class="acc-tag">Tous secteurs</span>
+                  <span class="acc-tag">France entière</span>
+                </div>
+                <a href="https://www.bpifrance.fr" target="_blank" rel="noopener" class="acc-link">Voir sur Bpifrance →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-fr-2">
+            <button class="acc-header" onclick="toggleAcc('acc-fr-2')">
+              <div class="acc-icon-wrap">🏆</div>
+              <div class="acc-meta">
+                <div class="acc-name">Pionniers de l'IA</div>
+                <div class="acc-tagline">Bpifrance · France 2030 · Inria</div>
+              </div>
+              <div class="acc-amount">Phase 1 : 100%<small>subvention directe</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Dispositif phare du plan France 2030 pour des projets IA à fort potentiel de rupture technologique. Phase 1 financée à 100% en subvention (12 mois, faisabilité). Phase 2 jusqu'à 50% pour le développement. Prochaine date de dépôt : 9 juin 2026.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Phase 1 (12 mois)</div><div class="acc-detail-val">100% subvention</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Phase 2 (18 mois)</div><div class="acc-detail-val">jusqu'à 50%</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Prochaine relève</div><div class="acc-detail-val">9 juin 2026</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Opérateur</div><div class="acc-detail-val">Bpifrance + Inria</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag green">✓ Dépôts ouverts jusqu'au 9 juin 2026</span>
+                  <span class="acc-tag">IA générative</span>
+                  <span class="acc-tag">IA embarquée</span>
+                  <span class="acc-tag">Rupture technologique</span>
+                </div>
+                <a href="https://www.bpifrance.fr/nos-appels-a-projets-concours/appel-a-projets-des-pionniers-de-lintelligence-artificielle" target="_blank" rel="noopener" class="acc-link">Voir l'appel à projets →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-fr-3">
+            <button class="acc-header" onclick="toggleAcc('acc-fr-3')">
+              <div class="acc-icon-wrap">🌍</div>
+              <div class="acc-meta">
+                <div class="acc-name">Aides Régionales IA — Occitanie</div>
+                <div class="acc-tagline">AD'OCC · Région Occitanie · FEDER</div>
+              </div>
+              <div class="acc-amount">jusqu'à 50%<small>selon dispositif régional</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>La région Occitanie (où est basé Aion Studio) dispose de dispositifs spécifiques via AD'OCC pour accompagner les PME dans leur transformation numérique et IA. Ces aides régionales sont cumulables avec les dispositifs nationaux Bpifrance.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Organisme</div><div class="acc-detail-val">AD'OCC</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Cumul</div><div class="acc-detail-val">Compatible France 2030</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Zone</div><div class="acc-detail-val">Occitanie</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Orientation</div><div class="acc-detail-val">Gratuite</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag green">✓ Dispositif permanent</span>
+                  <span class="acc-tag">Occitanie</span>
+                  <span class="acc-tag">Cumulable</span>
+                  <span class="acc-tag">TPE/PME</span>
+                </div>
+                <a href="https://www.agence-adocc.com" target="_blank" rel="noopener" class="acc-link">Voir AD'OCC →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="acc-item" id="acc-fr-4">
+            <button class="acc-header" onclick="toggleAcc('acc-fr-4')">
+              <div class="acc-icon-wrap">💡</div>
+              <div class="acc-meta">
+                <div class="acc-name">Concours i-Nov — Innovation PME</div>
+                <div class="acc-tagline">Bpifrance · France 2030</div>
+              </div>
+              <div class="acc-amount">jusqu'à 45%<small>subvention + avance remb.</small></div>
+              <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <p>Concours d'innovation pour PME avec projets innovants individuels. Sélection plusieurs fois par an. Les lauréats reçoivent une aide couvrant jusqu'à 45% des coûts du projet (subvention + avance remboursable). Budget de projet typique entre 600.000€ et 5M€.</p>
+                <div class="acc-details">
+                  <div class="acc-detail"><div class="acc-detail-label">Couverture</div><div class="acc-detail-val">jusqu'à 45%</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Budget projet</div><div class="acc-detail-val">600K€ – 5M€</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Fréquence</div><div class="acc-detail-val">Plusieurs fois/an</div></div>
+                  <div class="acc-detail"><div class="acc-detail-label">Type</div><div class="acc-detail-val">Subv. + avance remb.</div></div>
+                </div>
+                <div class="acc-tags">
+                  <span class="acc-tag yellow">⏳ Vérifier sessions ouvertes</span>
+                  <span class="acc-tag">Innovation</span>
+                  <span class="acc-tag">PME uniquement</span>
+                  <span class="acc-tag">Tous secteurs</span>
+                </div>
+                <a href="https://www.bpifrance.fr" target="_blank" rel="noopener" class="acc-link">Voir sur Bpifrance →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /tabs-wrapper -->
+
+    <!-- CTA -->
+    <div class="sub-cta">
+      <h2>¿No sabes cuál te corresponde?</h2>
+      <p>En tu auditoría gratuita te identificamos las ayudas para las que tu empresa es elegible y te acompañamos en la solicitud. Sin burocracia, sin complicaciones.</p>
+      <a href="/#contacto" class="btn btn-primary btn-lg">Solicitar Auditoría Gratuita</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER minimal -->
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;text-align:center;">
+    <p style="color:#555c6e;font-size:13px;">© <span id="year"></span> Aion Studio · <a href="/" style="color:#8892a4;text-decoration:none;">Inicio</a> · <a href="/privacidad" style="color:#8892a4;text-decoration:none;">Privacidad</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function toggleAcc(id) {
+      const item = document.getElementById(id);
+      const body = item.querySelector('.acc-body');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-body').style.maxHeight = null;
+      });
+      // Open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    }
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>

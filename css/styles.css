@@ -1024,3 +1024,14 @@ img { max-width: 100%; display: block; }
 .fade-in-up:nth-child(2) { transition-delay: 0.1s; }
 .fade-in-up:nth-child(3) { transition-delay: 0.2s; }
 .fade-in-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* ============================================================
+   SUBVENCIONES TEASER
+   ============================================================ */
+.subvenciones-teaser { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.sub-teaser-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+.sub-teaser-badge { display: inline-block; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: #00d4ff; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.sub-teaser-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+.sub-teaser-text { font-size: 16px; color: #8892a4; line-height: 1.7; margin-bottom: 24px; }
+.sub-teaser-flags { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.sub-teaser-flags span { font-size: 14px; font-weight: 600; color: #c8d0de; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 8px 16px; border-radius: 100px; }
