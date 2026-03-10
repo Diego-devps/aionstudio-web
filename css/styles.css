@@ -959,7 +959,7 @@ img { max-width: 100%; display: block; }
     border-bottom: 1px solid var(--border);
     gap: 16px;
     z-index: 999;
-    margin-top: 200px;
+    margin-top: 220px;
   }
   .nav-inner.mobile-open .nav-links {
     padding-bottom: 0;
