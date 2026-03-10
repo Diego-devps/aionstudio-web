@@ -306,9 +306,24 @@
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
+      <ul class="nav-links">
+        <li><a href="/#servicios" data-i18n="nav_services">Servicios</a></li>
+        <li><a href="/#mision" data-i18n="nav_mission">Misión</a></li>
+        <li><a href="/subvenciones" data-i18n="nav_grants">Subvenciones</a></li>
+        <li><a href="/#contacto" data-i18n="nav_contact">Contacto</a></li>
+        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
+      </ul>
       <div class="nav-right">
-        <a href="/#contacto" class="btn btn-primary">Auditoría Gratuita</a>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="/#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
       </div>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -316,9 +331,9 @@
 
     <!-- HERO -->
     <section class="sub-hero">
-      <div class="sub-badge">💰 Subvenciones &amp; Ayudas</div>
-      <h1 class="sub-title">Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span></h1>
-      <p class="sub-subtitle">Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.</p>
+      <div class="sub-badge" data-i18n="sub_badge">💰 Subvenciones &amp; Ayudas</div>
+      <h1 class="sub-title" data-i18n="sub_title">Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span></h1>
+      <p class="sub-subtitle" data-i18n="sub_subtitle">Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.</p>
       <div class="sub-stats">
         <div class="sub-stat">
           <div class="sub-stat-num">80%</div>
@@ -621,7 +636,60 @@
   </footer>
 
   <script>
+    const i18n = {
+      es: {
+        nav_services: 'Servicios', nav_mission: 'Misión', nav_grants: 'Subvenciones',
+        nav_contact: 'Contacto', nav_blog: 'Blog', nav_cta: 'Auditoría Gratuita',
+        sub_badge: '💰 Subvenciones & Ayudas',
+        sub_title: 'Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span>',
+        sub_subtitle: 'Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.',
+      },
+      fr: {
+        nav_services: 'Services', nav_mission: 'Mission', nav_grants: 'Subventions',
+        nav_contact: 'Contact', nav_blog: 'Blog', nav_cta: 'Audit Gratuit',
+        sub_badge: '💰 Subventions & Aides',
+        sub_title: 'Financez votre projet IA<br/><span>sans tout payer de votre poche</span>',
+        sub_subtitle: 'Des aides publiques en Espagne et en France couvrent jusqu\'à 80% du coût de mise en œuvre de l\'IA dans votre entreprise.',
+      },
+      en: {
+        nav_services: 'Services', nav_mission: 'Mission', nav_grants: 'Grants',
+        nav_contact: 'Contact', nav_blog: 'Blog', nav_cta: 'Free Audit',
+        sub_badge: '💰 Grants & Subsidies',
+        sub_title: 'Fund your AI project<br/><span>without paying it all yourself</span>',
+        sub_subtitle: 'Public grants in Spain and France cover up to 80% of the cost of implementing AI in your business.',
+      }
+    };
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('aion_lang', lang);
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
+    });
+
+    // Nav toggle móvil
+    const toggle = document.querySelector('.nav-toggle');
+    const navInner = document.querySelector('.nav-inner');
+    if (toggle) toggle.addEventListener('click', () => navInner.classList.toggle('mobile-open'));
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Aplicar idioma guardado
+    const savedLang = localStorage.getItem('aion_lang') || 'es';
+    applyLang(savedLang);
 
     function switchTab(id, btn) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -645,11 +713,6 @@
         body.style.maxHeight = body.scrollHeight + 'px';
       }
     }
-
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
-    });
   </script>
 </body>
 </html>
