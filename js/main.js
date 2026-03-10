@@ -477,7 +477,7 @@ function initContactForm() {
   const feedback = document.getElementById('form-feedback');
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const t = translations[currentLang];
@@ -489,17 +489,29 @@ function initContactForm() {
       return;
     }
 
-    // Simulate async submit
     const btn = form.querySelector('[type="submit"]');
     btn.disabled = true;
     btn.textContent = '...';
 
-    setTimeout(() => {
-      form.reset();
+    try {
+      const response = await fetch('https://formspree.io/f/xaqpeawy', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        showFeedback('success', t.form_success || '¡Mensaje enviado! Te contactaremos pronto.');
+      } else {
+        showFeedback('error', t.form_error || 'Error al enviar. Inténtalo de nuevo.');
+      }
+    } catch (err) {
+      showFeedback('error', t.form_error || 'Error de conexión. Inténtalo de nuevo.');
+    } finally {
       btn.disabled = false;
       btn.textContent = t.form_submit || 'Solicitar Auditoría Gratuita';
-      showFeedback('success', t.form_success || '¡Mensaje enviado! Te contactaremos pronto.');
-    }, 1200);
+    }
   });
 
   function showFeedback(type, msg) {
