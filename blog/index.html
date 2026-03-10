@@ -273,5 +273,9 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    const savedLang = localStorage.getItem('aion_lang');
+    if (savedLang) applyTranslations(savedLang);
+  </script>
 </body>
 </html>

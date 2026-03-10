@@ -264,6 +264,7 @@ function initLangSelector() {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      localStorage.setItem('aion_lang', btn.dataset.lang);
       applyTranslations(btn.dataset.lang);
     });
   });
@@ -569,7 +570,8 @@ function initSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   initLangSelector();
-  applyTranslations('es');
+  const savedLang = localStorage.getItem('aion_lang') || 'es';
+  applyTranslations(savedLang);
   initNavbar();
   initHeroCanvas();
   initCounters();
