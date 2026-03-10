@@ -11,6 +11,10 @@ const translations = {
   es: {
     nav_services: 'Servicios',
     nav_mission: 'Misión',
+    nav_grants: 'Subvenciones',
+    grants_title: '¿Sabías que puedes financiar la IA con dinero público?',
+    grants_text: 'Existen ayudas en España y Francia que cubren hasta el 80% del coste de implementar inteligencia artificial en tu empresa. Kit Digital, France 2030, Bpifrance y más.',
+    grants_cta: 'Ver todas las ayudas disponibles →',
     nav_contact: 'Contacto',
     nav_cta: 'Auditoría Gratuita',
     hero_badge: 'Agencia de Inteligencia Artificial',
@@ -81,6 +85,10 @@ const translations = {
   fr: {
     nav_services: 'Services',
     nav_mission: 'Mission',
+    nav_grants: 'Subventions',
+    grants_title: 'Saviez-vous que vous pouvez financer l\'IA avec des fonds publics ?',
+    grants_text: 'Des aides en Espagne et en France couvrent jusqu\'à 80% du coût de mise en œuvre de l\'IA dans votre entreprise. Kit Digital, France 2030, Bpifrance et plus.',
+    grants_cta: 'Voir toutes les aides disponibles →',
     nav_contact: 'Contact',
     nav_cta: 'Audit Gratuit',
     hero_badge: 'Agence d\'Intelligence Artificielle',
@@ -151,6 +159,10 @@ const translations = {
   en: {
     nav_services: 'Services',
     nav_mission: 'Mission',
+    nav_grants: 'Grants',
+    grants_title: 'Did you know you can fund AI with public money?',
+    grants_text: 'Grants in Spain and France cover up to 80% of the cost of implementing AI in your business. Kit Digital, France 2030, Bpifrance and more.',
+    grants_cta: 'See all available grants →',
     nav_contact: 'Contact',
     nav_cta: 'Free Audit',
     hero_badge: 'Artificial Intelligence Agency',
