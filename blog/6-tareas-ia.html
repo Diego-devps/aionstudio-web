@@ -47,6 +47,50 @@
     "url": "https://aionstudio.tech/blog/6-tareas-ia.html"
   }
   </script>
+  <style>
+    .article-hero { padding: 140px 0 60px; background: var(--bg-primary); border-bottom: 1px solid var(--border); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 28px; transition: color var(--transition); }
+    .article-back:hover { color: var(--cyan); }
+    .article-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .article-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+    .article-meta-item svg { width: 14px; height: 14px; color: var(--cyan); }
+    .article-section { padding: 64px 0 100px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 40px 0 14px; color: var(--text-primary); padding-left: 16px; border-left: 3px solid var(--cyan); }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .article-content strong { color: var(--text-primary); font-weight: 600; }
+    .article-content ul { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { font-size: 0.975rem; color: var(--text-secondary); padding-left: 20px; position: relative; line-height: 1.7; }
+    .article-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-size: 0.85rem; }
+    .article-cta-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; background: var(--cyan); color: #000; font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border-radius: 10px; transition: all var(--transition); }
+    .article-cta-btn:hover { background: var(--cyan-hover); box-shadow: 0 0 20px rgba(0,212,255,0.4); transform: translateY(-1px); }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; display: none; }
+    .sidebar-card.active { display: block; }
+    .sidebar-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-toc { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-toc a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .sidebar-toc a:hover { color: var(--cyan); }
+    .sidebar-author { display: flex; align-items: center; gap: 12px; }
+    .sidebar-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,212,255,0.1); border: 1px solid var(--border-cyan); color: var(--cyan); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sidebar-author-name { font-size: 0.9rem; font-weight: 600; }
+    .sidebar-author-role { font-size: 0.78rem; color: var(--cyan); margin-top: 2px; }
+    .sidebar-cta { text-align: center; border-color: var(--border-cyan); }
+    .sidebar-cta p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--cyan); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--text-secondary); }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
+  </style>
 </head>
 <body>
 
@@ -129,9 +173,10 @@
   </section>
 
   <!-- ARTICLE BODY -->
+  <section class="article-section">
   <div class="article-layout container">
 
-    <main class="article-main">
+    <main class="article-content">
 
       <!-- ===== ESPAÑOL ===== -->
       <div data-lang-content="es" class="active">
@@ -287,6 +332,7 @@
     </aside>
 
   </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
