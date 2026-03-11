@@ -907,7 +907,7 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .mision-grid {
     grid-template-columns: 1fr;
     gap: 60px;

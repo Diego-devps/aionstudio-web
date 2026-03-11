@@ -89,6 +89,8 @@
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
     .footer-legal a:hover { color: var(--text-secondary); }
+    [data-lang-content] { display: none; }
+    [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
   </style>
 </head>
@@ -149,7 +151,7 @@
       </div>
 
       <!-- FR header -->
-      <div data-lang-content="fr" style="display:none">
+      <div data-lang-content="fr">
         <a href="index.html" class="article-back">← Retour au blog</a>
         <div class="article-category">Secteur Financier</div>
         <h1 class="article-title">5 processus que toute fiduciaire devrait automatiser avec l'IA en 2026</h1>
@@ -221,7 +223,7 @@
       </div>
 
       <!-- ===== FRANÇAIS ===== -->
-      <div data-lang-content="fr" style="display:none">
+      <div data-lang-content="fr">
 
         <h2 id="sector-fr">Le secteur qui perd le plus de temps sur des tâches sans valeur</h2>
         <p>Une fiduciaire ou un cabinet comptable gère des données, des délais, des documents et des communications dans des volumes que peu d'industries égalent. Et pourtant, une grande partie de ce travail est purement mécanique : extraire des chiffres de documents, remplir des formulaires, envoyer des rappels d'échéances, relancer des clients pour obtenir des documents.</p>
@@ -278,7 +280,7 @@
         </ul>
       </div>
 
-      <div class="sidebar-card" data-lang-content="fr" style="display:none">
+      <div class="sidebar-card" data-lang-content="fr">
         <h4>Dans cet article</h4>
         <ul class="sidebar-toc">
           <li><a href="#sector-fr">Le secteur qui perd le plus</a></li>
@@ -291,7 +293,7 @@
         </ul>
       </div>
 
-      <div class="sidebar-card">
+      <div class="sidebar-card active">
         <h4>Autor</h4>
         <div class="sidebar-author">
           <div class="sidebar-author-avatar">DCA</div>
@@ -302,7 +304,7 @@
         </div>
       </div>
 
-      <div class="sidebar-card sidebar-cta">
+      <div class="sidebar-card sidebar-cta active">
         <p data-i18n="article_cta_gestorias">¿Tienes una gestoría o asesoría? Hablemos.</p>
         <a href="../#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
       </div>

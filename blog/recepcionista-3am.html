@@ -89,6 +89,8 @@
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
     .footer-legal a:hover { color: var(--text-secondary); }
+    [data-lang-content] { display: none; }
+    [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
   </style>
 </head>
@@ -149,7 +151,7 @@
       </div>
 
       <!-- FR header -->
-      <div data-lang-content="fr" style="display:none">
+      <div data-lang-content="fr">
         <a href="index.html" class="article-back">← Retour au blog</a>
         <div class="article-category">Productivité</div>
         <h1 class="article-title">Votre réceptionniste ne travaille pas à 3h du matin. Votre agent vocal, si.</h1>
@@ -228,7 +230,7 @@
       </div>
 
       <!-- ===== FRANÇAIS ===== -->
-      <div data-lang-content="fr" style="display:none">
+      <div data-lang-content="fr">
 
         <h2 id="coste-fr">Le coût invisible des heures de fermeture</h2>
         <p>Votre entreprise ferme à 19h. Le téléphone aussi. Mais pas vos clients.</p>
@@ -290,7 +292,7 @@
         </ul>
       </div>
 
-      <div class="sidebar-card" data-lang-content="fr" style="display:none">
+      <div class="sidebar-card" data-lang-content="fr">
         <h4>Dans cet article</h4>
         <ul class="sidebar-toc">
           <li><a href="#coste-fr">Le coût invisible des heures de fermeture</a></li>
@@ -302,7 +304,7 @@
         </ul>
       </div>
 
-      <div class="sidebar-card">
+      <div class="sidebar-card active">
         <h4>Autor</h4>
         <div class="sidebar-author">
           <div class="sidebar-author-avatar">DCA</div>
@@ -313,7 +315,7 @@
         </div>
       </div>
 
-      <div class="sidebar-card sidebar-cta">
+      <div class="sidebar-card sidebar-cta active">
         <p data-i18n="article_cta_voice">¿Tu negocio pierde llamadas fuera de horario?</p>
         <a href="../#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
       </div>

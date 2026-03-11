@@ -252,7 +252,7 @@
     [data-lang-content] { display: none; }
     [data-lang-content].active { display: block; }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 900px) {
       .article-layout {
         grid-template-columns: 1fr;
       }
@@ -300,7 +300,7 @@
     <div class="container">
 
       <!-- ES header -->
-      <div data-lang-content="es">
+      <div data-lang-content="es" class="active">
         <a href="index.html" class="article-back">← Volver al blog</a>
         <div class="article-category">Sector Salud</div>
         <h1 class="article-title">Cómo la IA está transformando las clínicas dentales en 2026</h1>
@@ -321,7 +321,7 @@
       </div>
 
       <!-- FR header -->
-      <div data-lang-content="fr" style="display:none">
+      <div data-lang-content="fr">
         <a href="index.html" class="article-back">← Retour au blog</a>
         <div class="article-category">Secteur Santé</div>
         <h1 class="article-title">Comment l'IA transforme les cliniques dentaires en 2026</h1>
@@ -353,7 +353,7 @@
         <div class="article-content">
 
           <!-- ===== ESPAÑOL ===== -->
-          <div data-lang-content="es">
+          <div data-lang-content="es" class="active">
 
             <h2 id="llamadas-perdidas">El problema de las llamadas perdidas</h2>
             <p>La industria odontológica vive un momento de cambio acelerado. Las clínicas que durante años han dependido de una recepcionista para gestionar llamadas, recordar citas y responder dudas a las 11 de la noche, descubren que la inteligencia artificial puede hacer ese trabajo — y hacerlo mejor, a menor coste y sin días libres.</p>
@@ -401,7 +401,7 @@
           <!-- ===== FIN ESPAÑOL ===== -->
 
           <!-- ===== FRANÇAIS ===== -->
-          <div data-lang-content="fr" style="display:none">
+          <div data-lang-content="fr">
 
             <h2 id="llamadas-perdidas-fr">Le problème des appels manqués</h2>
             <p>Le secteur dentaire vit une transformation accélérée. Les cliniques qui, pendant des années, ont dépendu d'une réceptionniste pour gérer les appels, rappeler les rendez-vous et répondre aux questions à 23 heures, découvrent que l'intelligence artificielle peut faire ce travail — et le faire mieux, à moindre coût et sans jours de congé.</p>
@@ -453,7 +453,7 @@
         <!-- ── SIDEBAR ── -->
         <aside class="article-sidebar">
           <!-- Table of contents ES -->
-          <div class="sidebar-card" data-lang-content="es">
+          <div class="sidebar-card active" data-lang-content="es">
             <h4>En este artículo</h4>
             <ul class="sidebar-toc">
               <li><a href="#llamadas-perdidas">El problema de las llamadas perdidas</a></li>
@@ -464,7 +464,7 @@
             </ul>
           </div>
           <!-- Table of contents FR -->
-          <div class="sidebar-card" data-lang-content="fr" style="display:none">
+          <div class="sidebar-card" data-lang-content="fr">
             <h4>Dans cet article</h4>
             <ul class="sidebar-toc">
               <li><a href="#llamadas-perdidas-fr">Le problème des appels manqués</a></li>
@@ -490,7 +490,7 @@
           <!-- CTA sidebar -->
           <div class="sidebar-card" style="border-color: var(--border-cyan); text-align:center;">
             <h4 style="text-align:center; color: var(--cyan);" data-i18n="nav_cta">Auditoría Gratuita</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin: 12px 0 20px; line-height:1.6;" data-lang-content="es">¿Tienes una clínica dental? Hablemos 30 minutos.</p>
+            <p class="active" style="font-size:0.85rem; color:var(--text-secondary); margin: 12px 0 20px; line-height:1.6;" data-lang-content="es">¿Tienes una clínica dental? Hablemos 30 minutos.</p>
             <p style="font-size:0.85rem; color:var(--text-secondary); margin: 12px 0 20px; line-height:1.6;" data-lang-content="fr">Vous avez une clinique dentaire ? Parlons 30 minutes.</p>
             <a href="../#contacto" class="btn btn-primary btn-full" data-i18n="nav_cta">Auditoría Gratuita</a>
           </div>
