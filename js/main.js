@@ -84,6 +84,11 @@ const translations = {
     art1_desc: 'Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.',
     art2_title: '5 procesos que toda gestoría debería automatizar con IA en 2026',
     art2_desc: 'Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.',
+    art3_title: 'Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.',
+    art3_desc: 'Entre el 25% y el 40% de las llamadas a una pyme se producen fuera de horario. Calcula cuánto te cuesta y cómo un agente de voz lo resuelve.',
+    art4_title: 'Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos',
+    art4_desc: 'Emails repetitivos, copiar datos entre sistemas, informes periódicos... Calcula el coste real de estas tareas en tu empresa y qué automatiza la IA.',
+    blog_cat_productivity: 'Productividad',
   },
 
   fr: {
@@ -162,6 +167,11 @@ const translations = {
     art1_desc: 'Appels manqués, rendez-vous non confirmés, absences... Les cliniques qui utilisent l\'IA économisent du temps, réduisent les no-shows et augmentent leurs revenus.',
     art2_title: '5 processus que toute fiduciaire devrait automatiser avec l\'IA en 2026',
     art2_desc: 'De la réception des documents aux rappels fiscaux, voici les automatisations qui font le plus gagner du temps dans les cabinets comptables.',
+    art3_title: 'Votre réceptionniste ne travaille pas à 3h du matin. Votre agent vocal, si.',
+    art3_desc: 'Entre 25% et 40% des appels à une PME arrivent en dehors des heures d\'ouverture. Calculez ce que ça vous coûte et comment un agent vocal résout le problème.',
+    art4_title: 'Les 6 tâches que votre équipe fait chaque semaine et que l\'IA peut faire en 3 secondes',
+    art4_desc: 'Emails répétitifs, copier des données entre systèmes, rapports périodiques... Calculez le vrai coût de ces tâches et ce que l\'IA automatise.',
+    blog_cat_productivity: 'Productivité',
   },
 
   en: {
@@ -239,6 +249,11 @@ const translations = {
     art1_desc: 'Missed calls, unconfirmed appointments, no-shows... Clinics already using AI save time, reduce absences and increase revenue with systems that work 24/7.',
     art2_title: '5 processes every accounting firm should automate with AI in 2026',
     art2_desc: 'From document intake to tax reminders, these are the automations that save the most time in accounting practices and advisory firms.',
+    art3_title: 'Your receptionist doesn\'t work at 3am. Your voice agent does.',
+    art3_desc: 'Between 25% and 40% of calls to an SME happen outside business hours. Calculate what it costs you and how a voice agent solves it.',
+    art4_title: 'The 6 tasks your team does every week that AI can do in 3 seconds',
+    art4_desc: 'Repetitive emails, copying data between systems, periodic reports... Calculate the real cost of these tasks in your business and what AI automates.',
+    blog_cat_productivity: 'Productivity',
   }
 };
 
