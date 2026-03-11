@@ -275,7 +275,8 @@
 
   <script src="../js/main.js"></script>
   <script>
-    const savedLang = localStorage.getItem('aion_lang') || 'es';
+    const savedLang = localStorage.getItem('aion_lang') ||
+      (navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'es');
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === savedLang);
     });

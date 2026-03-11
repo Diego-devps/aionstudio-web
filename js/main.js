@@ -17,6 +17,7 @@ const translations = {
     grants_text: 'Existen ayudas en España y Francia que cubren hasta el 80% del coste de implementar inteligencia artificial en tu empresa. Kit Digital, France 2030, Bpifrance y más.',
     grants_cta: 'Ver todas las ayudas disponibles →',
     footer_grants: 'Subvenciones',
+    legal_lang_note: 'Este documento está disponible en:',
     nav_contact: 'Contacto',
     nav_cta: 'Auditoría Gratuita',
     hero_badge: 'Agencia de Inteligencia Artificial',
@@ -93,6 +94,7 @@ const translations = {
     grants_text: 'Des aides en Espagne et en France couvrent jusqu\'à 80% du coût de mise en œuvre de l\'IA dans votre entreprise. Kit Digital, France 2030, Bpifrance et plus.',
     grants_cta: 'Voir toutes les aides disponibles →',
     footer_grants: 'Subventions',
+    legal_lang_note: 'Ce document est disponible en :',
     nav_contact: 'Contact',
     nav_cta: 'Audit Gratuit',
     hero_badge: 'Agence d\'Intelligence Artificielle',
@@ -262,6 +264,11 @@ function applyTranslations(lang) {
 
   // html lang attribute
   document.documentElement.lang = lang;
+
+  // Marcar botón activo
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
 }
 
 function initLangSelector() {
@@ -576,7 +583,8 @@ function initSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   initLangSelector();
-  const savedLang = localStorage.getItem('aion_lang') || 'es';
+  const savedLang = localStorage.getItem('aion_lang') ||
+    (navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'es');
   applyTranslations(savedLang);
   initNavbar();
   initHeroCanvas();

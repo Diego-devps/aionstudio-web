@@ -700,7 +700,8 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Aplicar idioma guardado
-    const savedLang = localStorage.getItem('aion_lang') || 'es';
+    const savedLang = localStorage.getItem('aion_lang') ||
+      (navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'es');
     applyLang(savedLang);
 
     function switchTab(id, btn) {
