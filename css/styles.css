@@ -959,7 +959,7 @@ img { max-width: 100%; display: block; }
     border-bottom: 1px solid var(--border);
     gap: 16px;
     z-index: 999;
-    margin-top: 250px; /* 5 links nav: Servicios + Misión + Subvenciones + Blog + Contacto */
+    margin-top: 160px; /* 5 links nav: Servicios + Misión + Subvenciones (ahora desactivado) + Blog + Contacto */
   }
   .nav-inner.mobile-open .nav-links {
     padding-bottom: 0;
