@@ -89,6 +89,9 @@
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
     .footer-legal a:hover { color: var(--text-secondary); }
+    .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+    .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
     [data-lang-content] { display: none; }
     [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
@@ -220,7 +223,7 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <div class="sidebar-author-avatar">DCA</div>
+            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
               <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
@@ -228,7 +231,11 @@
           </div>
         </div>
 
-        <a href="../#contacto" class="article-cta-btn">Ver cómo aplicarlo en mi gestoría →</a>
+        <div class="article-cta-block">
+          <h3>¿Tu gestoría sigue perdiendo horas en tareas que podría hacer la IA?</h3>
+          <p>En 30 minutos identificamos los 3 procesos con mayor impacto en tu gestoría y te mostramos cuánto tiempo recuperarías cada semana.</p>
+          <a href="../#contacto" class="btn btn-primary btn-lg">Ver cómo aplicarlo en mi gestoría →</a>
+        </div>
 
       </div>
 
@@ -270,7 +277,7 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <div class="sidebar-author-avatar">DCA</div>
+            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
               <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
@@ -278,7 +285,11 @@
           </div>
         </div>
 
-        <a href="../#contacto" class="article-cta-btn">Voir comment l'appliquer dans ma fiduciaire →</a>
+        <div class="article-cta-block">
+          <h3>Votre fiduciaire perd-elle encore des heures sur des tâches que l'IA pourrait faire ?</h3>
+          <p>En 30 minutes, nous identifions les 3 processus à plus fort impact dans votre structure et vous montrons combien de temps vous récupéreriez chaque semaine.</p>
+          <a href="../#contacto" class="btn btn-primary btn-lg">Voir comment l'appliquer dans ma fiduciaire →</a>
+        </div>
 
       </div>
 

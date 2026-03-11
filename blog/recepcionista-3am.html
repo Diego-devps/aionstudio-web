@@ -89,6 +89,9 @@
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
     .footer-legal a:hover { color: var(--text-secondary); }
+    .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+    .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
     [data-lang-content] { display: none; }
     [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
@@ -227,7 +230,7 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <div class="sidebar-author-avatar">DCA</div>
+            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
               <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
@@ -235,7 +238,11 @@
           </div>
         </div>
 
-        <a href="../#contacto" class="article-cta-btn">Analizar mi flujo de llamadas gratis →</a>
+        <div class="article-cta-block">
+          <h3>¿Tu negocio está perdiendo llamadas fuera de horario?</h3>
+          <p>En 30 minutos analizamos tu flujo de llamadas, te decimos cuántas se pierden y cuánto representan económicamente. Con esos datos, decides tú.</p>
+          <a href="../#contacto" class="btn btn-primary btn-lg">Analizar mi flujo de llamadas gratis →</a>
+        </div>
 
       </div>
 
@@ -283,7 +290,7 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <div class="sidebar-author-avatar">DCA</div>
+            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
               <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
@@ -291,7 +298,11 @@
           </div>
         </div>
 
-        <a href="../#contacto" class="article-cta-btn">Analyser mon flux d'appels gratuitement →</a>
+        <div class="article-cta-block">
+          <h3>Votre entreprise perd-elle des appels en dehors des heures d'ouverture ?</h3>
+          <p>En 30 minutes, nous analysons votre flux d'appels, vous disons combien sont perdus et ce que cela représente financièrement. Vous décidez ensuite.</p>
+          <a href="../#contacto" class="btn btn-primary btn-lg">Analyser mon flux d'appels gratuitement →</a>
+        </div>
 
       </div>
 
