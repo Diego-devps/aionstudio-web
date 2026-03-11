@@ -9,6 +9,7 @@
    ============================================================ */
 const translations = {
   es: {
+    nav_home: 'Inicio',
     nav_services: 'Servicios',
     nav_mission: 'Misión',
     nav_grants: 'Subvenciones',
@@ -86,6 +87,7 @@ const translations = {
   },
 
   fr: {
+    nav_home: 'Accueil',
     nav_services: 'Services',
     nav_mission: 'Mission',
     nav_grants: 'Subventions',
@@ -163,6 +165,7 @@ const translations = {
   },
 
   en: {
+    nav_home: 'Home',
     nav_services: 'Services',
     nav_mission: 'Mission',
     nav_grants: 'Grants',
