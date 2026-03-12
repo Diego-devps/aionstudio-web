@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//c/Users/diego/OneDrive/Escritorio/Agencia IA/**)",
-      "Read(//c/Users/diego/OneDrive/Escritorio/**)"
-    ]
-  }
-}
