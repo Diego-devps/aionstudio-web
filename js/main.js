@@ -527,8 +527,30 @@ function initContactForm() {
     const t = translations[currentLang];
     const nombre = form.nombre.value.trim();
     const email = form.email.value.trim();
+    const empresa = form.empresa.value.trim();
+    const mensaje = form.mensaje.value.trim();
 
-    if (!nombre || !email) {
+    // Limpiar marcado visual previo
+    form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+
+    let hasError = false;
+    if (!nombre) {
+      form.nombre.classList.add('input-error');
+      hasError = true;
+    }
+    if (!email || !form.email.validity.valid) {
+      form.email.classList.add('input-error');
+      hasError = true;
+    }
+    if (!empresa) {
+      form.empresa.classList.add('input-error');
+      hasError = true;
+    }
+    if (!mensaje) {
+      form.mensaje.classList.add('input-error');
+      hasError = true;
+    }
+    if (hasError) {
       showFeedback('error', t.form_error || 'Por favor, completa los campos requeridos.');
       return;
     }
@@ -545,6 +567,7 @@ function initContactForm() {
       });
 
       if (response.ok) {
+        form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
         form.reset();
         showFeedback('success', t.form_success || '¡Mensaje enviado! Te contactaremos pronto.');
       } else {
