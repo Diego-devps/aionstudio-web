@@ -26,10 +26,14 @@ const translations = {
     hero_subtitle: 'Implementamos soluciones de IA que trabajan 24/7 para tu negocio: agentes de voz, flujos automatizados y sistemas inteligentes que reducen costes y disparan tu ROI.',
     hero_cta1: 'Agenda tu Auditoría',
     hero_cta2: 'Ver Servicios',
-    metric1_label: 'Clientes satisfechos',
-    metric2_label: 'ROI promedio',
-    metric3_label: 'Respuesta Voz IA',
-    metric4_label: 'Disponibilidad',
+    value_prop_1: 'Disponible 24/7',
+    value_prop_1_sub: 'Tu agente IA no cierra los fines de semana',
+    value_prop_2: 'Respuesta <2s en voz',
+    value_prop_2_sub: 'Latencia real de los agentes en producción',
+    value_prop_3: 'Sin intermediarios — hablas con el fundador',
+    value_prop_3_sub: 'Trato directo con quien diseña y opera la solución',
+    value_prop_4: 'Compliance EU (RGPD + AI Act)',
+    value_prop_4_sub: 'Documentos legales preparados para clientes en la UE',
     services_title: 'Nuestros Servicios',
     services_subtitle: 'Soluciones de IA diseñadas para transformar tu operativa',
     services_learn_more: 'Más información →',
@@ -109,10 +113,14 @@ const translations = {
     hero_subtitle: 'Nous déployons des solutions IA qui travaillent 24h/24 pour votre activité : agents vocaux, flux automatisés et systèmes intelligents qui réduisent les coûts et boostent votre ROI.',
     hero_cta1: 'Planifier mon Audit',
     hero_cta2: 'Voir les Services',
-    metric1_label: 'Clients satisfaits',
-    metric2_label: 'ROI moyen',
-    metric3_label: 'Réponse Agent Vocal',
-    metric4_label: 'Disponibilité',
+    value_prop_1: 'Disponible 24/7',
+    value_prop_1_sub: 'Votre agent IA ne ferme pas le week-end',
+    value_prop_2: 'Réponse <2s en voix',
+    value_prop_2_sub: 'Latence réelle des agents en production',
+    value_prop_3: 'Sans intermédiaires — vous parlez au fondateur',
+    value_prop_3_sub: 'Contact direct avec celui qui conçoit et opère la solution',
+    value_prop_4: 'Conformité EU (RGPD + AI Act)',
+    value_prop_4_sub: 'Documents légaux prêts pour les clients UE',
     services_title: 'Nos Services',
     services_subtitle: 'Des solutions IA conçues pour transformer votre activité',
     services_learn_more: 'En savoir plus →',
@@ -191,10 +199,14 @@ const translations = {
     hero_subtitle: 'We deploy AI solutions that work 24/7 for your business: voice agents, automated workflows and intelligent systems that cut costs and skyrocket your ROI.',
     hero_cta1: 'Book my Audit',
     hero_cta2: 'View Services',
-    metric1_label: 'Happy clients',
-    metric2_label: 'Average ROI',
-    metric3_label: 'Voice AI Response',
-    metric4_label: 'Availability',
+    value_prop_1: 'Available 24/7',
+    value_prop_1_sub: 'Your AI agent doesn\'t close on weekends',
+    value_prop_2: '<2s voice response',
+    value_prop_2_sub: 'Real production latency of the agents',
+    value_prop_3: 'No middlemen — you talk to the founder',
+    value_prop_3_sub: 'Direct contact with who designs and operates the solution',
+    value_prop_4: 'EU compliance (GDPR + AI Act)',
+    value_prop_4_sub: 'Legal docs ready for EU clients',
     services_title: 'Our Services',
     services_subtitle: 'AI solutions designed to transform your operations',
     services_learn_more: 'Learn more →',
@@ -456,44 +468,6 @@ function initHeroCanvas() {
 }
 
 /* ============================================================
-   COUNTERS — animated on scroll into view
-   ============================================================ */
-function initCounters() {
-  const counters = document.querySelectorAll('.counter');
-  let observed = new Set();
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !observed.has(entry.target)) {
-        observed.add(entry.target);
-        animateCounter(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => observer.observe(c));
-}
-
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.target);
-  const isDecimal = el.dataset.decimal === '1';
-  const duration = 1800;
-  const start = performance.now();
-
-  function tick(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
-    const ease = 1 - Math.pow(1 - progress, 3);
-    const current = target * ease;
-    el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-    if (progress < 1) requestAnimationFrame(tick);
-    else el.textContent = isDecimal ? target.toFixed(1) : target;
-  }
-  requestAnimationFrame(tick);
-}
-
-/* ============================================================
    FADE-IN ANIMATIONS on scroll
    ============================================================ */
 function initFadeInAnimations() {
@@ -629,7 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTranslations(savedLang);
   initNavbar();
   initHeroCanvas();
-  initCounters();
   initFadeInAnimations();
   initContactForm();
   initSmoothScroll();

@@ -1043,3 +1043,19 @@ img { max-width: 100%; display: block; }
   border-color: #e53e3e !important;
   box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15) !important;
 }
+
+/* ============================================================
+   VALUE PROPS — sustitución KPIs fabricados (W23 · 7.4-PRE)
+   ============================================================ */
+.metrica-card .value-prop-title {
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.metrica-card .value-prop-subtitle {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
