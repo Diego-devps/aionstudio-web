@@ -645,6 +645,81 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   PROCESO 4 PASOS (W21)
+   ============================================================ */
+.proceso {
+  padding: 100px 0;
+  background: var(--bg-primary);
+}
+
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.proceso-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  position: relative;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.proceso-step:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.proceso-number {
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.proceso-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.proceso-step-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.proceso-step-meta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cyan);
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.proceso-step-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .proceso-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .proceso-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    FORMULARIO
    ============================================================ */
 .contacto {
