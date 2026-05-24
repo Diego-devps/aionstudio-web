@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO primario -->
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Aion Studio" />
+
+  <!-- Canonical & hreflang -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/" />
+  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/" />
+  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{META_TITLE}}" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{META_TITLE}}" />
+  <meta name="twitter:description" content="{{META_DESCRIPTION}}" />
+  <meta name="twitter:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Aion Studio",
+    "description": "{{SCHEMA_DESCRIPTION}}",
+    "url": "{{CANONICAL_URL}}",
+    "email": "diego@aionstudio.tech",
+    "logo": "https://aionstudio.tech/favicon.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pennautier",
+      "addressRegion": "Occitanie",
+      "addressCountry": "FR"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Diego Camiña Alonso"
+    },
+    "foundingDate": "2025",
+    "serviceType": [
+      "Inteligencia Artificial",
+      "Automatización",
+      "Agente de Voz IA",
+      "Automatización de Emails",
+      "Desarrollo Web con IA"
+    ],
+    "areaServed": ["España", "Francia"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios" data-i18n="nav_services"></a></li>
+        <li><a href="#mision" data-i18n="nav_mission"></a></li>
+        <!-- <li><a href="/subvenciones" data-i18n="nav_grants"></a></li> -->
+        <li><a href="/blog/" data-i18n="nav_blog"></a></li>
+        <li><a href="#contacto" data-i18n="nav_contact"></a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="#contacto" class="btn btn-primary" data-i18n="nav_cta"></a>
+      </div>
+      <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content container">
+      <div class="hero-badge" data-i18n="hero_badge"></div>
+      <h1 class="hero-title" data-i18n="hero_title"></h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle"></p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary btn-lg" data-i18n="hero_cta1"></a>
+        <a href="#servicios" class="btn btn-outline btn-lg" data-i18n="hero_cta2"></a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- PROPUESTA DE VALOR (W23) -->
+  <section id="metricas" class="metricas">
+    <div class="container">
+      <div class="metricas-grid">
+        <div class="metrica-card">
+          <div class="value-prop-title" data-i18n="value_prop_1"></div>
+          <div class="value-prop-subtitle" data-i18n="value_prop_1_sub"></div>
+        </div>
+        <div class="metrica-card">
+          <div class="value-prop-title" data-i18n="value_prop_2"></div>
+          <div class="value-prop-subtitle" data-i18n="value_prop_2_sub"></div>
+        </div>
+        <div class="metrica-card">
+          <div class="value-prop-title" data-i18n="value_prop_3"></div>
+          <div class="value-prop-subtitle" data-i18n="value_prop_3_sub"></div>
+        </div>
+        <div class="metrica-card">
+          <div class="value-prop-title" data-i18n="value_prop_4"></div>
+          <div class="value-prop-subtitle" data-i18n="value_prop_4_sub"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="servicios">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="services_title"></h2>
+        <p class="section-subtitle" data-i18n="services_subtitle"></p>
+      </div>
+      <div class="servicios-grid">
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8v2H16v-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <rect x="14" y="22" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="21" cy="28" r="1.5" fill="currentColor"/>
+              <circle cx="27" cy="28" r="1.5" fill="currentColor"/>
+              <path d="M21 31c0.8 0.8 2.4 1.2 3 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s1_tag"></div>
+          <h3 class="servicio-title" data-i18n="s1_title"></h3>
+          <p class="servicio-desc" data-i18n="s1_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="s1_f1"></li>
+            <li data-i18n="s1_f2"></li>
+            <li data-i18n="s1_f3"></li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <rect x="28" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <rect x="18" y="28" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 20v4h20v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 24v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s2_tag"></div>
+          <h3 class="servicio-title" data-i18n="s2_title"></h3>
+          <p class="servicio-desc" data-i18n="s2_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="s2_f1"></li>
+            <li data-i18n="s2_f2"></li>
+            <li data-i18n="s2_f3"></li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 12h32v24H8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 12l16 14L40 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="36" cy="36" r="8" fill="#0a0a14" stroke="currentColor" stroke-width="2"/>
+              <path d="M33 36l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s3_tag"></div>
+          <h3 class="servicio-title" data-i18n="s3_title"></h3>
+          <p class="servicio-desc" data-i18n="s3_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="s3_f1"></li>
+            <li data-i18n="s3_f2"></li>
+            <li data-i18n="s3_f3"></li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 40h16M24 32v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 18h4M16 23h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="34" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M32.5 20l1 1 2-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="servicio-tag" data-i18n="s4_tag"></div>
+          <h3 class="servicio-title" data-i18n="s4_title"></h3>
+          <p class="servicio-desc" data-i18n="s4_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="s4_f1"></li>
+            <li data-i18n="s4_f2"></li>
+            <li data-i18n="s4_f3"></li>
+          </ul>
+          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section id="mision" class="mision">
+    <div class="container">
+      <div class="mision-grid">
+        <div class="mision-content">
+          <div class="mision-block">
+            <div class="mision-label" data-i18n="mission_label"></div>
+            <h2 class="mision-title" data-i18n="mission_title"></h2>
+            <p class="mision-text" data-i18n="mission_text"></p>
+          </div>
+          <div class="mision-block vision-block">
+            <div class="mision-label" data-i18n="vision_label"></div>
+            <p class="mision-text" data-i18n="vision_text"></p>
+          </div>
+          <div class="mision-valores">
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value1"></span>
+            </div>
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value2"></span>
+            </div>
+            <div class="valor-item">
+              <div class="valor-dot"></div>
+              <span data-i18n="value3"></span>
+            </div>
+          </div>
+        </div>
+        <div class="mision-visual">
+          <div class="founder-card">
+            <div class="founder-photo">
+              <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+            </div>
+            <div class="founder-info">
+              <div class="founder-name">Diego Camiña Alonso</div>
+              <div class="founder-role" data-i18n="founder_role"></div>
+              <p class="founder-quote" data-i18n="founder_quote"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBVENCIONES — DESACTIVADO HASTA SESIÓN 7.6 (W8 bloqueada por investigación de elegibilidad)
+  <section id="subvenciones" class="subvenciones-teaser">
+    <div class="container">
+      <div class="sub-teaser-inner">
+        <div class="sub-teaser-badge" data-i18n="grants_badge"></div>
+        <h2 class="sub-teaser-title" data-i18n="grants_title"></h2>
+        <p class="sub-teaser-text" data-i18n="grants_text"></p>
+        <div class="sub-teaser-flags">
+          <span>🇪🇸 Kit Digital · hasta 29.000€</span>
+          <span>🇫🇷 Bpifrance · 80% financiado</span>
+        </div>
+        <a href="/subvenciones" class="btn btn-outline btn-lg" data-i18n="grants_cta"></a>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- FORMULARIO -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+        <div class="contacto-info">
+          <h2 class="contacto-title" data-i18n="form_title"></h2>
+          <p class="contacto-desc" data-i18n="form_desc"></p>
+          <div class="contacto-beneficios">
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit1"></span>
+            </div>
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit2"></span>
+            </div>
+            <div class="beneficio">
+              <div class="beneficio-icon">✓</div>
+              <span data-i18n="benefit3"></span>
+            </div>
+          </div>
+        </div>
+        <form class="contacto-form" id="contact-form" data-i18n-success="form_success" data-i18n-error="form_error" novalidate>
+          <input type="hidden" name="lang" value="{{LANG}}" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" data-i18n="form_name"></label>
+              <input type="text" id="nombre" name="nombre" required data-i18n-placeholder="form_name_ph" />
+            </div>
+            <div class="form-group">
+              <label for="empresa" data-i18n="form_company"></label>
+              <input type="text" id="empresa" name="empresa" required data-i18n-placeholder="form_company_ph" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form_email"></label>
+            <input type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+          </div>
+          <div class="form-group">
+            <label for="servicio" data-i18n="form_service"></label>
+            <select id="servicio" name="servicio">
+              <option value="" data-i18n="form_service_ph"></option>
+              <option value="aionvoice" data-i18n="s1_tag"></option>
+              <option value="aionflow" data-i18n="s2_tag"></option>
+              <option value="aioninbox" data-i18n="s3_tag"></option>
+              <option value="webai" data-i18n="s4_tag"></option>
+              <option value="otro" data-i18n="form_other"></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje" data-i18n="form_message"></label>
+            <textarea id="mensaje" name="mensaje" rows="4" data-i18n-placeholder="form_message_ph"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full" data-i18n="form_submit"></button>
+          <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="{{HOME_URL}}" class="nav-logo">
+            <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline"></p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 011.25 1.25A1.25 1.25 0 0117.25 8 1.25 1.25 0 0116 6.75a1.25 1.25 0 011.25-1.25M12 7a5 5 0 015 5 5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5m0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_services"></h4>
+          <ul class="footer-links">
+            <li><a href="#servicios" data-i18n="s1_title"></a></li>
+            <li><a href="#servicios" data-i18n="s2_title"></a></li>
+            <li><a href="#servicios" data-i18n="s3_title"></a></li>
+            <li><a href="#servicios" data-i18n="footer_webai"></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_company"></h4>
+          <ul class="footer-links">
+            <li><a href="#mision" data-i18n="footer_mission"></a></li>
+            <li><a href="#contacto" data-i18n="footer_audit"></a></li>
+            <li><a href="/blog/" data-i18n="footer_blog"></a></li>
+            <!-- <li><a href="/subvenciones" data-i18n="footer_grants"></a></li> -->
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading" data-i18n="footer_contact"></h4>
+          <ul class="footer-links footer-contact-list">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span data-i18n="footer_location"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights"></span>
+        </p>
+        <div class="footer-legal-links">
+          <a href="/privacidad" data-i18n="footer_privacy"></a>
+          <a href="/terminos" data-i18n="footer_terms"></a>
+          <a href="/cookies" data-i18n="footer_cookies"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
