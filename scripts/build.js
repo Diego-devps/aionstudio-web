@@ -12,7 +12,8 @@ const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'src');
 const DIST = path.join(ROOT, 'dist');
 
-const TEMPLATE = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
+const TEMPLATE_HOME = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
+const TEMPLATE_AUDITORIA = fs.readFileSync(path.join(SRC, 'auditoria.html'), 'utf8');
 const TRANSLATIONS = require(path.join(SRC, 'translations.js'));
 
 const SITE_URL = 'https://aionstudio.tech';
@@ -27,17 +28,26 @@ const LOCALES = {
 const LANG_ORDER = ['es', 'fr', 'en'];
 const LANG_LABEL = { es: 'ES', fr: 'FR', en: 'EN' };
 const LANG_PATH  = { es: '/',  fr: '/fr/', en: '/en/' };
+const AUDITORIA_PATH = { es: '/auditoria/', fr: '/fr/auditoria/', en: '/en/auditoria/' };
+
+// Páginas a generar: clave de archivo → { template, outRelPath bajo dist/[lang/], metaTitleKey opcional para SEO específico }
+const PAGES = [
+  { name: 'home',      template: TEMPLATE_HOME,      outFile: 'index.html',            seoPrefix: '' },
+  { name: 'auditoria', template: TEMPLATE_AUDITORIA, outFile: 'auditoria/index.html',  seoPrefix: 'aud_' },
+];
 
 /* ------------------------------------------------------------------
    Helpers
    ------------------------------------------------------------------ */
 
-function buildLangToggle(activeLang) {
+// Construye el toggle ES/FR/EN. Si pageName === 'auditoria', el toggle apunta a /[lang/]auditoria/.
+function buildLangToggle(activeLang, pageName) {
+  const pathMap = pageName === 'auditoria' ? AUDITORIA_PATH : LANG_PATH;
   return LANG_ORDER.map(l => {
     const isActive = l === activeLang;
     const cls = 'lang-btn' + (isActive ? ' active' : '');
     const aria = isActive ? ' aria-current="page"' : '';
-    return `<a href="${LANG_PATH[l]}" class="${cls}" hreflang="${l}"${aria}>${LANG_LABEL[l]}</a>`;
+    return `<a href="${pathMap[l]}" class="${cls}" hreflang="${l}"${aria}>${LANG_LABEL[l]}</a>`;
   }).join('\n          ');
 }
 
@@ -47,23 +57,35 @@ function buildOgAlternates(altLocales) {
   ).join('\n  ');
 }
 
-function applyStructuralReplacements(html, lang) {
+function applyStructuralReplacements(html, lang, page) {
   const loc = LOCALES[lang];
   const t = TRANSLATIONS[lang];
-  const canonical = SITE_URL + '/' + loc.path; // ej. https://aionstudio.tech/  /  https://aionstudio.tech/fr/
-  const homeUrl = LANG_PATH[lang];
+  // SEO específico por página: home usa meta_*, auditoria usa aud_meta_*
+  const metaTitle = page.seoPrefix
+    ? t[page.seoPrefix + 'meta_title']       || t.meta_title
+    : t.meta_title;
+  const metaDesc  = page.seoPrefix
+    ? t[page.seoPrefix + 'meta_description'] || t.meta_description
+    : t.meta_description;
+  const metaKw    = page.seoPrefix
+    ? t[page.seoPrefix + 'meta_keywords']    || t.meta_keywords
+    : t.meta_keywords;
+  const canonicalBase = page.name === 'auditoria'
+    ? SITE_URL + AUDITORIA_PATH[lang]
+    : SITE_URL + '/' + loc.path;
 
   const replacements = {
     '{{LANG}}': lang,
-    '{{META_TITLE}}': escapeAttr(t.meta_title),
-    '{{META_DESCRIPTION}}': escapeAttr(t.meta_description),
-    '{{META_KEYWORDS}}': escapeAttr(t.meta_keywords),
+    '{{META_TITLE}}': escapeAttr(metaTitle),
+    '{{META_DESCRIPTION}}': escapeAttr(metaDesc),
+    '{{META_KEYWORDS}}': escapeAttr(metaKw),
     '{{SCHEMA_DESCRIPTION}}': escapeJson(t.schema_description),
-    '{{CANONICAL_URL}}': canonical,
+    '{{CANONICAL_URL}}': canonicalBase,
     '{{OG_LOCALE}}': loc.ogLocale,
     '{{OG_LOCALE_ALTERNATES}}': buildOgAlternates(loc.alternates),
-    '{{HOME_URL}}': homeUrl,
-    '{{LANG_TOGGLE}}': buildLangToggle(lang),
+    '{{HOME_URL}}': LANG_PATH[lang],
+    '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
+    '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),
   };
 
@@ -104,12 +126,18 @@ function applyI18nReplacements(html, lang) {
     }
   );
 
-  // 3. data-i18n-success="key" / data-i18n-error="key"  →  resolver a texto inline
+  // 3. data-i18n-XXX="key" (cualquier sufijo distinto de "placeholder" y no empezando por "attr-")
+  //    →  data-i18n-XXX="VALOR resuelto"  (el atributo se conserva, lo lee el JS del runtime)
   html = html.replace(
-    /\sdata-i18n-(success|error)="([^"]+)"/g,
+    /\sdata-i18n-([a-z][a-z0-9-]*)="([^"]+)"/g,
     (match, kind, key) => {
+      if (kind === 'placeholder') return match;
+      if (kind.startsWith('attr-')) return match;
       const value = t[key];
-      if (value === undefined) return match;
+      if (value === undefined) {
+        console.warn(`[build] missing translation key "${key}" for lang "${lang}"`);
+        return match;
+      }
       return ` data-i18n-${kind}="${escapeAttr(value)}"`;
     }
   );
@@ -142,16 +170,15 @@ function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
-function writePage(lang) {
-  let html = TEMPLATE;
-  html = applyStructuralReplacements(html, lang);
+function writePage(lang, page) {
+  let html = page.template;
+  html = applyStructuralReplacements(html, lang, page);
   html = applyI18nReplacements(html, lang);
 
-  const outDir = path.join(DIST, LOCALES[lang].path);
-  ensureDir(outDir);
-  const outFile = path.join(outDir, 'index.html');
-  fs.writeFileSync(outFile, html, 'utf8');
-  console.log(`[build] wrote ${path.relative(ROOT, outFile)}  (${html.length} bytes)`);
+  const outFull = path.join(DIST, LOCALES[lang].path, page.outFile);
+  ensureDir(path.dirname(outFull));
+  fs.writeFileSync(outFull, html, 'utf8');
+  console.log(`[build] wrote ${path.relative(ROOT, outFull)}  (${html.length} bytes)`);
 }
 
 function copyStaticAssets() {
@@ -191,7 +218,9 @@ function main() {
   console.log('[build] start');
   clean();
   copyStaticAssets();
-  for (const lang of LANG_ORDER) writePage(lang);
+  for (const lang of LANG_ORDER) {
+    for (const page of PAGES) writePage(lang, page);
+  }
   console.log(`[build] done in ${Date.now() - t0}ms`);
 }
 

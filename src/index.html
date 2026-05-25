@@ -92,13 +92,13 @@
         <li><a href="#mision" data-i18n="nav_mission"></a></li>
         <!-- <li><a href="/subvenciones" data-i18n="nav_grants"></a></li> -->
         <li><a href="/blog/" data-i18n="nav_blog"></a></li>
-        <li><a href="#contacto" data-i18n="nav_contact"></a></li>
+        <li><a href="{{AUDITORIA_URL}}" data-i18n="nav_contact"></a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
           {{LANG_TOGGLE}}
         </div>
-        <a href="#contacto" class="btn btn-primary" data-i18n="nav_cta"></a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary" data-i18n="nav_cta"></a>
       </div>
       <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
         <span></span><span></span><span></span>
@@ -114,7 +114,7 @@
       <h1 class="hero-title" data-i18n="hero_title"></h1>
       <p class="hero-subtitle" data-i18n="hero_subtitle"></p>
       <div class="hero-ctas">
-        <a href="#contacto" class="btn btn-primary btn-lg" data-i18n="hero_cta1"></a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg" data-i18n="hero_cta1"></a>
         <a href="#servicios" class="btn btn-outline btn-lg" data-i18n="hero_cta2"></a>
       </div>
     </div>
@@ -175,7 +175,7 @@
             <li data-i18n="s1_f2"></li>
             <li data-i18n="s1_f3"></li>
           </ul>
-          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
         <div class="servicio-card">
@@ -196,7 +196,7 @@
             <li data-i18n="s2_f2"></li>
             <li data-i18n="s2_f3"></li>
           </ul>
-          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
         <div class="servicio-card">
@@ -216,7 +216,7 @@
             <li data-i18n="s3_f2"></li>
             <li data-i18n="s3_f3"></li>
           </ul>
-          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
         <div class="servicio-card">
@@ -237,7 +237,7 @@
             <li data-i18n="s4_f2"></li>
             <li data-i18n="s4_f3"></li>
           </ul>
-          <a href="#contacto" class="servicio-link" data-i18n="services_learn_more"></a>
+          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
       </div>
@@ -346,62 +346,28 @@
   </section>
   -->
 
-  <!-- FORMULARIO -->
-  <section id="contacto" class="contacto">
+  <!-- CTA AUDITORÍA EXPRESS (reemplaza form home — el cuestionario completo vive en /auditoria) -->
+  <section id="contacto" class="cta-audit">
     <div class="container">
-      <div class="contacto-grid">
-        <div class="contacto-info">
-          <h2 class="contacto-title" data-i18n="form_title"></h2>
-          <p class="contacto-desc" data-i18n="form_desc"></p>
-          <div class="contacto-beneficios">
-            <div class="beneficio">
-              <div class="beneficio-icon">✓</div>
-              <span data-i18n="benefit1"></span>
-            </div>
-            <div class="beneficio">
-              <div class="beneficio-icon">✓</div>
-              <span data-i18n="benefit2"></span>
-            </div>
-            <div class="beneficio">
-              <div class="beneficio-icon">✓</div>
-              <span data-i18n="benefit3"></span>
-            </div>
+      <div class="cta-audit-card">
+        <h2 class="cta-audit-title" data-i18n="home_audit_cta_title"></h2>
+        <p class="cta-audit-desc" data-i18n="home_audit_cta_desc"></p>
+        <div class="cta-audit-beneficios">
+          <div class="beneficio">
+            <div class="beneficio-icon">✓</div>
+            <span data-i18n="benefit1"></span>
+          </div>
+          <div class="beneficio">
+            <div class="beneficio-icon">✓</div>
+            <span data-i18n="benefit2"></span>
+          </div>
+          <div class="beneficio">
+            <div class="beneficio-icon">✓</div>
+            <span data-i18n="benefit3"></span>
           </div>
         </div>
-        <form class="contacto-form" id="contact-form" data-i18n-success="form_success" data-i18n-error="form_error" novalidate>
-          <input type="hidden" name="lang" value="{{LANG}}" />
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nombre" data-i18n="form_name"></label>
-              <input type="text" id="nombre" name="nombre" required data-i18n-placeholder="form_name_ph" />
-            </div>
-            <div class="form-group">
-              <label for="empresa" data-i18n="form_company"></label>
-              <input type="text" id="empresa" name="empresa" required data-i18n-placeholder="form_company_ph" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email" data-i18n="form_email"></label>
-            <input type="email" id="email" name="email" required placeholder="tu@empresa.com" />
-          </div>
-          <div class="form-group">
-            <label for="servicio" data-i18n="form_service"></label>
-            <select id="servicio" name="servicio">
-              <option value="" data-i18n="form_service_ph"></option>
-              <option value="aionvoice" data-i18n="s1_tag"></option>
-              <option value="aionflow" data-i18n="s2_tag"></option>
-              <option value="aioninbox" data-i18n="s3_tag"></option>
-              <option value="webai" data-i18n="s4_tag"></option>
-              <option value="otro" data-i18n="form_other"></option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="mensaje" data-i18n="form_message"></label>
-            <textarea id="mensaje" name="mensaje" rows="4" data-i18n-placeholder="form_message_ph"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-full" data-i18n="form_submit"></button>
-          <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
-        </form>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg cta-audit-button" data-i18n="home_audit_cta_button"></a>
+        <p class="cta-audit-note" data-i18n="home_audit_cta_note"></p>
       </div>
     </div>
   </section>
@@ -443,7 +409,7 @@
           <h4 class="footer-heading" data-i18n="footer_company"></h4>
           <ul class="footer-links">
             <li><a href="#mision" data-i18n="footer_mission"></a></li>
-            <li><a href="#contacto" data-i18n="footer_audit"></a></li>
+            <li><a href="{{AUDITORIA_URL}}" data-i18n="footer_audit"></a></li>
             <li><a href="/blog/" data-i18n="footer_blog"></a></li>
             <!-- <li><a href="/subvenciones" data-i18n="footer_grants"></a></li> -->
           </ul>

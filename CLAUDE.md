@@ -74,13 +74,22 @@ El build:
 - Texto secundario: `#8892a4`
 
 ## Secciones home (orden actual)
-1. Nav — logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita"
+1. Nav — logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita" → `/auditoria/`
 2. Hero — headline + subtítulo + 2 CTAs + canvas con malla cyan animada
 3. Propuesta de valor (W23 aplicada 23/05) — 4 cards verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
-4. Servicios — grid 2x2: AionVoice, AionFlow, AionInbox, Web IA
+4. Servicios — grid 2x2: 4 cards con titulares públicos (W14 aplicada 7.4a Bloque 3)
 5. Misión y Visión — texto + foto fundador
-6. Formulario — "Agenda tu Auditoría" (endpoint Formspree, migra a `/api/contact` en bloque 2)
-7. Footer — links + legal + ubicación + redes
+6. Proceso 4 pasos — Auditoría Express → Profunda → Implementación → Soporte (W21 aplicada 7.4a Bloque 3)
+7. CTA Auditoría Express — card grande con link a `/auditoria/` (reemplazó form Formspree en 7.4a Bloque 2)
+8. Footer — links + legal + ubicación + redes
+
+## Página /auditoria (W3 + W9 + W19 aplicadas 7.4a Bloque 2)
+- Template propia `src/auditoria.html` procesada por el build → `/auditoria/`, `/fr/auditoria/`, `/en/auditoria/`.
+- Cuestionario pre-Express de 10 preguntas con UX móvil-first.
+- Form postea JSON a `/api/contact` (Vercel Serverless Function).
+- Honeypot anti-bot + detección spam por contenido + rate limit 3/IP/h.
+- Branching: Q5 = "<80K" → Plantilla 2 (advertencia transparente). Resto → Plantilla 1 (confirmación estándar). Spam evidente → log silencioso.
+- Fuente de verdad copy: `business-os/agencia/servicios/aionaudit/cuestionario-pre-express.md` + `email-confirmacion-express.md`.
 
 ## Animaciones
 - Cards de servicios: borde cyan al hover
@@ -89,5 +98,11 @@ El build:
 - Fade-in al entrar en viewport (servicios, mision-block, founder-card)
 
 ## Endpoint del formulario
-- **Actual (legado):** Formspree `https://formspree.io/f/xaqpeawy`.
-- **Próximo (bloque 2 sesión 7.4a):** `/api/contact` Vercel Serverless Function + Resend (envío interno + autoresponse bilingüe + branching por banda de facturación). Requiere `RESEND_API_KEY` en env vars de Vercel.
+**`/api/contact`** — Vercel Serverless Function (Node 18+, CommonJS, sin deps npm) llamando a la API REST de Resend vía `fetch` nativo. Procesa POST con las 10 preguntas del cuestionario pre-Express y dispara:
+- Autoresponse al lead (Plantilla 1 estándar o Plantilla 2 advertencia <80K, en idioma detectado).
+- Email interno estructurado a `diego@aionstudio.tech` con resumen + red flags auto-detectadas + rama aplicada.
+- Si Resend falla, devuelve OK al usuario y loguea el lead íntegro en consola Vercel para recuperación manual.
+
+**Env vars requeridas:** `RESEND_API_KEY` (Sensitive ON, Production+Preview).
+**Remitente:** `Aion Studio <hello@aionstudio.tech>` (alias en Hostinger → reenvía al buzón `diego@aionstudio.tech` que reenvía a Gmail personal).
+**Reply-To:** `diego@aionstudio.tech` (cuando el lead pulsa Responder, llega directo a Diego).

@@ -176,70 +176,131 @@ function initFadeInAnimations() {
 }
 
 /* ============================================================
-   CONTACT FORM
+   AUDITORÍA FORM (página /auditoria — W3 + W9 + W19)
    ============================================================
-   Endpoint: Formspree (legado) — se migra a /api/contact en bloque 2 (W3+W9).
-   Strings de feedback se leen de data-i18n-success / data-i18n-error
-   inyectados por el build script según idioma de la página.
+   POST a /api/contact (Vercel Serverless Function) con las 10 preguntas.
+   Strings se leen de data-i18n-* inyectados por build según idioma.
+   Q3="other" muestra campo libre adicional.
    ============================================================ */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const feedback = document.getElementById('form-feedback');
+function initAuditForm() {
+  const form = document.getElementById('aud-form');
   if (!form) return;
 
-  const SUCCESS_MSG = form.dataset.i18nSuccess || 'Message sent.';
-  const ERROR_MSG   = form.dataset.i18nError   || 'Please fill in the required fields.';
+  const feedback = document.getElementById('aud-feedback');
   const submitBtn = form.querySelector('[type="submit"]');
   const submitLabel = submitBtn ? submitBtn.textContent : '';
+
+  const TXT = {
+    successTitle: form.dataset.i18nSuccessTitle || 'Received.',
+    successDesc:  form.dataset.i18nSuccessDesc  || '',
+    errorRequired: form.dataset.i18nErrorRequired || 'Please fill in the required fields.',
+    errorEmail:    form.dataset.i18nErrorEmail    || 'Email looks invalid.',
+    errorServer:   form.dataset.i18nErrorServer   || 'There was a problem sending.',
+    submitting:    form.dataset.i18nSubmitting    || 'Sending...',
+  };
+
+  // Q3 "otro" → mostrar/ocultar campo condicional.
+  const q3 = form.querySelector('#q3_sector');
+  const q3OtherWrap = form.querySelector('#q3_other_wrap');
+  const q3OtherInput = form.querySelector('#q3_sector_otro');
+  if (q3 && q3OtherWrap && q3OtherInput) {
+    q3.addEventListener('change', () => {
+      const showOther = q3.value === 'other';
+      q3OtherWrap.hidden = !showOther;
+      q3OtherInput.required = showOther;
+      if (!showOther) q3OtherInput.value = '';
+    });
+  }
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const nombre = form.nombre.value.trim();
-    const email = form.email.value.trim();
-    const empresa = form.empresa.value.trim();
-    const mensaje = form.mensaje.value.trim();
-
     form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
 
-    let hasError = false;
-    if (!nombre)                                  { form.nombre.classList.add('input-error');  hasError = true; }
-    if (!email || !form.email.validity.valid)     { form.email.classList.add('input-error');   hasError = true; }
-    if (!empresa)                                 { form.empresa.classList.add('input-error'); hasError = true; }
-    if (!mensaje)                                 { form.mensaje.classList.add('input-error'); hasError = true; }
-    if (hasError) { showFeedback('error', ERROR_MSG); return; }
+    // Validación de campos requeridos
+    let firstInvalid = null;
+    const required = form.querySelectorAll('[required]');
+    for (const field of required) {
+      const isRadioGroup = field.type === 'radio';
+      const valid = isRadioGroup
+        ? form.querySelector(`input[name="${field.name}"]:checked`)
+        : field.value.trim();
+      if (!valid) {
+        if (!isRadioGroup) field.classList.add('input-error');
+        if (!firstInvalid) firstInvalid = field;
+      }
+    }
+    if (firstInvalid) {
+      showFeedback('error', TXT.errorRequired);
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Validación email
+    const emailField = form.querySelector('#q2_email');
+    if (emailField && !emailField.validity.valid) {
+      emailField.classList.add('input-error');
+      showFeedback('error', TXT.errorEmail);
+      emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Build payload (JSON)
+    const formData = new FormData(form);
+    const payload = {};
+    for (const [k, v] of formData.entries()) payload[k] = v;
 
     submitBtn.disabled = true;
-    submitBtn.textContent = '...';
+    submitBtn.textContent = TXT.submitting;
 
     try {
-      const response = await fetch('https://formspree.io/f/xaqpeawy', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
-        form.reset();
-        showFeedback('success', SUCCESS_MSG);
+        renderSuccess();
       } else {
-        showFeedback('error', ERROR_MSG);
+        showFeedback('error', TXT.errorServer);
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitLabel;
       }
     } catch (err) {
-      showFeedback('error', ERROR_MSG);
-    } finally {
+      showFeedback('error', TXT.errorServer);
       submitBtn.disabled = false;
       submitBtn.textContent = submitLabel;
     }
   });
 
+  function renderSuccess() {
+    const card = document.createElement('div');
+    card.className = 'aud-success-card';
+    card.innerHTML = `
+      <h2 class="aud-success-title">${escapeHtml(TXT.successTitle)}</h2>
+      <p class="aud-success-desc">${escapeHtml(TXT.successDesc)}</p>
+    `;
+    form.parentNode.replaceChild(card, form);
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   function showFeedback(type, msg) {
-    feedback.className = 'form-feedback ' + type;
+    if (!feedback) return;
+    feedback.className = 'aud-feedback ' + type;
     feedback.textContent = msg;
-    setTimeout(() => {
-      feedback.className = 'form-feedback';
-      feedback.textContent = '';
-    }, 5000);
+    if (type === 'error') {
+      setTimeout(() => {
+        feedback.className = 'aud-feedback';
+        feedback.textContent = '';
+      }, 8000);
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 }
 
@@ -277,6 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initHeroCanvas();
   initFadeInAnimations();
-  initContactForm();
+  initAuditForm();
   initSmoothScroll();
 });

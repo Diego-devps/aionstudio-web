@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Aion Studio" />
+
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/auditoria/" />
+  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/auditoria/" />
+  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria/" />
+  <link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria/" />
+
+  <meta property="og:title" content="{{META_TITLE}}" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="page-auditoria">
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{HOME_URL}}#servicios" data-i18n="nav_services"></a></li>
+        <li><a href="{{HOME_URL}}#mision" data-i18n="nav_mission"></a></li>
+        <li><a href="/blog/" data-i18n="nav_blog"></a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="{{HOME_URL}}" class="btn btn-outline" data-i18n="aud_back_home"></a>
+      </div>
+      <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="aud-header">
+    <div class="container">
+      <div class="aud-badge" data-i18n="aud_badge"></div>
+      <h1 class="aud-title" data-i18n="aud_title"></h1>
+      <p class="aud-subtitle" data-i18n="aud_subtitle"></p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO + SIDEBAR -->
+  <section class="aud-section">
+    <div class="container aud-grid">
+
+      <form id="aud-form" class="aud-form" novalidate
+            data-i18n-success-title="aud_success_title"
+            data-i18n-success-desc="aud_success_desc"
+            data-i18n-error-required="aud_error_required"
+            data-i18n-error-email="aud_error_email"
+            data-i18n-error-server="aud_error_server"
+            data-i18n-submitting="aud_submitting">
+
+        <input type="hidden" name="lang" value="{{LANG}}" />
+        <!-- Honeypot anti-spam: campo oculto que sólo los bots rellenan -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="aud-honeypot" aria-hidden="true" />
+
+        <!-- Q1: Datos básicos -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title" data-i18n="aud_q1_title"></legend>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="q1_nombre"><span data-i18n="aud_q1_name_label"></span> <span class="form-required">*</span></label>
+              <input type="text" id="q1_nombre" name="q1_nombre" required data-i18n-placeholder="aud_q1_name_ph" />
+            </div>
+            <div class="form-group">
+              <label for="q1_empresa"><span data-i18n="aud_q1_company_label"></span> <span class="form-required">*</span></label>
+              <input type="text" id="q1_empresa" name="q1_empresa" required data-i18n-placeholder="aud_q1_company_ph" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="q1_cargo"><span data-i18n="aud_q1_role_label"></span> <span class="form-required">*</span></label>
+            <input type="text" id="q1_cargo" name="q1_cargo" required data-i18n-placeholder="aud_q1_role_ph" />
+          </div>
+        </fieldset>
+
+        <!-- Q2: Contacto -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title" data-i18n="aud_q2_title"></legend>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="q2_email"><span data-i18n="aud_q2_email_label"></span> <span class="form-required">*</span></label>
+              <input type="email" id="q2_email" name="q2_email" required data-i18n-placeholder="aud_q2_email_ph" />
+            </div>
+            <div class="form-group">
+              <label for="q2_telefono" data-i18n="aud_q2_phone_label"></label>
+              <input type="tel" id="q2_telefono" name="q2_telefono" data-i18n-placeholder="aud_q2_phone_ph" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Q3: Sector -->
+        <fieldset class="aud-block">
+          <div class="form-group">
+            <label for="q3_sector"><span data-i18n="aud_q3_label"></span> <span class="form-required">*</span></label>
+            <select id="q3_sector" name="q3_sector" required>
+              <option value="" data-i18n="aud_q3_select_ph"></option>
+              <option value="dental" data-i18n="aud_q3_opt_dental"></option>
+              <option value="accounting" data-i18n="aud_q3_opt_accounting"></option>
+              <option value="beauty" data-i18n="aud_q3_opt_beauty"></option>
+              <option value="realestate" data-i18n="aud_q3_opt_realestate"></option>
+              <option value="hotel" data-i18n="aud_q3_opt_hotel"></option>
+              <option value="vet" data-i18n="aud_q3_opt_vet"></option>
+              <option value="other" data-i18n="aud_q3_opt_other"></option>
+            </select>
+          </div>
+          <div class="form-group aud-conditional" id="q3_other_wrap" hidden>
+            <label for="q3_sector_otro"><span data-i18n="aud_q3_other_label"></span> <span class="form-required">*</span></label>
+            <input type="text" id="q3_sector_otro" name="q3_sector_otro" data-i18n-placeholder="aud_q3_other_ph" />
+          </div>
+        </fieldset>
+
+        <!-- Q4: Empleados -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title"><span data-i18n="aud_q4_label"></span> <span class="form-required">*</span></legend>
+          <div class="aud-radio-grid">
+            <label class="aud-radio"><input type="radio" name="q4_empleados" value="1" required /><span data-i18n="aud_q4_opt_1"></span></label>
+            <label class="aud-radio"><input type="radio" name="q4_empleados" value="2-5" /><span data-i18n="aud_q4_opt_2_5"></span></label>
+            <label class="aud-radio"><input type="radio" name="q4_empleados" value="6-15" /><span data-i18n="aud_q4_opt_6_15"></span></label>
+            <label class="aud-radio"><input type="radio" name="q4_empleados" value="16-30" /><span data-i18n="aud_q4_opt_16_30"></span></label>
+            <label class="aud-radio"><input type="radio" name="q4_empleados" value="30+" /><span data-i18n="aud_q4_opt_30plus"></span></label>
+          </div>
+        </fieldset>
+
+        <!-- Q5: Facturación -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title"><span data-i18n="aud_q5_label"></span> <span class="form-required">*</span></legend>
+          <div class="aud-radio-grid">
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value="<80K" required /><span data-i18n="aud_q5_opt_lt80"></span></label>
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value="80-150K" /><span data-i18n="aud_q5_opt_80_150"></span></label>
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value="150-350K" /><span data-i18n="aud_q5_opt_150_350"></span></label>
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value="350K-1M" /><span data-i18n="aud_q5_opt_350_1m"></span></label>
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value=">1M" /><span data-i18n="aud_q5_opt_1m_plus"></span></label>
+            <label class="aud-radio"><input type="radio" name="q5_facturacion" value="prefer-not" /><span data-i18n="aud_q5_opt_no"></span></label>
+          </div>
+        </fieldset>
+
+        <!-- Q6: Decisor -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title"><span data-i18n="aud_q6_label"></span> <span class="form-required">*</span></legend>
+          <div class="aud-radio-grid">
+            <label class="aud-radio"><input type="radio" name="q6_decisor" value="yes" required /><span data-i18n="aud_q6_opt_yes"></span></label>
+            <label class="aud-radio"><input type="radio" name="q6_decisor" value="partner" /><span data-i18n="aud_q6_opt_partner"></span></label>
+            <label class="aud-radio"><input type="radio" name="q6_decisor" value="committee" /><span data-i18n="aud_q6_opt_committee"></span></label>
+            <label class="aud-radio"><input type="radio" name="q6_decisor" value="other" /><span data-i18n="aud_q6_opt_other"></span></label>
+          </div>
+        </fieldset>
+
+        <!-- Q7: Dolor -->
+        <fieldset class="aud-block">
+          <div class="form-group">
+            <label for="q7_dolor"><span data-i18n="aud_q7_label"></span> <span class="form-required">*</span></label>
+            <p class="form-helper" data-i18n="aud_q7_helper"></p>
+            <textarea id="q7_dolor" name="q7_dolor" rows="5" required data-i18n-placeholder="aud_q7_ph"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Q8: Otros procesos (opcional) -->
+        <fieldset class="aud-block">
+          <div class="form-group">
+            <label for="q8_otros"><span data-i18n="aud_q8_label"></span></label>
+            <p class="form-helper" data-i18n="aud_q8_helper"></p>
+            <textarea id="q8_otros" name="q8_otros" rows="3" data-i18n-placeholder="aud_q8_ph"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Q9: Stack -->
+        <fieldset class="aud-block">
+          <div class="form-group">
+            <label for="q9_stack"><span data-i18n="aud_q9_label"></span> <span class="form-required">*</span></label>
+            <p class="form-helper" data-i18n="aud_q9_helper"></p>
+            <textarea id="q9_stack" name="q9_stack" rows="3" required data-i18n-placeholder="aud_q9_ph"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Q10: Urgencia -->
+        <fieldset class="aud-block">
+          <legend class="aud-block-title"><span data-i18n="aud_q10_label"></span> <span class="form-required">*</span></legend>
+          <div class="aud-radio-grid">
+            <label class="aud-radio"><input type="radio" name="q10_urgencia" value="asap" required /><span data-i18n="aud_q10_opt_asap"></span></label>
+            <label class="aud-radio"><input type="radio" name="q10_urgencia" value="1-3m" /><span data-i18n="aud_q10_opt_1_3"></span></label>
+            <label class="aud-radio"><input type="radio" name="q10_urgencia" value="3-6m" /><span data-i18n="aud_q10_opt_3_6"></span></label>
+            <label class="aud-radio"><input type="radio" name="q10_urgencia" value="exploring" /><span data-i18n="aud_q10_opt_explore"></span></label>
+          </div>
+        </fieldset>
+
+        <div class="aud-submit-wrap">
+          <button type="submit" class="btn btn-primary btn-lg btn-full" data-i18n="aud_submit"></button>
+          <p class="aud-legal-note" data-i18n="aud_legal_note"></p>
+          <div id="aud-feedback" class="aud-feedback" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <aside class="aud-sidebar">
+        <div class="aud-sidebar-card">
+          <h3 class="aud-sidebar-title" data-i18n="aud_side_title"></h3>
+          <p class="aud-sidebar-step" data-i18n="aud_side_step1"></p>
+          <p class="aud-sidebar-step" data-i18n="aud_side_step2"></p>
+          <p class="aud-sidebar-step" data-i18n="aud_side_step3"></p>
+          <p class="aud-sidebar-footer" data-i18n="aud_side_footer"></p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- FOOTER mínimo -->
+  <footer class="footer footer-minimal">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">© <span id="year"></span> Aion Studio. <span data-i18n="footer_rights"></span></p>
+        <div class="footer-legal-links">
+          <a href="/privacidad/" data-i18n="footer_privacy"></a>
+          <a href="/terminos/" data-i18n="footer_terms"></a>
+          <a href="/cookies/" data-i18n="footer_cookies"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
