@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>How AI is transforming dental clinics in 2026 | Aion Studio</title>
+  <meta name="description" content="How voice AI agents, appointment automation, and WhatsApp reminders are cutting costs and growing revenue in dental clinics." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Diego Camiña Alonso — Aion Studio" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How AI is transforming dental clinics in 2026" />
+  <meta property="og:description" content="Voice agents, appointment automation, and WhatsApp reminders: how clinics using AI save time and money." />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+  <meta property="article:published_time" content="2026-03-10" />
+  <meta property="article:author" content="Diego Camiña Alonso" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How AI is transforming dental clinics in 2026" />
+  <meta name="twitter:description" content="Voice agents, appointment automation, and WhatsApp reminders for dental clinics." />
+  <meta name="twitter:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+
+  <!-- Schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How AI is transforming dental clinics in 2026",
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10",
+    "author": { "@type": "Person", "name": "Diego Camiña Alonso" },
+    "publisher": { "@type": "Organization", "name": "Aion Studio", "url": "https://aionstudio.tech" },
+    "description": "How voice AI agents, appointment automation, and WhatsApp reminders are cutting costs and growing revenue in dental clinics.",
+    "url": "{{CANONICAL_URL}}"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    .article-hero { padding: 140px 0 60px; background: var(--bg-primary); border-bottom: 1px solid var(--border); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 28px; transition: color var(--transition); }
+    .article-back:hover { color: var(--cyan); }
+    .article-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .article-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+    .article-meta-item svg { width: 14px; height: 14px; color: var(--cyan); }
+    .article-section { padding: 64px 0 100px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 40px 0 14px; color: var(--text-primary); padding-left: 16px; border-left: 3px solid var(--cyan); }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .article-content strong { color: var(--text-primary); font-weight: 600; }
+    .article-content ul { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { font-size: 0.975rem; color: var(--text-secondary); padding-left: 20px; position: relative; line-height: 1.7; }
+    .article-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-size: 0.85rem; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; display: none; }
+    .sidebar-card.active { display: block; }
+    .sidebar-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-toc { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-toc a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .sidebar-toc a:hover { color: var(--cyan); }
+    .sidebar-author { display: flex; align-items: center; gap: 12px; }
+    .sidebar-author-name { font-size: 0.9rem; font-weight: 600; }
+    .sidebar-author-role { font-size: 0.78rem; color: var(--cyan); margin-top: 2px; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--cyan); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--text-secondary); }
+    .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+    .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
+    .highlight-box { background: rgba(0,212,255,0.06); border-left: 3px solid var(--cyan); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
+    .highlight-box p { color: var(--text-primary); font-weight: 500; margin-bottom: 0 !important; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{HOME_URL}}#servicios">Services</a></li>
+        <li><a href="{{HOME_URL}}#mision">Mission</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Free Audit</a>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HERO -->
+  <section class="article-hero">
+    <div class="container">
+      <a href="{{BLOG_URL}}" class="article-back">← Back to blog</a>
+      <div class="article-category">Healthcare</div>
+      <h1 class="article-title">How AI is transforming dental clinics in 2026</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          March 10, 2026
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          6 min read
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-section">
+    <div class="container">
+      <div class="article-layout">
+
+        <!-- ── MAIN CONTENT ── -->
+        <div class="article-content">
+
+            <h2 id="missed-calls">The missed-call problem</h2>
+            <p>The dental industry is moving fast. Clinics that have relied for years on a receptionist to handle calls, remind patients of appointments, and field questions at 11 PM are discovering that AI can do that work — and do it better, at lower cost, with no days off.</p>
+            <p>Industry data shows that <strong>between 30% and 40% of inbound calls to a dental clinic are lost</strong> because the line is busy or no one can pick up. Every missed call is potentially a new patient walking to a competitor.</p>
+            <p>With an <strong>AI voice agent</strong>, the clinic has a virtual receptionist available 24/7. The agent answers in under 0.1 seconds, identifies the reason for the call, books appointments in real time on the dentist's calendar, and answers common questions about pricing, location, accepted insurance, and availability. No waiting. No missed calls.</p>
+
+            <h2 id="appointments">Appointment automation: from chaos to control</h2>
+            <p>Manual scheduling in mid-sized clinics means dozens of daily calls, last-minute changes, unfilled slots, and cancellations that don't come in on time. An AI solution integrated with your practice management software can:</p>
+            <ul>
+              <li>Automatically confirm appointments 48 hours in advance via WhatsApp</li>
+              <li>Detect cancellations and reassign the slot to a patient on the waiting list</li>
+              <li>Handle rescheduling without human intervention</li>
+              <li>Send post-visit reminders with care or follow-up instructions</li>
+            </ul>
+            <p>Result: fewer empty slots, more patients seen, and a calendar that practically manages itself.</p>
+
+            <h2 id="whatsapp">WhatsApp reminders: the channel patients actually use</h2>
+            <p>Emails have open rates around 20%. WhatsApp clears 90%. Integrating an automated messaging system via WhatsApp Business API lets the clinic communicate where its patients actually are.</p>
+            <p>Reminder messages <strong>cut no-show rates by 30 to 60%</strong>, according to multiple healthcare studies. In a clinic with 10 weekly no-shows at €80 per visit, that's over <strong>€3,000 per month recoverable</strong> with a single automation.</p>
+
+            <div class="highlight-box">
+              <p>A 15-chair, 3-dentist clinic can recover between €2,500 and €5,000 per month just by automating reminders and appointment confirmations.</p>
+            </div>
+
+            <h2 id="roi">ROI for clinics: real numbers</h2>
+            <p>A baseline AI implementation for a dental clinic (voice agent + WhatsApp reminders + scheduling automation) costs between €200 and €600 per month, depending on call volume. Against that:</p>
+            <ul>
+              <li><strong>No-show reduction:</strong> +€2,000–€4,000/month recovered</li>
+              <li><strong>New patients captured</strong> via 24/7 responsiveness: +€500–€2,000/month</li>
+              <li><strong>Front-desk time freed:</strong> 2–4 hours/day → more in-person care</li>
+            </ul>
+            <p>The average return for clinics adopting AI is <strong>8x to 12x the cost of the solution</strong> in the first three months.</p>
+
+            <h2 id="start">Where to start</h2>
+            <p>You don't have to transform the whole clinic at once. Most of our clients start with a voice agent answering outside business hours — the slot where the most calls are lost — and within 30 days they have data to decide whether to expand.</p>
+            <p>The scope is intentionally narrow: scheduling, general information, and routing. No medical history is handled by the agent — sensitive data stays in your practice management software.</p>
+            <p>At Aion Studio we help dental clinics implement these solutions in <strong>under two weeks</strong>, without changing your current software or hiring technical staff.</p>
+
+            <div class="sidebar-card" style="display:block; margin-top: 40px;">
+              <div class="sidebar-author">
+                <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+                <div>
+                  <div class="sidebar-author-name">Diego Camiña Alonso</div>
+                  <div class="sidebar-author-role">Founder &amp; Lead Engineer</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="article-cta-block">
+              <h3>Is your clinic losing patients to unanswered calls?</h3>
+              <p>In 30 minutes we analyze your call flow and show you how much you could recover with an AI voice agent.</p>
+              <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Request a free analysis</a>
+            </div>
+
+        </div><!-- /.article-content -->
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="article-sidebar">
+          <div class="sidebar-card active">
+            <h4>In this article</h4>
+            <ul class="sidebar-toc">
+              <li><a href="#missed-calls">The missed-call problem</a></li>
+              <li><a href="#appointments">Appointment automation</a></li>
+              <li><a href="#whatsapp">WhatsApp reminders</a></li>
+              <li><a href="#roi">ROI for clinics</a></li>
+              <li><a href="#start">Where to start</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-tagline">Artificial Intelligence for companies that don't settle for the minimum.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="{{HOME_URL}}#servicios">AI Voice Agents</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Process Automation</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Text &amp; Inbox AI Assistants</a></li>
+            <li><a href="{{HOME_URL}}#servicios">AI-Powered Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="{{HOME_URL}}#mision">Mission &amp; Vision</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Free Audit</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links footer-contact-list">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              <a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              <span>Pennautier, France</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          &copy; <span id="year"></span> Aion Studio. <span>All rights reserved.</span>
+        </p>
+        <div class="footer-legal-links">
+          <a href="/privacidad/">Privacy Policy</a>
+          <a href="/terminos/">Terms of Use</a>
+          <a href="/cookies/">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
