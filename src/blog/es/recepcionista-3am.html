@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,8 @@
   <meta name="description" content="Descubre cuántas llamadas pierde tu negocio fuera de horario y cuánto dinero representa. Con números reales y solución concreta con IA." />
   <meta name="robots" content="index, follow" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="canonical" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
   <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.png">
@@ -16,10 +17,10 @@
   <meta property="og:description" content="Descubre cuántas llamadas pierde tu negocio fuera de horario y cuánto dinero representa. Números reales y solución concreta." />
   <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://aionstudio.tech/blog/recepcionista-3am.html" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
-  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -45,7 +46,7 @@
     },
     "description": "Descubre cuántas llamadas pierde tu negocio fuera de horario y cuánto dinero representa. Con números reales y solución concreta con IA.",
     "image": "https://aionstudio.tech/assets/img/og-image.jpg",
-    "url": "https://aionstudio.tech/blog/recepcionista-3am.html"
+    "url": "{{CANONICAL_URL}}"
   }
   </script>
   <style>
@@ -93,8 +94,6 @@
     .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
     .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
     .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
-    [data-lang-content] { display: none; }
-    [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
   </style>
 </head>
@@ -103,25 +102,23 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="../" class="nav-logo">
+      <a href="{{HOME_URL}}" class="nav-logo">
         <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
-        <li><a href="/auditoria/" data-i18n="nav_contact">Contacto</a></li>
-        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
+        <li><a href="{{HOME_URL}}#mision">Misión</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contacto</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <a href="/" class="lang-btn active" hreflang="es" aria-current="page">ES</a>
-          <a href="/fr/" class="lang-btn" hreflang="fr">FR</a>
-          <a href="/en/" class="lang-btn" hreflang="en">EN</a>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/auditoria/" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
       </div>
       <button class="nav-toggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -132,49 +129,23 @@
   <!-- HERO -->
   <section class="article-hero">
     <div class="container">
-
-      <!-- ES header -->
-      <div data-lang-content="es" class="active">
-        <a href="index.html" class="article-back">← Volver al blog</a>
-        <div class="article-category">Productividad</div>
-        <h1 class="article-title">Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 marzo 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            5 min de lectura
-          </div>
+      <a href="{{BLOG_URL}}" class="article-back">← Volver al blog</a>
+      <div class="article-category">Productividad</div>
+      <h1 class="article-title">Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          11 marzo 2026
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          5 min de lectura
         </div>
       </div>
-
-      <!-- FR header -->
-      <div data-lang-content="fr">
-        <a href="index.html" class="article-back">← Retour au blog</a>
-        <div class="article-category">Productivité</div>
-        <h1 class="article-title">Votre réceptionniste ne travaille pas à 3h du matin. Votre agent vocal, si.</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 mars 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            5 min de lecture
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -183,9 +154,6 @@
   <div class="article-layout container">
 
     <main class="article-content">
-
-      <!-- ===== ESPAÑOL ===== -->
-      <div data-lang-content="es" class="active">
 
         <h2 id="coste">El coste invisible de las horas cerradas</h2>
         <p>Tu negocio cierra a las 19h. El teléfono, también. Pero los clientes no.</p>
@@ -231,10 +199,10 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+            <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
+              <div class="sidebar-author-role">Fundador &amp; Lead Engineer</div>
             </div>
           </div>
         </div>
@@ -242,77 +210,15 @@
         <div class="article-cta-block">
           <h3>¿Tu negocio está perdiendo llamadas fuera de horario?</h3>
           <p>En 30 minutos analizamos tu flujo de llamadas, te decimos cuántas se pierden y cuánto representan económicamente. Con esos datos, decides tú.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Analizar mi flujo de llamadas gratis →</a>
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Analizar mi flujo de llamadas gratis →</a>
         </div>
-
-      </div>
-
-      <!-- ===== FRANÇAIS ===== -->
-      <div data-lang-content="fr">
-
-        <h2 id="coste-fr">Le coût invisible des heures de fermeture</h2>
-        <p>Votre entreprise ferme à 19h. Le téléphone aussi. Mais pas vos clients.</p>
-        <p>La plupart des appels que vous ne prenez pas en dehors des heures d'ouverture ne sont pas des urgences — ce sont des opportunités. Une personne qui cherche un devis, qui veut savoir si vous travaillez avec son assurance, qui vient de vous trouver sur Google et veut réserver avant d'oublier. Et quand vous rappelez le lendemain, elle a déjà contacté quelqu'un d'autre.</p>
-        <p>Les chiffres sont clairs : <strong>entre 25% et 40% des appels entrants d'une PME ont lieu en dehors des heures d'ouverture</strong>. Dans des secteurs comme la santé, les services professionnels ou les dépannages, ce pourcentage peut dépasser 50% — parce que l'urgence ou l'impulsion de contacter ne respecte pas les horaires de travail.</p>
-
-        <h2 id="calculo-fr">Le calcul que personne ne fait</h2>
-        <p>Faisons-le ensemble. Prenez n'importe quelle entreprise de taille moyenne : une clinique, un cabinet comptable, un atelier de réparation.</p>
-        <ul>
-          <li>20 appels par jour au total</li>
-          <li>30% en dehors des heures = 6 appels non pris par jour</li>
-          <li>50% de ces 6 sont des clients potentiels = 3 opportunités perdues par jour</li>
-          <li>Valeur moyenne d'un nouveau client : 150€ (conservateur)</li>
-          <li>Taux de conversion d'un appel en client : 30%</li>
-        </ul>
-        <p>Résultat : <strong>3 × 0,3 × 150€ = 135€ perdus par jour. 2 700€ par mois. 32 400€ par an.</strong></p>
-        <p>Et cela sans compter les clients existants qui appellent pour une urgence et ne peuvent parler à personne. Ni l'image négative que cela génère — cette personne ne rappellera pas.</p>
-
-        <h2 id="que-hace-fr">Que fait un agent vocal IA sur ces appels ?</h2>
-        <p>Un agent vocal n'est pas un répondeur automatique. Il ne diffuse pas un message enregistré et ne raccroche pas. C'est un système qui tient une vraie conversation, en temps réel, et qui peut :</p>
-        <ul>
-          <li><strong>Répondre aux questions fréquentes</strong> avec précision : horaires, services, tarifs, localisation, assurances acceptées</li>
-          <li><strong>Capturer l'intention</strong> de l'appelant et enregistrer ses coordonnées pour un suivi le lendemain</li>
-          <li><strong>Gérer les urgences</strong> en distinguant ce qui est vraiment urgent de ce qui peut attendre</li>
-          <li><strong>Transférer en temps réel</strong> si quelqu'un est disponible, ou planifier un rappel au créneau choisi par le client</li>
-        </ul>
-        <p>Tout cela en moins d'une seconde de temps de réponse. Sans attente. Sans musique d'attente.</p>
-
-        <h2 id="humano-fr">Ce qui ne change pas : la touche humaine là où elle compte</h2>
-        <p>L'agent vocal ne remplace pas votre réceptionniste pendant les heures d'ouverture. Ce que fait l'agent, c'est <strong>libérer votre équipe des appels à faible valeur ajoutée</strong> — les questions répétées, les confirmations d'horaires, les appels hors horaires — pour qu'elle puisse se consacrer à ce qui nécessite vraiment une attention humaine.</p>
-        <p>Dans une clinique dentaire avec 2 secrétaires répondant à 30 appels par jour, on estime que <strong>60 à 70% de ces appels pourraient être gérés entièrement par un agent</strong> sans perte de qualité pour le client.</p>
-
-        <h2 id="precio-fr">Combien ça coûte et quand ça s'autofinance</h2>
-        <p>Une implémentation basique d'AionVoice pour une entreprise de taille moyenne (jusqu'à 50 appels/jour) coûte entre 200€ et 400€ par mois, configuration et maintenance incluses.</p>
-        <p>En utilisant le calcul précédent : si vous récupérez seulement <strong>une</strong> opportunité sur les 3 que vous perdez chaque jour, vous générez 45€ de nouveaux revenus quotidiens. En un mois, 900€. Le coût de l'agent est couvert en moins de deux semaines.</p>
-
-        <h2 id="como-empezar-fr">Par où commencer</h2>
-        <p>Inutile de changer votre système téléphonique dans la plupart des cas. Si vous avez une ligne VoIP ou un IPBX, l'intégration est directe. Le processus habituel : analyse du flux d'appels → configuration de l'agent → test en parallèle pendant 2 semaines → activation complète.</p>
-        <p>Chez Aion Studio, nous réalisons cette analyse gratuitement. En 30 minutes, nous savons combien d'appels vous perdez, à quelle heure, et ce que ça représente économiquement.</p>
-
-        <div class="sidebar-card" style="display:block; margin-top: 40px;">
-          <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
-            <div>
-              <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="article-cta-block">
-          <h3>Votre entreprise perd-elle des appels en dehors des heures d'ouverture ?</h3>
-          <p>En 30 minutes, nous analysons votre flux d'appels, vous disons combien sont perdus et ce que cela représente financièrement. Vous décidez ensuite.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Analyser mon flux d'appels gratuitement →</a>
-        </div>
-
-      </div>
 
     </main>
 
     <!-- SIDEBAR -->
     <aside class="article-sidebar">
 
-      <div class="sidebar-card active" data-lang-content="es">
+      <div class="sidebar-card active">
         <h4>En este artículo</h4>
         <ul class="sidebar-toc">
           <li><a href="#coste">El coste invisible de las horas cerradas</a></li>
@@ -324,19 +230,6 @@
         </ul>
       </div>
 
-      <div class="sidebar-card" data-lang-content="fr">
-        <h4>Dans cet article</h4>
-        <ul class="sidebar-toc">
-          <li><a href="#coste-fr">Le coût invisible des heures de fermeture</a></li>
-          <li><a href="#calculo-fr">Le calcul que personne ne fait</a></li>
-          <li><a href="#que-hace-fr">Que fait un agent vocal IA</a></li>
-          <li><a href="#humano-fr">La touche humaine</a></li>
-          <li><a href="#precio-fr">Combien ça coûte</a></li>
-          <li><a href="#como-empezar-fr">Par où commencer</a></li>
-        </ul>
-      </div>
-
-
     </aside>
 
   </div>
@@ -347,63 +240,37 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-tagline" data-i18n="footer_tagline">Intelligence Artificielle pour les entreprises qui ne se contentent pas du minimum.</p>
+          <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_services">Services</h4>
+          <h4>Servicios</h4>
           <ul>
-            <li><a href="../#servicios">Agentes de Voz IA</a></li>
-            <li><a href="../#servicios">Automatización de Procesos</a></li>
-            <li><a href="../#servicios">Asistentes de Texto y Bandeja IA</a></li>
-            <li><a href="../#servicios" data-i18n="footer_webai">Web IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Agentes de Voz IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Automatización de Procesos</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Asistentes de Texto y Bandeja IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Sitios Web con IA</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_company">Entreprise</h4>
+          <h4>Empresa</h4>
           <ul>
-            <li><a href="../#mision" data-i18n="footer_mission">Mission &amp; Vision</a></li>
-            <li><a href="../#contacto" data-i18n="footer_audit">Audit Gratuit</a></li>
-            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+            <li><a href="{{HOME_URL}}#mision">Misión &amp; Visión</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Auditoría Gratuita</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
             <li><a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Aion Studio. Tous droits réservés.</p>
+        <p>© 2026 Aion Studio. Todos los derechos reservados.</p>
         <div class="footer-legal">
-          <a href="../privacidad/" data-i18n="footer_privacy">Política de Privacidad</a>
-          <a href="../terminos/" data-i18n="footer_terms">Términos de Uso</a>
-          <a href="../cookies/" data-i18n="footer_cookies">Cookies</a>
+          <a href="/privacidad/">Política de Privacidad</a>
+          <a href="/terminos/">Términos de Uso</a>
+          <a href="/cookies/">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <script src="/js/main.js"></script>
-  <script>
-    (function () {
-      function showLang(lang) {
-        var target = (lang === 'en') ? 'es' : lang;
-        document.querySelectorAll('[data-lang-content]').forEach(function (el) {
-          el.classList.toggle('active', el.dataset.langContent === target);
-        });
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-      }
-      document.addEventListener('DOMContentLoaded', function () {
-        var saved = localStorage.getItem('aion_lang') ||
-          (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-        showLang(saved);
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            localStorage.setItem('aion_lang', btn.dataset.lang);
-            showLang(btn.dataset.lang);
-          });
-        });
-      });
-    })();
-  </script>
 
 </body>
 </html>

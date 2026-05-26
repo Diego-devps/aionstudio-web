@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,8 @@
   <meta name="description" content="Cuánto tiempo pierde realmente tu equipo en tareas repetitivas. Calcula el coste real y descubre qué puede automatizar la IA esta semana." />
   <meta name="robots" content="index, follow" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="canonical" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
   <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.png">
@@ -16,10 +17,10 @@
   <meta property="og:description" content="Cuánto tiempo pierde realmente tu equipo en tareas repetitivas. Calcula el coste real y descubre qué puede automatizar la IA esta semana." />
   <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://aionstudio.tech/blog/6-tareas-ia.html" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
-  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -45,7 +46,7 @@
     },
     "description": "Cuánto tiempo pierde realmente tu equipo en tareas repetitivas. Calcula el coste real y descubre qué puede automatizar la IA esta semana.",
     "image": "https://aionstudio.tech/assets/img/og-image.jpg",
-    "url": "https://aionstudio.tech/blog/6-tareas-ia.html"
+    "url": "{{CANONICAL_URL}}"
   }
   </script>
   <style>
@@ -93,8 +94,6 @@
     .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
     .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
     .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
-    [data-lang-content] { display: none; }
-    [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
   </style>
 </head>
@@ -103,25 +102,23 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="../" class="nav-logo">
+      <a href="{{HOME_URL}}" class="nav-logo">
         <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
-        <li><a href="/auditoria/" data-i18n="nav_contact">Contacto</a></li>
-        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
+        <li><a href="{{HOME_URL}}#mision">Misión</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contacto</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <a href="/" class="lang-btn active" hreflang="es" aria-current="page">ES</a>
-          <a href="/fr/" class="lang-btn" hreflang="fr">FR</a>
-          <a href="/en/" class="lang-btn" hreflang="en">EN</a>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/auditoria/" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
       </div>
       <button class="nav-toggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -133,45 +130,21 @@
   <section class="article-hero">
     <div class="container">
 
-      <!-- ES header -->
-      <div data-lang-content="es" class="active">
-        <a href="index.html" class="article-back">← Volver al blog</a>
-        <div class="article-category">Automatización</div>
-        <h1 class="article-title">Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 marzo 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            7 min de lectura
-          </div>
+      <a href="{{BLOG_URL}}" class="article-back">← Volver al blog</a>
+      <div class="article-category">Automatización</div>
+      <h1 class="article-title">Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          11 marzo 2026
         </div>
-      </div>
-
-      <!-- FR header -->
-      <div data-lang-content="fr">
-        <a href="index.html" class="article-back">← Retour au blog</a>
-        <div class="article-category">Automatisation</div>
-        <h1 class="article-title">Les 6 tâches que votre équipe fait chaque semaine et que l'IA peut faire en 3 secondes</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 mars 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            7 min de lecture
-          </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          7 min de lectura
         </div>
       </div>
 
@@ -183,9 +156,6 @@
   <div class="article-layout container">
 
     <main class="article-content">
-
-      <!-- ===== ESPAÑOL ===== -->
-      <div data-lang-content="es" class="active">
 
         <h2 id="tiempo">El tiempo que nadie cuenta</h2>
         <p>Hay un tipo de trabajo que no aparece en ningún informe de productividad, no genera quejas visibles y se acepta como parte inevitable del día: el trabajo repetitivo de bajo valor.</p>
@@ -235,10 +205,10 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+            <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
+              <div class="sidebar-author-role">Fundador &amp; Lead Engineer</div>
             </div>
           </div>
         </div>
@@ -246,82 +216,15 @@
         <div class="article-cta-block">
           <h3>¿Cuántas horas pierde tu equipo cada semana en tareas repetitivas?</h3>
           <p>En 30 minutos hacemos una auditoría gratuita donde identificamos las 2 o 3 automatizaciones de mayor impacto para tu negocio, con estimación de tiempo recuperado.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Identificar mis automatizaciones de mayor impacto →</a>
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Identificar mis automatizaciones de mayor impacto →</a>
         </div>
-
-      </div>
-
-      <!-- ===== FRANÇAIS ===== -->
-      <div data-lang-content="fr">
-
-        <h2 id="tiempo-fr">Le temps que personne ne compte</h2>
-        <p>Il existe un type de travail qui n'apparaît dans aucun rapport de productivité, ne génère pas de plaintes visibles et est accepté comme une partie inévitable de la journée : le travail répétitif à faible valeur ajoutée.</p>
-        <p>Copier des données d'un système à un autre. Répondre au même email dix fois avec de légères variations. Générer le rapport hebdomadaire qui a toujours la même structure. Rappeler manuellement quels clients n'ont pas répondu.</p>
-        <p>Individuellement, chaque tâche semble petite. Ensemble, elles <strong>consomment entre 20% et 40% du temps productif d'une équipe</strong>, selon les études McKinsey sur l'automatisation. Dans une entreprise de 5 personnes, cela équivaut à 1-2 personnes à temps plein faisant un travail qui ne nécessite pas de jugement humain.</p>
-        <p>Voici les 6 plus courantes. Pour chacune : combien de temps elle consomme vraiment et ce que fait l'IA à la place.</p>
-
-        <h2 id="emails-fr">1. Répondre aux emails de questions fréquentes</h2>
-        <p><strong>Temps humain :</strong> 3 à 5 minutes par email. Dans une entreprise qui reçoit 20 demandes/jour, c'est entre 60 et 100 minutes de réponses manuelles qui suivent toujours le même schéma.</p>
-        <p><strong>Ce que fait l'IA :</strong> Un agent connecté à la boîte de réception identifie le type de demande, cherche la réponse dans la base de connaissance de l'entreprise et répond en moins de 30 secondes. Les demandes nécessitant un jugement humain sont escaladées automatiquement avec le contexte déjà résumé.</p>
-        <p><strong>Résultat :</strong> L'équipe ne gère que les exceptions. 70 à 80% des emails partent tout seuls.</p>
-
-        <h2 id="datos-fr">2. Copier des données entre systèmes</h2>
-        <p><strong>Temps humain :</strong> Si votre CRM, votre outil de facturation et votre tableau de suivi ne sont pas intégrés, quelqu'un copie des données entre eux. 5 minutes par transfert. Si cela arrive 15 fois par jour : 75 minutes quotidiennes, 6 heures par semaine.</p>
-        <p><strong>Ce que fait l'IA :</strong> Un flux automatisé détecte l'événement dans un système et met à jour tous les autres en temps réel. Sans intervention humaine.</p>
-        <p><strong>Résultat :</strong> Données toujours synchronisées, sans erreurs de saisie. Ces 6 heures hebdomadaires disparaissent.</p>
-
-        <h2 id="informes-fr">3. Générer des rapports périodiques</h2>
-        <p><strong>Temps humain :</strong> Le rapport hebdomadaire des ventes, le résumé mensuel des clients. Toujours la même structure, seules les données changent. Le préparer manuellement : 30 à 90 minutes.</p>
-        <p><strong>Ce que fait l'IA :</strong> À l'heure programmée, l'agent extrait les données des sources connectées, calcule les métriques et génère le rapport formaté — prêt à envoyer ou à réviser.</p>
-        <p><strong>Résultat :</strong> Le rapport apparaît dans votre boîte chaque lundi à 8h sans que personne ne l'ait préparé.</p>
-
-        <h2 id="seguimiento-fr">4. Suivi des clients sans réponse</h2>
-        <p><strong>Temps humain :</strong> Se souvenir quels devis n'ont pas reçu de réponse. Consulter le CRM, identifier les cas, rédiger le suivi personnalisé. Entre 15 et 45 minutes par jour dans les entreprises de services actives.</p>
-        <p><strong>Ce que fait l'IA :</strong> Le système détecte automatiquement les devis sans réponse après X jours, génère un email de suivi avec le bon contexte et l'envoie — ou le met en file d'attente si vous préférez le voir d'abord.</p>
-        <p><strong>Résultat :</strong> Aucune opportunité ne refroidit par manque de suivi. Le taux de conversion des devis augmente de 15 à 30%.</p>
-
-        <h2 id="priorizar-fr">5. Classer et prioriser les tâches entrantes</h2>
-        <p><strong>Temps humain :</strong> Chaque matin, quelqu'un passe en revue la boîte de réception, les messages WhatsApp, les tickets de support pour décider quoi est urgent. 20 à 40 minutes de triage manuel.</p>
-        <p><strong>Ce que fait l'IA :</strong> Analyse le contenu de chaque message, le classe par type et urgence, l'assigne au bon membre de l'équipe — tout avant que vous ouvriez votre ordinateur.</p>
-        <p><strong>Résultat :</strong> Vous commencez la journée avec une liste priorisée et assignée.</p>
-
-        <h2 id="proyectos-fr">6. Mettre à jour le statut des projets</h2>
-        <p><strong>Temps humain :</strong> 15 à 30 minutes par jour de mise à jour manuelle qui est toujours en retard.</p>
-        <p><strong>Ce que fait l'IA :</strong> Connectée à l'email, au calendrier et aux outils de travail, elle détecte les événements pertinents et met à jour les statuts automatiquement.</p>
-        <p><strong>Résultat :</strong> Le gestionnaire de projets reflète la réalité en temps réel.</p>
-
-        <h2 id="calculo-fr">Faites le calcul pour votre entreprise</h2>
-        <p>Dans la plupart des PME de 3 à 15 personnes, le total de ces 6 tâches représente <strong>2 à 5 heures par personne par jour</strong>.</p>
-        <p>À 25€/heure, 3 heures par jour × 5 jours × 4 semaines = <strong>1 500€ par personne et par mois en travail automatisable</strong>.</p>
-        <p>L'automatisation de ces 6 flux coûte entre 300€ et 800€/mois. Le ROI est immédiat et mesurable.</p>
-
-        <h2 id="por-donde-fr">Par où commencer</h2>
-        <p>Chez Aion Studio, nous réalisons un audit gratuit de 30 minutes pour identifier les 2-3 automatisations à plus fort impact pour votre activité spécifique.</p>
-
-        <div class="sidebar-card" style="display:block; margin-top: 40px;">
-          <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
-            <div>
-              <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="article-cta-block">
-          <h3>Combien d'heures votre équipe perd-il chaque semaine sur des tâches répétitives ?</h3>
-          <p>En 30 minutes, nous réalisons un audit gratuit pour identifier les 2 ou 3 automatisations à plus fort impact pour votre activité, avec une estimation du temps récupéré.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Identifier mes automatisations prioritaires →</a>
-        </div>
-
-      </div>
 
     </main>
 
     <!-- SIDEBAR -->
     <aside class="article-sidebar">
 
-      <div class="sidebar-card active" data-lang-content="es">
+      <div class="sidebar-card active">
         <h4>En este artículo</h4>
         <ul class="sidebar-toc">
           <li><a href="#tiempo">El tiempo que nadie cuenta</a></li>
@@ -336,22 +239,6 @@
         </ul>
       </div>
 
-      <div class="sidebar-card" data-lang-content="fr">
-        <h4>Dans cet article</h4>
-        <ul class="sidebar-toc">
-          <li><a href="#tiempo-fr">Le temps que personne ne compte</a></li>
-          <li><a href="#emails-fr">1. Emails de questions fréquentes</a></li>
-          <li><a href="#datos-fr">2. Copier des données</a></li>
-          <li><a href="#informes-fr">3. Rapports périodiques</a></li>
-          <li><a href="#seguimiento-fr">4. Suivi des clients</a></li>
-          <li><a href="#priorizar-fr">5. Prioriser les tâches</a></li>
-          <li><a href="#proyectos-fr">6. Statut des projets</a></li>
-          <li><a href="#calculo-fr">Faites le calcul</a></li>
-          <li><a href="#por-donde-fr">Par où commencer</a></li>
-        </ul>
-      </div>
-
-
     </aside>
 
   </div>
@@ -362,63 +249,37 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-tagline" data-i18n="footer_tagline">Intelligence Artificielle pour les entreprises qui ne se contentent pas du minimum.</p>
+          <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_services">Services</h4>
+          <h4>Servicios</h4>
           <ul>
-            <li><a href="../#servicios">Agentes de Voz IA</a></li>
-            <li><a href="../#servicios">Automatización de Procesos</a></li>
-            <li><a href="../#servicios">Asistentes de Texto y Bandeja IA</a></li>
-            <li><a href="../#servicios" data-i18n="footer_webai">Web IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Agentes de Voz IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Automatización de Procesos</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Asistentes de Texto y Bandeja IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Sitios Web con IA</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_company">Entreprise</h4>
+          <h4>Empresa</h4>
           <ul>
-            <li><a href="../#mision" data-i18n="footer_mission">Mission &amp; Vision</a></li>
-            <li><a href="../#contacto" data-i18n="footer_audit">Audit Gratuit</a></li>
-            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+            <li><a href="{{HOME_URL}}#mision">Misión &amp; Visión</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Auditoría Gratuita</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
             <li><a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Aion Studio. Tous droits réservés.</p>
+        <p>© 2026 Aion Studio. Todos los derechos reservados.</p>
         <div class="footer-legal">
-          <a href="../privacidad/" data-i18n="footer_privacy">Política de Privacidad</a>
-          <a href="../terminos/" data-i18n="footer_terms">Términos de Uso</a>
-          <a href="../cookies/" data-i18n="footer_cookies">Cookies</a>
+          <a href="/privacidad/">Política de Privacidad</a>
+          <a href="/terminos/">Términos de Uso</a>
+          <a href="/cookies/">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <script src="/js/main.js"></script>
-  <script>
-    (function () {
-      function showLang(lang) {
-        var target = (lang === 'en') ? 'es' : lang;
-        document.querySelectorAll('[data-lang-content]').forEach(function (el) {
-          el.classList.toggle('active', el.dataset.langContent === target);
-        });
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-      }
-      document.addEventListener('DOMContentLoaded', function () {
-        var saved = localStorage.getItem('aion_lang') ||
-          (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-        showLang(saved);
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            localStorage.setItem('aion_lang', btn.dataset.lang);
-            showLang(btn.dataset.lang);
-          });
-        });
-      });
-    })();
-  </script>
 
 </body>
 </html>

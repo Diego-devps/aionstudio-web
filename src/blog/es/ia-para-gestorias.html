@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,8 @@
   <meta name="description" content="Las gestorías y fiduciarias que no automatizan en 2026 van a perder clientes. Estos 5 flujos son el punto de partida con mayor impacto." />
   <meta name="robots" content="index, follow" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="canonical" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
   <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.png">
@@ -16,10 +17,10 @@
   <meta property="og:description" content="Las gestorías que no automatizan en 2026 van a perder clientes. Estos 5 flujos son el punto de partida con mayor impacto." />
   <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
-  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -45,7 +46,7 @@
     },
     "description": "Las gestorías y fiduciarias que no automatizan en 2026 van a perder clientes. Estos 5 flujos son el punto de partida con mayor impacto.",
     "image": "https://aionstudio.tech/assets/img/og-image.jpg",
-    "url": "https://aionstudio.tech/blog/ia-para-gestorias.html"
+    "url": "{{CANONICAL_URL}}"
   }
   </script>
   <style>
@@ -93,8 +94,6 @@
     .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
     .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
     .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
-    [data-lang-content] { display: none; }
-    [data-lang-content].active { display: block; }
     @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
   </style>
 </head>
@@ -103,25 +102,23 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="../" class="nav-logo">
+      <a href="{{HOME_URL}}" class="nav-logo">
         <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
-        <li><a href="/auditoria/" data-i18n="nav_contact">Contacto</a></li>
-        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
+        <li><a href="{{HOME_URL}}#mision">Misión</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contacto</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <a href="/" class="lang-btn active" hreflang="es" aria-current="page">ES</a>
-          <a href="/fr/" class="lang-btn" hreflang="fr">FR</a>
-          <a href="/en/" class="lang-btn" hreflang="en">EN</a>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/auditoria/" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
       </div>
       <button class="nav-toggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -133,45 +130,21 @@
   <section class="article-hero">
     <div class="container">
 
-      <!-- ES header -->
-      <div data-lang-content="es" class="active">
-        <a href="index.html" class="article-back">← Volver al blog</a>
-        <div class="article-category">Sector Financiero</div>
-        <h1 class="article-title">5 procesos que toda gestoría debería automatizar con IA en 2026</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 marzo 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            7 min de lectura
-          </div>
+      <a href="{{BLOG_URL}}" class="article-back">← Volver al blog</a>
+      <div class="article-category">Sector Financiero</div>
+      <h1 class="article-title">5 procesos que toda gestoría debería automatizar con IA en 2026</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          11 marzo 2026
         </div>
-      </div>
-
-      <!-- FR header -->
-      <div data-lang-content="fr">
-        <a href="index.html" class="article-back">← Retour au blog</a>
-        <div class="article-category">Secteur Financier</div>
-        <h1 class="article-title">5 processus que toute fiduciaire devrait automatiser avec l'IA en 2026</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            11 mars 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            7 min de lecture
-          </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          7 min de lectura
         </div>
       </div>
 
@@ -183,9 +156,6 @@
   <div class="article-layout container">
 
     <main class="article-content">
-
-      <!-- ===== ESPAÑOL ===== -->
-      <div data-lang-content="es" class="active">
 
         <h2 id="sector">El sector que más tiempo pierde en tareas sin valor</h2>
         <p>Una gestoría o asesoría fiscal maneja datos, plazos, documentos y comunicaciones en volúmenes que pocas industrias igualan. Y sin embargo, una parte enorme de ese trabajo es puramente mecánico: extraer números de documentos, rellenar formularios, enviar recordatorios de plazos, perseguir documentación pendiente de clientes.</p>
@@ -224,10 +194,10 @@
 
         <div class="sidebar-card" style="display:block; margin-top: 40px;">
           <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+            <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
             <div>
               <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
+              <div class="sidebar-author-role">Fundador &amp; Lead Engineer</div>
             </div>
           </div>
         </div>
@@ -235,71 +205,15 @@
         <div class="article-cta-block">
           <h3>¿Tu gestoría sigue perdiendo horas en tareas que podría hacer la IA?</h3>
           <p>En 30 minutos identificamos los 3 procesos con mayor impacto en tu gestoría y te mostramos cuánto tiempo recuperarías cada semana.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Ver cómo aplicarlo en mi gestoría →</a>
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Ver cómo aplicarlo en mi gestoría →</a>
         </div>
-
-      </div>
-
-      <!-- ===== FRANÇAIS ===== -->
-      <div data-lang-content="fr">
-
-        <h2 id="sector-fr">Le secteur qui perd le plus de temps sur des tâches sans valeur</h2>
-        <p>Une fiduciaire ou un cabinet comptable gère des données, des délais, des documents et des communications dans des volumes que peu d'industries égalent. Et pourtant, une grande partie de ce travail est purement mécanique : extraire des chiffres de documents, remplir des formulaires, envoyer des rappels d'échéances, relancer des clients pour obtenir des documents.</p>
-        <p>Dans le secteur comptable, on estime que <strong>40 à 60% du temps d'un technicien est consacré à des tâches qui ne nécessitent pas de jugement professionnel</strong>. Trois choses que l'IA fait mieux que n'importe quel humain, à n'importe quelle heure.</p>
-
-        <h2 id="documentacion-fr">1. Collecte de documents clients</h2>
-        <p><strong>Le problème :</strong> Chaque trimestre, chaque clôture annuelle commence de la même façon : relancer les clients pour qu'ils envoient leurs factures, relevés bancaires et justificatifs. Emails manuels, appels de rappel. Le technicien devient messager.</p>
-        <p><strong>La solution IA :</strong> Un système automatisé envoie des demandes personnalisées par email ou WhatsApp au bon moment, suit automatiquement ce qui est arrivé et ce qui manque, et n'alerte l'équipe qu'en cas de blocage réel.</p>
-        <p><strong>Impact :</strong> Le temps de collecte réduit de 60 à 70%. Les techniciens commencent à travailler avec des dossiers complets.</p>
-
-        <h2 id="facturas-fr">2. Extraction et classification des données de factures</h2>
-        <p><strong>Le problème :</strong> Les clients envoient des factures en PDF, en photo, scannées avec une qualité variable. Quelqu'un doit extraire manuellement les données pertinentes et les saisir dans le logiciel comptable. C'est le travail le plus fastidieux et le plus sujet aux erreurs.</p>
-        <p><strong>La solution IA :</strong> Les systèmes d'OCR avec IA traitent n'importe quel format de facture et extraient les données structurées avec une précision supérieure à 95%. Les données vont directement dans le système comptable.</p>
-        <p><strong>Impact :</strong> Dans une fiduciaire qui traite 500 factures par mois, cela représente 15 à 25 heures de travail mécanique éliminées chaque mois.</p>
-
-        <h2 id="plazos-fr">3. Alertes et rappels d'échéances fiscales</h2>
-        <p><strong>Le problème :</strong> Le calendrier fiscal est implacable. Chaque client a son propre calendrier selon son activité et son régime fiscal. Maintenir ce suivi manuellement est une source permanente de stress et de risque.</p>
-        <p><strong>La solution IA :</strong> Un système automatisé maintient le calendrier fiscal de chaque client, envoie des alertes à l'équipe avec suffisamment d'avance, notifie le client de ce qu'il doit fournir et génère des confirmations une fois chaque démarche terminée.</p>
-        <p><strong>Impact :</strong> Zéro oubli. L'équipe travaille sur une liste priorisée mise à jour en temps réel.</p>
-
-        <h2 id="consultas-fr">4. Réponse aux questions fréquentes des clients</h2>
-        <p><strong>Le problème :</strong> "Combien vais-je payer ce trimestre ?", "quelle est ma prochaine échéance ?". Des questions légitimes qui interrompent constamment le travail technique de l'équipe.</p>
-        <p><strong>La solution IA :</strong> Un assistant virtuel connecté aux données du client répond automatiquement aux questions de statut, délais et FAQ. Pour les questions nécessitant un jugement professionnel, il escalade au technicien responsable avec le contexte déjà préparé.</p>
-        <p><strong>Impact :</strong> Les techniciens récupèrent 1 à 2 heures par jour de travail sans interruptions.</p>
-
-        <h2 id="informes-fr">5. Génération de rapports de situation pour les clients</h2>
-        <p><strong>Le problème :</strong> Préparer des rapports périodiques personnalisés et compréhensibles pour quelqu'un sans formation comptable consomme des heures de travail d'un technicien qualifié.</p>
-        <p><strong>La solution IA :</strong> Le système génère automatiquement des rapports de situation périodiques à partir des données déjà traitées — résumé de facturation, déclarations déposées, prochaines échéances, comparaison avec la période précédente — dans un format clair adapté à chaque client.</p>
-        <p><strong>Impact :</strong> Le client est mieux informé, la relation est plus proactive et le technicien ne passe plus de temps à formater des données qui existent déjà.</p>
-
-        <h2 id="resultado-fr">Le résultat global : plus de capacité sans plus de personnel</h2>
-        <p>En automatisant ces 5 processus, une fiduciaire de 4 à 6 techniciens peut absorber 30 à 50% de volume supplémentaire sans embaucher. Ou offrir le même service avec moins d'heures, en améliorant les marges.</p>
-        <p>Chez Aion Studio, nous réalisons des audits spécifiques pour les cabinets comptables et fiduciaires, avec une implémentation en moins de 3 semaines.</p>
-
-        <div class="sidebar-card" style="display:block; margin-top: 40px;">
-          <div class="sidebar-author">
-            <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
-            <div>
-              <div class="sidebar-author-name">Diego Camiña Alonso</div>
-              <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="article-cta-block">
-          <h3>Votre fiduciaire perd-elle encore des heures sur des tâches que l'IA pourrait faire ?</h3>
-          <p>En 30 minutes, nous identifions les 3 processus à plus fort impact dans votre structure et vous montrons combien de temps vous récupéreriez chaque semaine.</p>
-          <a href="../#contacto" class="btn btn-primary btn-lg">Voir comment l'appliquer dans ma fiduciaire →</a>
-        </div>
-
-      </div>
 
     </main>
 
     <!-- SIDEBAR -->
     <aside class="article-sidebar">
 
-      <div class="sidebar-card active" data-lang-content="es">
+      <div class="sidebar-card active">
         <h4>En este artículo</h4>
         <ul class="sidebar-toc">
           <li><a href="#sector">El sector que más tiempo pierde</a></li>
@@ -312,20 +226,6 @@
         </ul>
       </div>
 
-      <div class="sidebar-card" data-lang-content="fr">
-        <h4>Dans cet article</h4>
-        <ul class="sidebar-toc">
-          <li><a href="#sector-fr">Le secteur qui perd le plus</a></li>
-          <li><a href="#documentacion-fr">1. Collecte de documents</a></li>
-          <li><a href="#facturas-fr">2. Extraction de factures</a></li>
-          <li><a href="#plazos-fr">3. Alertes d'échéances</a></li>
-          <li><a href="#consultas-fr">4. Questions fréquentes</a></li>
-          <li><a href="#informes-fr">5. Rapports pour clients</a></li>
-          <li><a href="#resultado-fr">Le résultat global</a></li>
-        </ul>
-      </div>
-
-
     </aside>
 
   </div>
@@ -336,63 +236,37 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-tagline" data-i18n="footer_tagline">Intelligence Artificielle pour les entreprises qui ne se contentent pas du minimum.</p>
+          <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_services">Services</h4>
+          <h4>Servicios</h4>
           <ul>
-            <li><a href="../#servicios">Agentes de Voz IA</a></li>
-            <li><a href="../#servicios">Automatización de Procesos</a></li>
-            <li><a href="../#servicios">Asistentes de Texto y Bandeja IA</a></li>
-            <li><a href="../#servicios" data-i18n="footer_webai">Web IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Agentes de Voz IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Automatización de Procesos</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Asistentes de Texto y Bandeja IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Sitios Web con IA</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="footer_company">Entreprise</h4>
+          <h4>Empresa</h4>
           <ul>
-            <li><a href="../#mision" data-i18n="footer_mission">Mission &amp; Vision</a></li>
-            <li><a href="../#contacto" data-i18n="footer_audit">Audit Gratuit</a></li>
-            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+            <li><a href="{{HOME_URL}}#mision">Misión &amp; Visión</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Auditoría Gratuita</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
             <li><a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Aion Studio. Tous droits réservés.</p>
+        <p>© 2026 Aion Studio. Todos los derechos reservados.</p>
         <div class="footer-legal">
-          <a href="../privacidad/" data-i18n="footer_privacy">Política de Privacidad</a>
-          <a href="../terminos/" data-i18n="footer_terms">Términos de Uso</a>
-          <a href="../cookies/" data-i18n="footer_cookies">Cookies</a>
+          <a href="/privacidad/">Política de Privacidad</a>
+          <a href="/terminos/">Términos de Uso</a>
+          <a href="/cookies/">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <script src="/js/main.js"></script>
-  <script>
-    (function () {
-      function showLang(lang) {
-        var target = (lang === 'en') ? 'es' : lang;
-        document.querySelectorAll('[data-lang-content]').forEach(function (el) {
-          el.classList.toggle('active', el.dataset.langContent === target);
-        });
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-      }
-      document.addEventListener('DOMContentLoaded', function () {
-        var saved = localStorage.getItem('aion_lang') ||
-          (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-        showLang(saved);
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            localStorage.setItem('aion_lang', btn.dataset.lang);
-            showLang(btn.dataset.lang);
-          });
-        });
-      });
-    })();
-  </script>
 
 </body>
 </html>
