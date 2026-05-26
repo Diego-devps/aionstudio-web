@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,16 +11,16 @@
   <meta name="description" content="Artículos sobre inteligencia artificial, automatización y transformación digital para pymes. Casos de uso reales, guías prácticas y análisis del sector." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Aion Studio" />
-  <link rel="canonical" href="https://aionstudio.tech/blog/" />
-  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/" />
-  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/" />
-  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/blog/" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
   <meta property="og:title" content="Blog | Aion Studio" />
   <meta property="og:description" content="Artículos sobre inteligencia artificial y automatización para pymes en España y Francia." />
-  <meta property="og:url" content="https://aionstudio.tech/blog/" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Blog | Aion Studio" />
   <meta name="twitter:description" content="Artículos sobre inteligencia artificial y automatización para pymes." />
@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
   <style>
     .blog-hero {
       padding: 140px 0 72px;
@@ -142,26 +142,23 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="../" class="nav-logo">
+      <a href="{{HOME_URL}}" class="nav-logo">
         <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
-        <!-- <li><a href="/subvenciones" data-i18n="nav_grants">Subvenciones</a></li> -->
-        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
-        <li><a href="/auditoria/" data-i18n="nav_contact">Contacto</a></li>
+        <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
+        <li><a href="{{HOME_URL}}#mision">Misión</a></li>
+        <li><a href="{{BLOG_URL}}" aria-current="page">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contacto</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <a href="/" class="lang-btn active" hreflang="es" aria-current="page">ES</a>
-          <a href="/fr/" class="lang-btn" hreflang="fr">FR</a>
-          <a href="/en/" class="lang-btn" hreflang="en">EN</a>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/auditoria/" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
       </div>
       <button class="nav-toggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -172,9 +169,9 @@
   <!-- BLOG HERO -->
   <section class="blog-hero">
     <div class="container">
-      <div class="blog-hero-badge" data-i18n="nav_blog">Blog</div>
-      <h1 class="blog-hero-title" data-i18n="blog_title">Blog</h1>
-      <p class="blog-hero-subtitle" data-i18n="blog_subtitle">Inteligencia artificial para empresas que quieren crecer</p>
+      <div class="blog-hero-badge">Blog</div>
+      <h1 class="blog-hero-title">Blog</h1>
+      <p class="blog-hero-subtitle">Inteligencia artificial para empresas que quieren crecer</p>
     </div>
   </section>
 
@@ -183,48 +180,48 @@
     <div class="container">
       <div class="blog-grid">
 
-        <!-- Artículo 1 — publicado -->
+        <!-- Artículo 1 -->
         <article class="blog-card">
-          <div class="blog-card-category" data-i18n="blog_cat_health">Sector Salud</div>
+          <div class="blog-card-category">Sector Salud</div>
           <h2 class="blog-card-title">
-            <a href="ia-para-clinicas-dentales.html" data-i18n="art1_title">Cómo la IA está transformando las clínicas dentales en 2026</a>
+            <a href="ia-para-clinicas-dentales.html">Cómo la IA está transformando las clínicas dentales en 2026</a>
           </h2>
           <div class="blog-card-date">10 marzo 2026</div>
-          <p class="blog-card-desc" data-i18n="art1_desc">Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.</p>
-          <a href="ia-para-clinicas-dentales.html" class="blog-card-link" data-i18n="blog_read_more">Leer más →</a>
+          <p class="blog-card-desc">Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.</p>
+          <a href="ia-para-clinicas-dentales.html" class="blog-card-link">Leer más →</a>
         </article>
 
-        <!-- Artículo 2 — publicado -->
+        <!-- Artículo 2 -->
         <article class="blog-card">
-          <div class="blog-card-category" data-i18n="blog_cat_automation">Automatización</div>
+          <div class="blog-card-category">Automatización</div>
           <h2 class="blog-card-title">
-            <a href="ia-para-gestorias.html" data-i18n="art2_title">5 procesos que toda gestoría debería automatizar con IA en 2026</a>
+            <a href="ia-para-gestorias.html">5 procesos que toda gestoría debería automatizar con IA en 2026</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
-          <p class="blog-card-desc" data-i18n="art2_desc">Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.</p>
-          <a href="ia-para-gestorias.html" class="blog-card-link" data-i18n="blog_read_more">Leer más →</a>
+          <p class="blog-card-desc">Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.</p>
+          <a href="ia-para-gestorias.html" class="blog-card-link">Leer más →</a>
         </article>
 
-        <!-- Artículo 3 — publicado -->
+        <!-- Artículo 3 -->
         <article class="blog-card">
-          <div class="blog-card-category" data-i18n="blog_cat_productivity">Productividad</div>
+          <div class="blog-card-category">Productividad</div>
           <h2 class="blog-card-title">
-            <a href="recepcionista-3am.html" data-i18n="art3_title">Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.</a>
+            <a href="recepcionista-3am.html">Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
-          <p class="blog-card-desc" data-i18n="art3_desc">Entre el 25% y el 40% de las llamadas a una pyme se producen fuera de horario. Calcula cuánto te cuesta y cómo un agente de voz lo resuelve.</p>
-          <a href="recepcionista-3am.html" class="blog-card-link" data-i18n="blog_read_more">Leer más →</a>
+          <p class="blog-card-desc">Entre el 25% y el 40% de las llamadas a una pyme se producen fuera de horario. Calcula cuánto te cuesta y cómo un agente de voz lo resuelve.</p>
+          <a href="recepcionista-3am.html" class="blog-card-link">Leer más →</a>
         </article>
 
-        <!-- Artículo 4 — publicado -->
+        <!-- Artículo 4 -->
         <article class="blog-card">
-          <div class="blog-card-category" data-i18n="blog_cat_automation">Automatización</div>
+          <div class="blog-card-category">Automatización</div>
           <h2 class="blog-card-title">
-            <a href="6-tareas-ia.html" data-i18n="art4_title">Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos</a>
+            <a href="6-tareas-ia.html">Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
-          <p class="blog-card-desc" data-i18n="art4_desc">Emails repetitivos, copiar datos entre sistemas, informes periódicos... Calcula el coste real de estas tareas en tu empresa y qué automatiza la IA.</p>
-          <a href="6-tareas-ia.html" class="blog-card-link" data-i18n="blog_read_more">Leer más →</a>
+          <p class="blog-card-desc">Emails repetitivos, copiar datos entre sistemas, informes periódicos... Calcula el coste real de estas tareas en tu empresa y qué automatiza la IA.</p>
+          <a href="6-tareas-ia.html" class="blog-card-link">Leer más →</a>
         </article>
 
       </div>
@@ -236,7 +233,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-tagline" data-i18n="footer_tagline">Inteligencia Artificial para empresas que no se conforman.</p>
+          <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
           <div class="footer-social">
             <a href="#" class="social-link" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -250,24 +247,24 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_services">Servicios</h4>
+          <h4 class="footer-heading">Servicios</h4>
           <ul class="footer-links">
-            <li><a href="../#servicios">Agentes de Voz IA</a></li>
-            <li><a href="../#servicios">Automatización de Procesos</a></li>
-            <li><a href="../#servicios">Asistentes de Texto y Bandeja IA</a></li>
-            <li><a href="../#servicios" data-i18n="footer_webai">Sitios Web con IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Agentes de Voz IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Automatización de Procesos</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Asistentes de Texto y Bandeja IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Sitios Web con IA</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_company">Empresa</h4>
+          <h4 class="footer-heading">Empresa</h4>
           <ul class="footer-links">
-            <li><a href="../#mision" data-i18n="footer_mission">Misión & Visión</a></li>
-            <li><a href="/auditoria/" data-i18n="footer_audit">Auditoría Gratuita</a></li>
-            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+            <li><a href="{{HOME_URL}}#mision">Misión & Visión</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Auditoría Gratuita</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_contact">Contacto</h4>
+          <h4 class="footer-heading">Contacto</h4>
           <ul class="footer-links footer-contact-list">
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
@@ -275,31 +272,26 @@
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-              <span data-i18n="footer_location">Pennautier, Francia</span>
+              <span>Pennautier, Francia</span>
             </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-legal">
-          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+          &copy; <span id="year"></span> Aion Studio. <span>Todos los derechos reservados.</span>
         </p>
         <div class="footer-legal-links">
-          <a href="#" data-i18n="footer_privacy">Política de Privacidad</a>
-          <a href="#" data-i18n="footer_terms">Términos de Uso</a>
-          <a href="#" data-i18n="footer_cookies">Cookies</a>
+          <a href="/privacidad/">Política de Privacidad</a>
+          <a href="/terminos/">Términos de Uso</a>
+          <a href="/cookies/">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
   <script>
-    const savedLang = localStorage.getItem('aion_lang') ||
-      (navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === savedLang);
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

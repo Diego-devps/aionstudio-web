@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO — versión ES por defecto -->
+  <!-- SEO -->
   <title>Cómo la IA transforma las clínicas dentales en 2026 | Aion Studio</title>
   <meta name="description" content="Descubre cómo los agentes de voz IA, la automatización de citas y los recordatorios WhatsApp están reduciendo costes y aumentando ingresos en clínicas dentales." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Diego Camiña Alonso — Aion Studio" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="canonical" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
-  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
-  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
 
   <!-- Open Graph -->
   <meta property="og:title" content="Cómo la IA transforma las clínicas dentales en 2026" />
   <meta property="og:description" content="Agentes de voz, automatización de citas y recordatorios WhatsApp: así ahorran tiempo y dinero las clínicas que ya usan IA." />
-  <meta property="og:url" content="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
   <meta property="article:published_time" content="2026-03-10" />
   <meta property="article:author" content="Diego Camiña Alonso" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -46,15 +47,14 @@
       "url": "https://aionstudio.tech"
     },
     "description": "Descubre cómo los agentes de voz IA, la automatización de citas y los recordatorios WhatsApp están reduciendo costes y aumentando ingresos en clínicas dentales.",
-    "url": "https://aionstudio.tech/blog/ia-para-clinicas-dentales.html",
-    "inLanguage": ["es", "fr"]
+    "url": "{{CANONICAL_URL}}"
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
   <style>
     /* ── Article layout ── */
     .article-hero {
@@ -250,8 +250,6 @@
     .sidebar-author-role { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
 
     /* ── Lang-content toggle ── */
-    [data-lang-content] { display: none; }
-    [data-lang-content].active { display: block; }
 
     @media (max-width: 900px) {
       .article-layout {
@@ -270,25 +268,23 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="../" class="nav-logo">
+      <a href="{{HOME_URL}}" class="nav-logo">
         <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
         </svg>
         <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="../#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="../#mision" data-i18n="nav_mission">Misión</a></li>
-        <li><a href="/auditoria/" data-i18n="nav_contact">Contacto</a></li>
-        <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
+        <li><a href="{{HOME_URL}}#mision">Misión</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contacto</a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <a href="/" class="lang-btn active" hreflang="es" aria-current="page">ES</a>
-          <a href="/fr/" class="lang-btn" hreflang="fr">FR</a>
-          <a href="/en/" class="lang-btn" hreflang="en">EN</a>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/auditoria/" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
       </div>
       <button class="nav-toggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -296,52 +292,26 @@
     </div>
   </nav>
 
-  <!-- ARTICLE HERO (bilingual headers) -->
+  <!-- ARTICLE HERO -->
   <section class="article-hero">
     <div class="container">
-
-      <!-- ES header -->
-      <div data-lang-content="es" class="active">
-        <a href="index.html" class="article-back">← Volver al blog</a>
-        <div class="article-category">Sector Salud</div>
-        <h1 class="article-title">Cómo la IA está transformando las clínicas dentales en 2026</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            10 marzo 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            6 min de lectura
-          </div>
+      <a href="{{BLOG_URL}}" class="article-back">← Volver al blog</a>
+      <div class="article-category">Sector Salud</div>
+      <h1 class="article-title">Cómo la IA está transformando las clínicas dentales en 2026</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          10 marzo 2026
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          6 min de lectura
         </div>
       </div>
-
-      <!-- FR header -->
-      <div data-lang-content="fr">
-        <a href="index.html" class="article-back">← Retour au blog</a>
-        <div class="article-category">Secteur Santé</div>
-        <h1 class="article-title">Comment l'IA transforme les cliniques dentaires en 2026</h1>
-        <div class="article-meta">
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
-            10 mars 2026
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
-            Diego Camiña Alonso
-          </div>
-          <div class="article-meta-item">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-            6 min de lecture
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -352,9 +322,6 @@
 
         <!-- ── CONTENIDO PRINCIPAL ── -->
         <div class="article-content">
-
-          <!-- ===== ESPAÑOL ===== -->
-          <div data-lang-content="es" class="active">
 
             <h2 id="llamadas-perdidas">El problema de las llamadas perdidas</h2>
             <p>La industria odontológica vive un momento de cambio acelerado. Las clínicas que durante años han dependido de una recepcionista para gestionar llamadas, recordar citas y responder dudas a las 11 de la noche, descubren que la inteligencia artificial puede hacer ese trabajo — y hacerlo mejor, a menor coste y sin días libres.</p>
@@ -394,10 +361,10 @@
 
             <div class="sidebar-card" style="display:block; margin-top: 40px;">
               <div class="sidebar-author">
-                <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+                <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
                 <div>
                   <div class="sidebar-author-name">Diego Camiña Alonso</div>
-                  <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
+                  <div class="sidebar-author-role">Fundador &amp; Lead Engineer</div>
                 </div>
               </div>
             </div>
@@ -405,76 +372,14 @@
             <div class="article-cta-block">
               <h3>¿Tu clínica está perdiendo pacientes por llamadas sin respuesta?</h3>
               <p>En 30 minutos analizamos tu flujo de llamadas y te mostramos cuánto podrías recuperar con un agente de voz IA.</p>
-              <a href="../#contacto" class="btn btn-primary btn-lg">Solicitar análisis gratuito</a>
+              <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Solicitar análisis gratuito</a>
             </div>
-
-          </div>
-          <!-- ===== FIN ESPAÑOL ===== -->
-
-          <!-- ===== FRANÇAIS ===== -->
-          <div data-lang-content="fr">
-
-            <h2 id="llamadas-perdidas-fr">Le problème des appels manqués</h2>
-            <p>Le secteur dentaire vit une transformation accélérée. Les cliniques qui, pendant des années, ont dépendu d'une réceptionniste pour gérer les appels, rappeler les rendez-vous et répondre aux questions à 23 heures, découvrent que l'intelligence artificielle peut faire ce travail — et le faire mieux, à moindre coût et sans jours de congé.</p>
-            <p>Selon les données du secteur, entre <strong>30% et 40% des appels entrants dans une clinique dentaire sont perdus</strong> parce que la ligne est occupée ou que personne ne peut répondre. Chaque appel manqué représente potentiellement un nouveau patient qui part chez la concurrence.</p>
-            <p>Avec un <strong>agent vocal IA</strong>, la clinique dispose d'une réceptionniste virtuelle disponible 24h/24. L'agent répond en moins de 0,1 seconde, identifie le motif de l'appel, prend des rendez-vous en temps réel dans l'agenda du dentiste et répond aux questions fréquentes. Sans attente. Sans appels manqués.</p>
-
-            <h2 id="automatizacion-citas-fr">Automatisation des rendez-vous : du chaos au contrôle</h2>
-            <p>La gestion manuelle de l'agenda dans les cliniques de taille moyenne implique des dizaines d'appels quotidiens, des modifications de dernière minute, des créneaux vides et des annulations tardives. Une solution IA intégrée au logiciel de gestion peut :</p>
-            <ul>
-              <li>Confirmer automatiquement les rendez-vous 48 heures à l'avance par WhatsApp</li>
-              <li>Détecter les annulations et réassigner le créneau à un patient en liste d'attente</li>
-              <li>Gérer les reports sans intervention humaine</li>
-              <li>Envoyer des rappels post-visite avec des instructions de soins ou de suivi</li>
-            </ul>
-            <p>Le résultat : moins de créneaux vides, plus de patients pris en charge et un agenda qui se gère pratiquement tout seul.</p>
-
-            <h2 id="whatsapp-fr">Rappels WhatsApp : le canal que les patients préfèrent</h2>
-            <p>Les emails ont des taux d'ouverture de 20%. WhatsApp dépasse les 90%. Intégrer un système de messagerie automatique via WhatsApp Business API permet à la clinique de communiquer là où ses patients se trouvent vraiment.</p>
-            <p>Les messages de rappel <strong>réduisent le taux de non-présentation de 30% à 60%</strong>, selon différentes études du secteur santé. Dans une clinique avec 10 absences hebdomadaires à 80€ la consultation, cela représente plus de <strong>3 000€ mensuels récupérables</strong> grâce à une simple automatisation.</p>
-
-            <div class="highlight-box">
-              <p>Une clinique dentaire de 15 fauteuils et 3 dentistes peut récupérer entre 2 500€ et 5 000€ par mois simplement en automatisant les rappels et la confirmation de rendez-vous.</p>
-            </div>
-
-            <h2 id="roi-fr">Le ROI pour les cliniques : des chiffres réels</h2>
-            <p>Une implémentation basique d'IA pour clinique dentaire (agent vocal + rappels WhatsApp + automatisation de l'agenda) coûte entre 200€ et 600€ par mois selon le volume d'appels. En face :</p>
-            <ul>
-              <li><strong>Réduction des no-shows :</strong> +2 000€–4 000€/mois récupérés</li>
-              <li><strong>Nouveaux patients captés</strong> grâce à la disponibilité 24/7 : +500€–2 000€/mois</li>
-              <li><strong>Temps de réception libéré :</strong> 2 à 4 heures/jour → plus d'accueil en personne</li>
-            </ul>
-            <p>Le retour moyen dans les cliniques qui adoptent l'IA est de <strong>8x à 12x le coût de la solution</strong> dans les trois premiers mois.</p>
-
-            <h2 id="empezar-fr">Par où commencer ?</h2>
-            <p>Il n'est pas nécessaire de tout transformer d'un coup. La plupart de nos clients commencent avec un agent vocal qui répond en dehors des heures d'ouverture — la tranche horaire où le plus d'appels sont perdus — et en 30 jours, ils disposent de données pour décider d'aller plus loin.</p>
-            <p>Chez Aion Studio, nous aidons les cliniques dentaires à mettre en place ces solutions en <strong>moins de deux semaines</strong>, sans changer leur logiciel actuel ni recruter de personnel technique.</p>
-
-            <div class="sidebar-card" style="display:block; margin-top: 40px;">
-              <div class="sidebar-author">
-                <img src="../assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
-                <div>
-                  <div class="sidebar-author-name">Diego Camiña Alonso</div>
-                  <div class="sidebar-author-role">Fondateur &amp; Lead Engineer</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="article-cta-block">
-              <h3>Votre clinique perd-elle des patients à cause des appels sans réponse ?</h3>
-              <p>En 30 minutes, nous analysons votre flux d'appels et vous montrons combien vous pourriez récupérer avec un agent vocal IA.</p>
-              <a href="../#contacto" class="btn btn-primary btn-lg">Demander une analyse gratuite</a>
-            </div>
-
-          </div>
-          <!-- ===== FIN FRANÇAIS ===== -->
 
         </div><!-- /.article-content -->
 
         <!-- ── SIDEBAR ── -->
         <aside class="article-sidebar">
-          <!-- Table of contents ES -->
-          <div class="sidebar-card active" data-lang-content="es">
+          <div class="sidebar-card active">
             <h4>En este artículo</h4>
             <ul class="sidebar-toc">
               <li><a href="#llamadas-perdidas">El problema de las llamadas perdidas</a></li>
@@ -484,18 +389,6 @@
               <li><a href="#empezar">Por dónde empezar</a></li>
             </ul>
           </div>
-          <!-- Table of contents FR -->
-          <div class="sidebar-card" data-lang-content="fr">
-            <h4>Dans cet article</h4>
-            <ul class="sidebar-toc">
-              <li><a href="#llamadas-perdidas-fr">Le problème des appels manqués</a></li>
-              <li><a href="#automatizacion-citas-fr">Automatisation des rendez-vous</a></li>
-              <li><a href="#whatsapp-fr">Rappels WhatsApp</a></li>
-              <li><a href="#roi-fr">Le ROI pour les cliniques</a></li>
-              <li><a href="#empezar-fr">Par où commencer</a></li>
-            </ul>
-          </div>
-
         </aside>
 
       </div><!-- /.article-layout -->
@@ -507,7 +400,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-tagline" data-i18n="footer_tagline">Inteligencia Artificial para empresas que no se conforman.</p>
+          <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
           <div class="footer-social">
             <a href="#" class="social-link" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
@@ -521,24 +414,24 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_services">Servicios</h4>
+          <h4 class="footer-heading">Servicios</h4>
           <ul class="footer-links">
-            <li><a href="../#servicios">Agentes de Voz IA</a></li>
-            <li><a href="../#servicios">Automatización de Procesos</a></li>
-            <li><a href="../#servicios">Asistentes de Texto y Bandeja IA</a></li>
-            <li><a href="../#servicios" data-i18n="footer_webai">Sitios Web con IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Agentes de Voz IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Automatización de Procesos</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Asistentes de Texto y Bandeja IA</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Sitios Web con IA</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_company">Empresa</h4>
+          <h4 class="footer-heading">Empresa</h4>
           <ul class="footer-links">
-            <li><a href="../#mision" data-i18n="footer_mission">Misión & Visión</a></li>
-            <li><a href="/auditoria/" data-i18n="footer_audit">Auditoría Gratuita</a></li>
-            <li><a href="../blog/" data-i18n="footer_blog">Blog</a></li>
+            <li><a href="{{HOME_URL}}#mision">Misión & Visión</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Auditoría Gratuita</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4 class="footer-heading" data-i18n="footer_contact">Contacto</h4>
+          <h4 class="footer-heading">Contacto</h4>
           <ul class="footer-links footer-contact-list">
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
@@ -546,48 +439,26 @@
             </li>
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-              <span data-i18n="footer_location">Pennautier, Francia</span>
+              <span>Pennautier, Francia</span>
             </li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-legal">
-          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+          &copy; <span id="year"></span> Aion Studio. <span>Todos los derechos reservados.</span>
         </p>
         <div class="footer-legal-links">
-          <a href="#" data-i18n="footer_privacy">Política de Privacidad</a>
-          <a href="#" data-i18n="footer_terms">Términos de Uso</a>
-          <a href="#" data-i18n="footer_cookies">Cookies</a>
+          <a href="/privacidad/">Política de Privacidad</a>
+          <a href="/terminos/">Términos de Uso</a>
+          <a href="/cookies/">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
   <script>
-    (function () {
-      function showLang(lang) {
-        var target = (lang === 'en') ? 'es' : lang;
-        document.querySelectorAll('[data-lang-content]').forEach(function (el) {
-          el.classList.toggle('active', el.dataset.langContent === target);
-        });
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-      }
-      document.addEventListener('DOMContentLoaded', function () {
-        var saved = localStorage.getItem('aion_lang') ||
-          (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-        showLang(saved);
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            localStorage.setItem('aion_lang', btn.dataset.lang);
-            showLang(btn.dataset.lang);
-          });
-        });
-      });
-    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

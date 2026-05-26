@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 6 tasks your team does every week that AI can do in 3 seconds | Aion Studio</title>
+  <meta name="description" content="How much time your team actually loses on repetitive tasks. Real numbers and what AI can automate this week." />
+  <meta name="robots" content="index, follow" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta property="og:title" content="The 6 tasks your team does every week that AI can do in 3 seconds" />
+  <meta property="og:description" content="How much time your team actually loses on repetitive tasks. Real numbers and 6 automations that eliminate them." />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 6 tasks your team does every week that AI can do in 3 seconds",
+    "datePublished": "2026-03-11",
+    "dateModified": "2026-03-11",
+    "author": { "@type": "Person", "name": "Diego Camiña Alonso" },
+    "publisher": { "@type": "Organization", "name": "Aion Studio", "logo": { "@type": "ImageObject", "url": "https://aionstudio.tech/favicon.png" } },
+    "description": "How much time your team actually loses on repetitive tasks. Real numbers and what AI can automate.",
+    "image": "https://aionstudio.tech/assets/img/og-image.jpg",
+    "url": "{{CANONICAL_URL}}"
+  }
+  </script>
+  <style>
+    .article-hero { padding: 140px 0 60px; background: var(--bg-primary); border-bottom: 1px solid var(--border); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 28px; transition: color var(--transition); }
+    .article-back:hover { color: var(--cyan); }
+    .article-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .article-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+    .article-meta-item svg { width: 14px; height: 14px; color: var(--cyan); }
+    .article-section { padding: 64px 0 100px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 40px 0 14px; color: var(--text-primary); padding-left: 16px; border-left: 3px solid var(--cyan); }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .article-content strong { color: var(--text-primary); font-weight: 600; }
+    .article-content ul { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { font-size: 0.975rem; color: var(--text-secondary); padding-left: 20px; position: relative; line-height: 1.7; }
+    .article-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-size: 0.85rem; }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; display: none; }
+    .sidebar-card.active { display: block; }
+    .sidebar-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-toc { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-toc a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .sidebar-toc a:hover { color: var(--cyan); }
+    .sidebar-author { display: flex; align-items: center; gap: 12px; }
+    .sidebar-author-name { font-size: 0.9rem; font-weight: 600; }
+    .sidebar-author-role { font-size: 0.78rem; color: var(--cyan); margin-top: 2px; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--cyan); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--text-secondary); }
+    .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+    .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{HOME_URL}}#servicios">Services</a></li>
+        <li><a href="{{HOME_URL}}#mision">Mission</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Free Audit</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="article-hero">
+    <div class="container">
+      <a href="{{BLOG_URL}}" class="article-back">← Back to blog</a>
+      <div class="article-category">Automation</div>
+      <h1 class="article-title">The 6 tasks your team does every week that AI can do in 3 seconds</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          March 11, 2026
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          7 min read
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-section">
+  <div class="article-layout container">
+
+    <main class="article-content">
+
+      <h2 id="time">The time nobody counts</h2>
+      <p>There's a kind of work that doesn't show up in any productivity report, doesn't generate visible complaints, and is accepted as an unavoidable part of the day: low-value repetitive work.</p>
+      <p>Copying data from one system to another. Replying to the same email ten times with slight variations. Generating the weekly report with the exact same structure. Manually remembering which customers haven't replied yet.</p>
+      <p>Individually, each task looks small. Together, they <strong>consume between 20% and 40% of a team's productive time</strong>, per McKinsey research on work automation. In a 5-person company, that's 1–2 full-time equivalents doing work that requires no human judgment.</p>
+      <p>Here are the 6 most common ones. For each: how much time it actually eats, and what AI does instead.</p>
+
+      <h2 id="emails">1. Answering FAQ emails</h2>
+      <p><strong>Human time:</strong> 3–5 minutes per email. In a company receiving 20 inbound queries a day by email, that's 60 to 100 minutes daily on manual replies that follow the same pattern.</p>
+      <p><strong>What AI does:</strong> An agent connected to your inbox identifies the query type, looks up the answer in the company's knowledge base, and replies in under 30 seconds. Queries that require human judgment are escalated automatically with the context already summarized.</p>
+      <p><strong>Result:</strong> The team only handles exceptions. 70–80% of emails go out by themselves.</p>
+
+      <h2 id="data">2. Copying data between systems</h2>
+      <p><strong>Human time:</strong> If your CRM, billing tool, and tracking sheet aren't integrated, someone is copying data between them. 5 minutes per transfer. If it happens 15 times a day: 75 minutes daily, 6 hours a week.</p>
+      <p><strong>What AI does:</strong> An automated flow detects the event in one system (new customer added, invoice issued, form submitted) and updates the others in real time. No human in the loop.</p>
+      <p><strong>Result:</strong> Data always in sync, no transcription errors, no delays. Those 6 weekly hours disappear.</p>
+
+      <h2 id="reports">3. Generating recurring reports</h2>
+      <p><strong>Human time:</strong> The weekly sales report, the monthly customer summary, the project status for the team. Same structure every time, only the numbers change. Preparing it manually: 30–90 minutes depending on complexity.</p>
+      <p><strong>What AI does:</strong> At the scheduled time, the agent pulls data from connected sources, calculates metrics, flags significant deltas vs. the previous period, and generates the formatted report — ready to send or review.</p>
+      <p><strong>Result:</strong> The report shows up in your inbox every Monday at 8 AM without anyone preparing it.</p>
+
+      <h2 id="follow-up">4. Following up with unresponsive customers</h2>
+      <p><strong>Human time:</strong> Remembering which quotes you sent last week and which ones haven't been answered. Checking the CRM, identifying cases, drafting the personalized follow-up. 15–45 minutes a day in active service businesses.</p>
+      <p><strong>What AI does:</strong> The system automatically detects quotes without a reply after X days, generates a follow-up email with the right context (customer name, service, amount, original quote date), and sends it — or queues it for review if you'd rather see it first.</p>
+      <p><strong>Result:</strong> No opportunity goes cold for lack of follow-up. Quote-to-close conversion rises 15–30% with this single automation.</p>
+
+      <h2 id="prioritize">5. Sorting and prioritizing incoming work</h2>
+      <p><strong>Human time:</strong> Every morning, someone reviews the inbox, WhatsApp messages, and support tickets to decide what's urgent, what can wait, and who gets what. 20–40 minutes of manual triage that, if done badly, wrecks the day's productivity.</p>
+      <p><strong>What AI does:</strong> Analyzes the content of every incoming message, classifies it by type and urgency, assigns it to the right team member, and logs it in the management system — all before you open your laptop.</p>
+      <p><strong>Result:</strong> You start the day with a prioritized, assigned list — not a pile of unsorted messages.</p>
+
+      <h2 id="projects">6. Updating project statuses</h2>
+      <p><strong>Human time:</strong> In project-based teams, someone spends time updating statuses in the project manager based on emails received, calls held, or tasks completed. 15–30 minutes a day of manual updates that are always behind.</p>
+      <p><strong>What AI does:</strong> Connected to email, calendar, and work tools, it detects relevant events and updates statuses automatically. A call logged on the calendar → the project moves to "in contact". An email with "confirmed" → the task is closed.</p>
+      <p><strong>Result:</strong> The project manager reflects reality in real time, without depending on someone updating it.</p>
+
+      <h2 id="math">Run the numbers for your business</h2>
+      <p>Add up the times across these 6 tasks with your team's actual figures. In most SMBs of 3 to 15 people, the total sits between <strong>2 and 5 hours per person per day</strong>.</p>
+      <p>At a fully-loaded hourly cost of €25 (conservative for a salaried employee including overhead), 3 hours daily × 5 days × 4 weeks = <strong>€1,500 per person per month in automatable work</strong>.</p>
+      <p>Automating these 6 flows in one company costs between €300 and €800/month. The ROI is immediate and measurable.</p>
+      <p>Most importantly: the recovered hours don't vanish — they go to work that requires human judgment, creativity, or customer relationships. That's where the real value of automation sits.</p>
+
+      <h2 id="start">Where to start</h2>
+      <p>You don't need to automate everything at once. The strategy that works best is to start with the task that hurts the most — the one that generates the most frustration or eats the most visible time — and scale from there.</p>
+      <p>At Aion Studio we run a free 30-minute audit where we identify the 2–3 automations with the highest impact for your specific business, with an estimate of time recovered and implementation cost.</p>
+
+      <div class="sidebar-card" style="display:block; margin-top: 40px;">
+        <div class="sidebar-author">
+          <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+          <div>
+            <div class="sidebar-author-name">Diego Camiña Alonso</div>
+            <div class="sidebar-author-role">Founder &amp; Lead Engineer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-cta-block">
+        <h3>How many hours does your team lose every week on repetitive tasks?</h3>
+        <p>In 30 minutes we identify the 2–3 highest-impact automations for your business, with an estimate of time recovered.</p>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Identify my top automations →</a>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+
+      <div class="sidebar-card active">
+        <h4>In this article</h4>
+        <ul class="sidebar-toc">
+          <li><a href="#time">The time nobody counts</a></li>
+          <li><a href="#emails">1. FAQ emails</a></li>
+          <li><a href="#data">2. Copying data between systems</a></li>
+          <li><a href="#reports">3. Recurring reports</a></li>
+          <li><a href="#follow-up">4. Customer follow-ups</a></li>
+          <li><a href="#prioritize">5. Prioritizing incoming work</a></li>
+          <li><a href="#projects">6. Project statuses</a></li>
+          <li><a href="#math">Run the numbers</a></li>
+          <li><a href="#start">Where to start</a></li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-tagline">Artificial Intelligence for companies that don't settle for the minimum.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="{{HOME_URL}}#servicios">AI Voice Agents</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Process Automation</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Text &amp; Inbox AI Assistants</a></li>
+            <li><a href="{{HOME_URL}}#servicios">AI-Powered Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="{{HOME_URL}}#mision">Mission &amp; Vision</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Free Audit</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
+            <li><a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Aion Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacidad/">Privacy Policy</a>
+          <a href="/terminos/">Terms of Use</a>
+          <a href="/cookies/">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

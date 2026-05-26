@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Receptionist Doesn't Work at 3 AM. Your Voice Agent Does. | Aion Studio</title>
+  <meta name="description" content="Find out how many calls your business loses outside business hours and what that means in revenue. Real numbers and a concrete AI solution." />
+  <meta name="robots" content="index, follow" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  {{HREFLANG_BLOCK}}
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta property="og:title" content="Your Receptionist Doesn't Work at 3 AM. Your Voice Agent Does." />
+  <meta property="og:description" content="How many calls is your business losing outside hours, and what does it cost? Real numbers and a concrete solution." />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Your Receptionist Doesn't Work at 3 AM. Your Voice Agent Does.",
+    "datePublished": "2026-03-11",
+    "dateModified": "2026-03-11",
+    "author": {
+      "@type": "Person",
+      "name": "Diego Camiña Alonso"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aion Studio",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aionstudio.tech/favicon.png"
+      }
+    },
+    "description": "Find out how many calls your business loses outside business hours and what that means in revenue.",
+    "image": "https://aionstudio.tech/assets/img/og-image.jpg",
+    "url": "{{CANONICAL_URL}}"
+  }
+  </script>
+  <style>
+    .article-hero { padding: 140px 0 60px; background: var(--bg-primary); border-bottom: 1px solid var(--border); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 28px; transition: color var(--transition); }
+    .article-back:hover { color: var(--cyan); }
+    .article-category { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .article-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.2; max-width: 760px; margin-bottom: 20px; }
+    .article-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .article-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+    .article-meta-item svg { width: 14px; height: 14px; color: var(--cyan); }
+    .article-section { padding: 64px 0 100px; }
+    .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
+    .article-content { max-width: 720px; }
+    .article-content h2 { font-size: 1.4rem; font-weight: 800; margin: 40px 0 14px; color: var(--text-primary); padding-left: 16px; border-left: 3px solid var(--cyan); }
+    .article-content h2:first-child { margin-top: 0; }
+    .article-content p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .article-content strong { color: var(--text-primary); font-weight: 600; }
+    .article-content ul { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; }
+    .article-content ul li { font-size: 0.975rem; color: var(--text-secondary); padding-left: 20px; position: relative; line-height: 1.7; }
+    .article-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); font-size: 0.85rem; }
+    .article-cta-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; background: var(--cyan); color: #000; font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border-radius: 10px; transition: all var(--transition); }
+    .article-cta-btn:hover { background: var(--cyan-hover); box-shadow: 0 0 20px rgba(0,212,255,0.4); transform: translateY(-1px); }
+    .article-sidebar { position: sticky; top: 90px; }
+    .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px; display: none; }
+    .sidebar-card.active { display: block; }
+    .sidebar-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-toc { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-toc a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .sidebar-toc a:hover { color: var(--cyan); }
+    .sidebar-author { display: flex; align-items: center; gap: 12px; }
+    .sidebar-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,212,255,0.1); border: 1px solid var(--border-cyan); color: var(--cyan); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sidebar-author-name { font-size: 0.9rem; font-weight: 600; }
+    .sidebar-author-role { font-size: 0.78rem; color: var(--cyan); margin-top: 2px; }
+    .sidebar-cta { text-align: center; border-color: var(--border-cyan); }
+    .sidebar-cta p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; }
+    .sidebar-cta .btn-primary { width: 100%; justify-content: center; }
+    .footer-col h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--text-secondary); transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--cyan); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--text-secondary); }
+    .article-cta-block { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-cyan); border-radius: var(--radius-lg); padding: 32px; text-align: center; }
+    .article-cta-block h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    .article-cta-block p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px !important; }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo">
+        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{HOME_URL}}#servicios">Services</a></li>
+        <li><a href="{{HOME_URL}}#mision">Mission</a></li>
+        <li><a href="{{BLOG_URL}}">Blog</a></li>
+        <li><a href="{{AUDITORIA_URL}}">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Free Audit</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="article-hero">
+    <div class="container">
+      <a href="{{BLOG_URL}}" class="article-back">← Back to blog</a>
+      <div class="article-category">Productivity</div>
+      <h1 class="article-title">Your receptionist doesn't work at 3 AM. Your voice agent does.</h1>
+      <div class="article-meta">
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+          March 11, 2026
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+          Diego Camiña Alonso
+        </div>
+        <div class="article-meta-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          5 min read
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section class="article-section">
+  <div class="article-layout container">
+
+    <main class="article-content">
+
+        <h2 id="cost">The invisible cost of closed hours</h2>
+        <p>Your business closes at 7 PM. So does the phone. Your customers don't.</p>
+        <p>Most calls you miss outside business hours aren't emergencies — they're opportunities. Someone looking for a quote, asking whether you take their insurance, who just found you on Google and wants to book before they forget. By the time you call back the next morning, they've already called someone else.</p>
+        <p>The data is consistent across markets: <strong>between 25% and 40% of inbound calls to an SMB happen outside business hours</strong>. In sectors like healthcare, professional services, or repairs, that share can exceed 50% — because urgency and impulse don't respect office hours.</p>
+
+        <h2 id="math">The math nobody runs</h2>
+        <p>Let's do it. Pick any mid-sized business: a clinic, an accounting firm, a repair shop.</p>
+        <ul>
+          <li>20 inbound calls per day on average</li>
+          <li>30% outside hours = 6 missed calls daily</li>
+          <li>50% of those 6 are prospects = 3 lost opportunities a day</li>
+          <li>Average value of a new customer: €150 (conservative)</li>
+          <li>Call-to-customer conversion rate: 30%</li>
+        </ul>
+        <p>Result: <strong>3 × 0.3 × €150 = €135 lost per day. €2,700 per month. €32,400 per year.</strong></p>
+        <p>And that's before counting existing customers calling with an urgent need or to expand their service, finding no one to speak to. Or the silent damage to your brand — that caller doesn't try a second time.</p>
+
+        <h2 id="role">What does a voice AI agent actually do?</h2>
+        <p>A voice agent isn't an answering machine. It doesn't play a recorded message and hang up. It's a system that holds a real conversation, in real time, and can:</p>
+        <ul>
+          <li><strong>Answer FAQs accurately</strong>: hours, services, pricing, location, accepted insurance, general availability</li>
+          <li><strong>Capture intent</strong> and log contact details for next-day follow-up</li>
+          <li><strong>Triage urgency</strong>, distinguishing real emergencies (and escalating to an on-call line if needed) from things that can wait</li>
+          <li><strong>Transfer in real time</strong> if someone is available, or book a callback in the slot the customer chooses</li>
+        </ul>
+        <p>All of that with under a second of response time. No wait. No hold music. No "your call is important to us".</p>
+
+        <h2 id="human">What doesn't change: the human touch where it matters</h2>
+        <p>The voice agent doesn't replace your receptionist during business hours. That person brings something AI can't reproduce: contextual empathy, knowledge of regulars, ability to handle complex situations face to face.</p>
+        <p>What the agent does is <strong>free your team from low-value calls</strong> — repeat questions, hour confirmations, after-hours inquiries — so they can spend their time on what actually needs a human.</p>
+        <p>In a dental clinic with 2 receptionists handling 30 calls a day, an estimated <strong>60–70% of those calls could be fully handled by an agent</strong> without quality loss for the customer. That's 18–21 calls a day that no longer interrupt in-person work.</p>
+
+        <h2 id="price">How much it costs and when it pays for itself</h2>
+        <p>A baseline AionVoice implementation for a mid-sized business (up to 50 calls/day) costs between €200 and €400 per month, including setup, maintenance, and updates.</p>
+        <p>Using the math from before: if you recover just <strong>one</strong> of the 3 opportunities you lose each day, that's €45 of new revenue daily. €900 per month. The agent pays for itself in under two weeks.</p>
+        <p>And that's the conservative case. In businesses where customer value is higher — cosmetic dentistry, tax advisory, renovation services — a single recovered call per month already covers the annual cost of the solution.</p>
+
+        <h2 id="start">Where to start if you want to try it</h2>
+        <p>In most cases, you don't need to replace your phone system. If you have a VoIP line or an IP PBX (increasingly common), integration is direct. If you have an analog landline, adapters work without changing your number.</p>
+        <p>The standard process: analyze the current call flow → configure the agent with your business knowledge → run in parallel for 2 weeks → full activation. No operational interruption.</p>
+        <p>At Aion Studio we do that analysis for free. In 30 minutes we know how many calls you're losing, in which time slots, and what that represents in revenue. With those numbers, the decision is easy.</p>
+
+        <div class="sidebar-card" style="display:block; margin-top: 40px;">
+          <div class="sidebar-author">
+            <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-cyan);object-fit:cover;flex-shrink:0;">
+            <div>
+              <div class="sidebar-author-name">Diego Camiña Alonso</div>
+              <div class="sidebar-author-role">Founder &amp; Lead Engineer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-cta-block">
+          <h3>Is your business losing calls outside business hours?</h3>
+          <p>In 30 minutes we analyze your call flow, tell you how many are lost, and what they cost. You decide what to do with the data.</p>
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg">Analyze my call flow for free →</a>
+        </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+
+      <div class="sidebar-card active">
+        <h4>In this article</h4>
+        <ul class="sidebar-toc">
+          <li><a href="#cost">The invisible cost of closed hours</a></li>
+          <li><a href="#math">The math nobody runs</a></li>
+          <li><a href="#role">What a voice agent does</a></li>
+          <li><a href="#human">The human touch where it matters</a></li>
+          <li><a href="#price">How much it costs and when it pays off</a></li>
+          <li><a href="#start">Where to start</a></li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-tagline">Artificial Intelligence for companies that don't settle for the minimum.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="{{HOME_URL}}#servicios">AI Voice Agents</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Process Automation</a></li>
+            <li><a href="{{HOME_URL}}#servicios">Text &amp; Inbox AI Assistants</a></li>
+            <li><a href="{{HOME_URL}}#servicios">AI-Powered Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="{{HOME_URL}}#mision">Mission &amp; Vision</a></li>
+            <li><a href="{{AUDITORIA_URL}}">Free Audit</a></li>
+            <li><a href="{{BLOG_URL}}">Blog</a></li>
+            <li><a href="mailto:diego@aionstudio.tech">diego@aionstudio.tech</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Aion Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacidad/">Privacy Policy</a>
+          <a href="/terminos/">Terms of Use</a>
+          <a href="/cookies/">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

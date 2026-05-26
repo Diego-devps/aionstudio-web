@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// scripts/build.js — generador estático multilingüe (Camino B, W12+W11+W26+W7)
-// Lee src/index.html + src/translations.js → produce dist/{,fr/,en/}/index.html
+// scripts/build.js — generador estático multilingüe (Camino B, W12+W11+W26+W7 + blog trilingüe 7.4a.bis)
+// Lee src/index.html + src/auditoria.html + src/blog/[lang]/*.html + src/translations.js
+// → produce dist/{,fr/,en/}/{index.html, auditoria/index.html, blog/*.html}
 // Cero deps externas: solo módulos nativos de Node (fs, path).
 
 'use strict';
@@ -29,15 +30,38 @@ const LANG_ORDER = ['es', 'fr', 'en'];
 const LANG_LABEL = { es: 'ES', fr: 'FR', en: 'EN' };
 const LANG_PATH  = { es: '/',  fr: '/fr/', en: '/en/' };
 const AUDITORIA_PATH = { es: '/auditoria/', fr: '/fr/auditoria/', en: '/en/auditoria/' };
+const BLOG_PATH = { es: '/blog/', fr: '/fr/blog/', en: '/en/blog/' };
 
-// Páginas a generar: clave de archivo → { template, outRelPath bajo dist/[lang/], metaTitleKey opcional para SEO específico }
+// Páginas top-level a generar.
 const PAGES = [
   { name: 'home',      template: TEMPLATE_HOME,      outFile: 'index.html',            seoPrefix: '' },
   { name: 'auditoria', template: TEMPLATE_AUDITORIA, outFile: 'auditoria/index.html',  seoPrefix: 'aud_' },
 ];
 
+// Posts del blog. Cada post tiene un id estable + slug por idioma (sin .html, sin paths).
+// Cuando se añada un post nuevo, ampliar este array Y crear el archivo en cada src/blog/[lang]/[slug].html.
+// El archivo 'index' del listado se trata como caso especial (mismo slug en todos los idiomas).
+const BLOG_POSTS = [
+  {
+    id: 'clinicas-dentales',
+    slugs: { es: 'ia-para-clinicas-dentales', fr: 'ia-pour-cabinets-dentaires', en: 'ai-for-dental-clinics' },
+  },
+  {
+    id: 'gestorias',
+    slugs: { es: 'ia-para-gestorias', fr: 'ia-pour-cabinets-comptables', en: 'ai-for-accounting-firms' },
+  },
+  {
+    id: 'recepcionista',
+    slugs: { es: 'recepcionista-3am', fr: 'receptionniste-3h-du-matin', en: 'receptionist-at-3am' },
+  },
+  {
+    id: 'tareas-ia',
+    slugs: { es: '6-tareas-ia', fr: '6-taches-ia', en: '6-tasks-ai' },
+  },
+];
+
 /* ------------------------------------------------------------------
-   Helpers
+   Helpers — top-level pages
    ------------------------------------------------------------------ */
 
 // Construye el toggle ES/FR/EN. Si pageName === 'auditoria', el toggle apunta a /[lang/]auditoria/.
@@ -85,6 +109,7 @@ function applyStructuralReplacements(html, lang, page) {
     '{{OG_LOCALE_ALTERNATES}}': buildOgAlternates(loc.alternates),
     '{{HOME_URL}}': LANG_PATH[lang],
     '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
+    '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),
   };
@@ -181,9 +206,109 @@ function writePage(lang, page) {
   console.log(`[build] wrote ${path.relative(ROOT, outFull)}  (${html.length} bytes)`);
 }
 
+/* ------------------------------------------------------------------
+   Helpers — blog
+   ------------------------------------------------------------------ */
+
+// URL absoluta de una entrada (o del index) en un idioma dado.
+// postId = null → index del blog. postId = string → entrada concreta.
+function blogUrl(lang, postId) {
+  if (postId === null) return BLOG_PATH[lang];
+  const post = BLOG_POSTS.find(p => p.id === postId);
+  if (!post) throw new Error(`[build] unknown blog post id "${postId}"`);
+  return BLOG_PATH[lang] + post.slugs[lang] + '.html';
+}
+
+// Toggle ES/FR/EN para una entrada del blog: cada botón apunta a la entrada equivalente en su idioma.
+function buildBlogLangToggle(activeLang, postId) {
+  return LANG_ORDER.map(l => {
+    const isActive = l === activeLang;
+    const cls = 'lang-btn' + (isActive ? ' active' : '');
+    const aria = isActive ? ' aria-current="page"' : '';
+    return `<a href="${blogUrl(l, postId)}" class="${cls}" hreflang="${l}"${aria}>${LANG_LABEL[l]}</a>`;
+  }).join('\n          ');
+}
+
+// Bloque <link rel="alternate" hreflang> + x-default para una entrada del blog.
+function buildBlogHreflangBlock(postId) {
+  const lines = LANG_ORDER.map(l =>
+    `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${blogUrl(l, postId)}" />`
+  );
+  lines.push(`<link rel="alternate" hreflang="x-default" href="${SITE_URL}${blogUrl('es', postId)}" />`);
+  return lines.join('\n  ');
+}
+
+// Procesa un archivo HTML del blog: aplica marcadores estructurales propios del blog + comunes.
+// postId puede ser null (index) o el id del post.
+function applyBlogReplacements(html, lang, postId) {
+  const loc = LOCALES[lang];
+  const canonical = SITE_URL + blogUrl(lang, postId);
+
+  const replacements = {
+    '{{LANG}}': lang,
+    '{{CANONICAL_URL}}': canonical,
+    '{{HREFLANG_BLOCK}}': buildBlogHreflangBlock(postId),
+    '{{OG_LOCALE}}': loc.ogLocale,
+    '{{OG_LOCALE_ALTERNATES}}': buildOgAlternates(loc.alternates),
+    '{{HOME_URL}}': LANG_PATH[lang],
+    '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
+    '{{BLOG_URL}}': BLOG_PATH[lang],
+    '{{LANG_TOGGLE}}': buildBlogLangToggle(lang, postId),
+  };
+
+  for (const [marker, value] of Object.entries(replacements)) {
+    html = html.split(marker).join(value);
+  }
+
+  return html;
+}
+
+function writeBlogFile(lang, srcAbs, outRel, postId) {
+  let html = fs.readFileSync(srcAbs, 'utf8');
+  html = applyBlogReplacements(html, lang, postId);
+
+  const outFull = path.join(DIST, LOCALES[lang].path, 'blog', outRel);
+  ensureDir(path.dirname(outFull));
+  fs.writeFileSync(outFull, html, 'utf8');
+  console.log(`[build] wrote ${path.relative(ROOT, outFull)}  (${html.length} bytes)`);
+}
+
+function buildBlog() {
+  for (const lang of LANG_ORDER) {
+    const srcDir = path.join(SRC, 'blog', lang);
+    if (!fs.existsSync(srcDir)) {
+      console.log(`[build] blog: skipping ${lang} (no src/blog/${lang}/ — pendiente traducir)`);
+      continue;
+    }
+
+    // Index del blog (mismo nombre en los 3 idiomas).
+    const idxSrc = path.join(srcDir, 'index.html');
+    if (fs.existsSync(idxSrc)) {
+      writeBlogFile(lang, idxSrc, 'index.html', null);
+    } else {
+      console.warn(`[build] blog: ${lang}/index.html missing`);
+    }
+
+    // Entradas: cada una en su slug específico de idioma.
+    for (const post of BLOG_POSTS) {
+      const slug = post.slugs[lang];
+      const srcAbs = path.join(srcDir, `${slug}.html`);
+      if (!fs.existsSync(srcAbs)) {
+        console.log(`[build] blog: skipping ${lang}/${slug}.html (no existe — pendiente traducir)`);
+        continue;
+      }
+      writeBlogFile(lang, srcAbs, `${slug}.html`, post.id);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Static assets
+   ------------------------------------------------------------------ */
+
 function copyStaticAssets() {
-  // Directorios completos (recursivo).
-  const dirs = ['css', 'js', 'assets', 'blog', 'cookies', 'privacidad', 'subvenciones', 'terminos'];
+  // Directorios completos (recursivo). 'blog' eliminado — ahora se procesa desde src/blog/.
+  const dirs = ['css', 'js', 'assets', 'cookies', 'privacidad', 'subvenciones', 'terminos'];
   for (const d of dirs) {
     const src = path.join(ROOT, d);
     if (!fs.existsSync(src)) continue;
@@ -221,6 +346,7 @@ function main() {
   for (const lang of LANG_ORDER) {
     for (const page of PAGES) writePage(lang, page);
   }
+  buildBlog();
   console.log(`[build] done in ${Date.now() - t0}ms`);
 }
 
