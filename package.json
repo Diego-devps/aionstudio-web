@@ -1,0 +1,13 @@
+{
+  "name": "aionstudio-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aion Studio — sitio web corporativo (HTML/CSS/JS vanilla con build script Node para multilingüe nativo)",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && npx --yes serve dist -p 3000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
