@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body class="page-auditoria">
@@ -39,11 +39,9 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="{{HOME_URL}}" class="nav-logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark">A</span>
+        <span class="logo-text">aionstudio<span class="logo-mono">/</span></span>
       </a>
       <ul class="nav-links">
         <li><a href="{{HOME_URL}}#servicios" data-i18n="nav_services"></a></li>
@@ -54,7 +52,11 @@
         <div class="lang-selector">
           {{LANG_TOGGLE}}
         </div>
-        <a href="{{HOME_URL}}" class="btn btn-outline" data-i18n="aud_back_home"></a>
+        <a href="{{HOME_URL}}" class="btn btn-outline btn-sm" data-i18n="aud_back_home">
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </span>
+        </a>
       </div>
       <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
         <span></span><span></span><span></span>
@@ -65,9 +67,16 @@
   <!-- HEADER -->
   <section class="aud-header">
     <div class="container">
-      <div class="aud-badge" data-i18n="aud_badge"></div>
-      <h1 class="aud-title" data-i18n="aud_title"></h1>
-      <p class="aud-subtitle" data-i18n="aud_subtitle"></p>
+      <div class="aud-header-inner">
+        <div>
+          <div class="aud-badge" data-i18n="nx_aud_eyebrow"></div>
+          <h1 class="aud-title">
+            <span data-i18n="nx_aud_title_lead"></span>
+            <em class="italic" data-i18n="nx_aud_title_italic"></em>
+          </h1>
+        </div>
+        <p class="aud-subtitle" data-i18n="aud_subtitle"></p>
+      </div>
     </div>
   </section>
 
@@ -84,10 +93,8 @@
             data-i18n-submitting="aud_submitting">
 
         <input type="hidden" name="lang" value="{{LANG}}" />
-        <!-- Honeypot anti-spam: campo oculto que sólo los bots rellenan -->
         <input type="text" name="website" tabindex="-1" autocomplete="off" class="aud-honeypot" aria-hidden="true" />
 
-        <!-- Q1: Datos básicos -->
         <fieldset class="aud-block">
           <legend class="aud-block-title" data-i18n="aud_q1_title"></legend>
           <div class="form-row">
@@ -106,7 +113,6 @@
           </div>
         </fieldset>
 
-        <!-- Q2: Contacto -->
         <fieldset class="aud-block">
           <legend class="aud-block-title" data-i18n="aud_q2_title"></legend>
           <div class="form-row">
@@ -121,7 +127,6 @@
           </div>
         </fieldset>
 
-        <!-- Q3: Sector -->
         <fieldset class="aud-block">
           <div class="form-group">
             <label for="q3_sector"><span data-i18n="aud_q3_label"></span> <span class="form-required">*</span></label>
@@ -142,7 +147,6 @@
           </div>
         </fieldset>
 
-        <!-- Q4: Empleados -->
         <fieldset class="aud-block">
           <legend class="aud-block-title"><span data-i18n="aud_q4_label"></span> <span class="form-required">*</span></legend>
           <div class="aud-radio-grid">
@@ -154,7 +158,6 @@
           </div>
         </fieldset>
 
-        <!-- Q5: Facturación -->
         <fieldset class="aud-block">
           <legend class="aud-block-title"><span data-i18n="aud_q5_label"></span> <span class="form-required">*</span></legend>
           <div class="aud-radio-grid">
@@ -167,7 +170,6 @@
           </div>
         </fieldset>
 
-        <!-- Q6: Decisor -->
         <fieldset class="aud-block">
           <legend class="aud-block-title"><span data-i18n="aud_q6_label"></span> <span class="form-required">*</span></legend>
           <div class="aud-radio-grid">
@@ -178,7 +180,6 @@
           </div>
         </fieldset>
 
-        <!-- Q7: Dolor -->
         <fieldset class="aud-block">
           <div class="form-group">
             <label for="q7_dolor"><span data-i18n="aud_q7_label"></span> <span class="form-required">*</span></label>
@@ -187,7 +188,6 @@
           </div>
         </fieldset>
 
-        <!-- Q8: Otros procesos (opcional) -->
         <fieldset class="aud-block">
           <div class="form-group">
             <label for="q8_otros"><span data-i18n="aud_q8_label"></span></label>
@@ -196,7 +196,6 @@
           </div>
         </fieldset>
 
-        <!-- Q9: Stack -->
         <fieldset class="aud-block">
           <div class="form-group">
             <label for="q9_stack"><span data-i18n="aud_q9_label"></span> <span class="form-required">*</span></label>
@@ -205,7 +204,6 @@
           </div>
         </fieldset>
 
-        <!-- Q10: Urgencia -->
         <fieldset class="aud-block">
           <legend class="aud-block-title"><span data-i18n="aud_q10_label"></span> <span class="form-required">*</span></legend>
           <div class="aud-radio-grid">
@@ -217,7 +215,11 @@
         </fieldset>
 
         <div class="aud-submit-wrap">
-          <button type="submit" class="btn btn-primary btn-lg btn-full" data-i18n="aud_submit"></button>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:space-between;" data-i18n="aud_submit">
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </button>
           <p class="aud-legal-note" data-i18n="aud_legal_note"></p>
           <div id="aud-feedback" class="aud-feedback" aria-live="polite"></div>
         </div>
@@ -240,7 +242,7 @@
   <footer class="footer footer-minimal">
     <div class="container">
       <div class="footer-bottom">
-        <p class="footer-copy">© <span id="year"></span> Aion Studio. <span data-i18n="footer_rights"></span></p>
+        <p class="footer-copy">© <span id="year"></span> Aion Studio · <span data-i18n="footer_rights"></span></p>
         <div class="footer-legal-links">
           <a href="/privacidad/" data-i18n="footer_privacy"></a>
           <a href="/terminos/" data-i18n="footer_terms"></a>
