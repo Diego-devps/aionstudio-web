@@ -55,4 +55,149 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria/" />
   </url>
+
+  <!-- Blog index (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/blog/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/blog/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/blog/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/" />
+  </url>
+
+  <!-- Blog post: clínicas dentales (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/blog/ia-para-clinicas-dentales.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-dentaires.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-dental-clinics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/blog/ia-pour-cabinets-dentaires.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-dentaires.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-dental-clinics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/blog/ai-for-dental-clinics.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-dentaires.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-dental-clinics.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-clinicas-dentales.html" />
+  </url>
+
+  <!-- Blog post: gestorías (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/blog/ia-para-gestorias.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-comptables.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-accounting-firms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/blog/ia-pour-cabinets-comptables.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-comptables.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-accounting-firms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/blog/ai-for-accounting-firms.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/ia-pour-cabinets-comptables.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/ai-for-accounting-firms.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/ia-para-gestorias.html" />
+  </url>
+
+  <!-- Blog post: recepcionista 3am (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/blog/recepcionista-3am.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/receptionniste-3h-du-matin.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/receptionist-at-3am.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/blog/receptionniste-3h-du-matin.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/receptionniste-3h-du-matin.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/receptionist-at-3am.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/blog/receptionist-at-3am.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/receptionniste-3h-du-matin.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/receptionist-at-3am.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/recepcionista-3am.html" />
+  </url>
+
+  <!-- Blog post: 6 tareas IA (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/blog/6-tareas-ia.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/6-taches-ia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/6-tasks-ai.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/blog/6-taches-ia.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/6-taches-ia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/6-tasks-ai.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/blog/6-tasks-ai.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/blog/6-taches-ia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/blog/6-tasks-ai.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/blog/6-tareas-ia.html" />
+  </url>
 </urlset>
