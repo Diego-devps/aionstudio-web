@@ -884,6 +884,11 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
 }
 
+/* El atributo HTML [hidden] debe ganar siempre. .form-group y .aud-block
+   declaran display:flex, que por specificity sobreescribiría hidden si no
+   forzamos la regla global. */
+[hidden] { display: none !important; }
+
 .aud-block {
   border: 0;
   padding: 0;
