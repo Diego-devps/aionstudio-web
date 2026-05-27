@@ -36,7 +36,7 @@
 
   /* Typography stacks */
   --sans:   'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --serif:  'Fraunces', 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
   --mono:   'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Geometry */
@@ -131,15 +131,14 @@ button { font-family: inherit; }
    TYPOGRAPHY PRIMITIVES
    ============================================================ */
 
-/* Italic display — Fraunces sustituye el peso del título */
+/* Italic display — Playfair Display (sin quirks OpenType de Fraunces) */
 .italic,
 em.serif,
 .serif-italic {
   font-family: var(--serif);
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.005em;
-  font-feature-settings: "ss01";
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 /* Eyebrow / kicker */
@@ -213,12 +212,13 @@ em.serif,
   --btn-border: transparent;
   --btn-icon-bg:  #FFFFFF;
   --btn-icon-ink: var(--ink);
+  --btn-icon-size: 32px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 8px 8px 8px 44px;
+  gap: 12px;
+  padding: 8px;
   background: var(--btn-bg);
   color: var(--btn-ink);
   border: 1.5px solid var(--btn-border);
@@ -232,6 +232,12 @@ em.serif,
   transition: background var(--t-med), color var(--t-med), border-color var(--t-med), transform var(--t-fast);
   white-space: nowrap;
   text-decoration: none;
+}
+/* Spacer invisible que iguala el ancho del icon — centra el texto matemáticamente */
+.btn::before {
+  content: '';
+  width: var(--btn-icon-size);
+  flex-shrink: 0;
 }
 
 .btn:hover { transform: translateY(-1px); }
@@ -284,7 +290,8 @@ em.serif,
 .btn-outline-on-dark:hover { --btn-border: var(--ink-on-dark); }
 
 .btn-sm {
-  padding: 6px 6px 6px 32px;
+  --btn-icon-size: 26px;
+  padding: 6px;
   font-size: 13px;
   gap: 10px;
 }
@@ -292,9 +299,10 @@ em.serif,
 .btn-sm .btn-icon svg { width: 11px; height: 11px; }
 
 .btn-lg {
-  padding: 10px 10px 10px 52px;
+  --btn-icon-size: 38px;
+  padding: 10px;
   font-size: 16px;
-  gap: 16px;
+  gap: 14px;
 }
 .btn-lg .btn-icon { width: 38px; height: 38px; }
 .btn-lg .btn-icon svg { width: 15px; height: 15px; }
@@ -529,9 +537,9 @@ em.serif,
 .hero-title {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: clamp(56px, 9.2vw, 168px);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
+  font-size: clamp(48px, 7vw, 120px);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
   color: var(--ink);
   max-width: 18ch;
 }
