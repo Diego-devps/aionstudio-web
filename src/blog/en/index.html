@@ -37,18 +37,18 @@
     .blog-hero-subtitle { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55; color: var(--ink-soft); max-width: 42ch; }
     .blog-section { padding: 80px 0 140px; background: var(--bg-base); }
     .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .blog-card { background: var(--bg-elevated); border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: 36px 32px 32px; display: flex; flex-direction: column; gap: 16px; transition: border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med); position: relative; }
-    .blog-card:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .blog-card { background: var(--bg-dark); color: var(--ink-on-dark); border: 1px solid var(--rule-dark); border-radius: var(--radius-lg); padding: 36px 32px 32px; display: flex; flex-direction: column; gap: 16px; transition: border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med); position: relative; }
+    .blog-card:hover { border-color: var(--rule-dark-strong); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
     .blog-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-    .blog-card-category { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); }
-    .blog-card-arrow { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule-strong); display: inline-flex; align-items: center; justify-content: center; color: var(--ink); transition: background var(--t-med), color var(--t-med), transform var(--t-med); flex-shrink: 0; }
+    .blog-card-category { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-on-dark-muted); }
+    .blog-card-arrow { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule-dark-strong); display: inline-flex; align-items: center; justify-content: center; color: var(--ink-on-dark); transition: background var(--t-med), color var(--t-med), transform var(--t-med); flex-shrink: 0; }
     .blog-card-arrow svg { width: 13px; height: 13px; }
-    .blog-card:hover .blog-card-arrow { background: var(--ink); color: var(--bg-base); transform: rotate(-45deg); }
+    .blog-card:hover .blog-card-arrow { background: var(--accent-tint); border-color: var(--accent-tint); color: #FFFFFF; transform: rotate(-45deg); }
     .blog-card-title { font-family: var(--sans); font-size: clamp(22px, 2vw, 28px); font-weight: 600; line-height: 1.12; letter-spacing: -0.025em; }
-    .blog-card-title a { color: var(--ink); transition: color var(--t-fast); }
-    .blog-card-date { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
-    .blog-card-desc { font-size: 15px; color: var(--ink-soft); line-height: 1.6; flex: 1; }
-    .blog-card-link { font-size: 14px; font-weight: 500; color: var(--ink); display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding-top: 12px; border-top: 1px solid var(--rule); width: 100%; transition: gap var(--t-med); }
+    .blog-card-title a { color: var(--ink-on-dark); transition: color var(--t-fast); }
+    .blog-card-date { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-on-dark-muted); }
+    .blog-card-desc { font-size: 15px; color: var(--ink-on-dark-soft); line-height: 1.6; flex: 1; }
+    .blog-card-link { font-size: 14px; font-weight: 500; color: var(--ink-on-dark); display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding-top: 12px; border-top: 1px solid var(--rule-dark); width: 100%; transition: gap var(--t-med); }
     .blog-card-link:hover { gap: 10px; }
     @media (max-width: 900px) { .blog-hero-inner { grid-template-columns: 1fr; gap: 32px; } .blog-grid { grid-template-columns: 1fr; } .blog-hero { padding: 140px 0 56px; } }
   </style>
@@ -58,7 +58,7 @@
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
       <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
-        <span class="logo-mark">AS</span>
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
         <span class="logo-text">AionStudio</span>
       </a>
       <ul class="nav-links">
@@ -69,7 +69,7 @@
       </ul>
       <div class="nav-right">
         <div class="lang-selector">{{LANG_TOGGLE}}</div>
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-sm">Free Audit
+        <a href="{{AUDITORIA_URL}}" class="btn btn-accent"><span class="btn-label">Free Audit</span>
           <span class="btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
           </span>
@@ -157,7 +157,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="{{HOME_URL}}" class="nav-logo">
-            <span class="logo-mark">AS</span>
+            <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
             <span class="logo-text">AionStudio</span>
           </a>
           <p class="footer-tagline">Artificial Intelligence for companies that refuse to settle.</p>
