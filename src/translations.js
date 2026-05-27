@@ -236,6 +236,24 @@ module.exports = {
     nx_aud_title_lead: 'Auditoría',
     nx_aud_title_italic: 'Express.',
     nx_aud_eyebrow: 'Diagnóstico · Gratuita · 30 min',
+
+    // --- W15.1 — Why us, M&V, servicios extra, proceso branch ---
+    nx_why_eyebrow: '¿Por qué nosotros?',
+    nx_why_title_lead: 'Cuatro razones,',
+    nx_why_title_italic: 'cero rodeos.',
+    nx_why_sub: 'Compromisos verificables, no claims de marketing. Lo que ves aquí es lo que firmamos en el contrato.',
+    nx_mv_eyebrow: 'Esencia Aion',
+    nx_mv_title_lead: 'Por qué',
+    nx_mv_title_italic: 'existimos.',
+    nx_s5_tag: 'Estrategia',
+    nx_s5_title: 'Consultoría & Estrategia IA',
+    nx_s5_desc: 'Auditamos tus procesos, identificamos dónde la IA aporta valor real y trazamos un roadmap priorizado por impacto y complejidad.',
+    nx_s5_f1: 'Diagnóstico', nx_s5_f2: 'Roadmap', nx_s5_f3: 'Viabilidad',
+    nx_s6_tag: 'Captación',
+    nx_s6_title: 'Captación & Funnels IA',
+    nx_s6_desc: 'Diseñamos embudos automatizados con IA que captan, califican y maduran leads hasta convertirlos — sin intervención manual.',
+    nx_s6_f1: 'Funnels', nx_s6_f2: 'Cualificación', nx_s6_f3: 'Nurture',
+    nx_paso1_branch: 'Tras la Express puedes pasar directo a Implementación si la solución está clara, o profundizar con la Auditoría Profunda.',
   },
 
   fr: {
@@ -460,6 +478,24 @@ module.exports = {
     nx_aud_title_lead: 'Audit',
     nx_aud_title_italic: 'Express.',
     nx_aud_eyebrow: 'Diagnostic · Gratuit · 30 min',
+
+    // --- W15.1 ---
+    nx_why_eyebrow: 'Pourquoi nous?',
+    nx_why_title_lead: 'Quatre raisons,',
+    nx_why_title_italic: 'sans détour.',
+    nx_why_sub: 'Des engagements vérifiables, pas des slogans marketing. Ce que vous voyez ici, c\'est ce que nous signons dans le contrat.',
+    nx_mv_eyebrow: 'Essence Aion',
+    nx_mv_title_lead: 'Pourquoi',
+    nx_mv_title_italic: 'nous existons.',
+    nx_s5_tag: 'Stratégie',
+    nx_s5_title: 'Conseil & Stratégie IA',
+    nx_s5_desc: 'Nous auditons vos processus, identifions où l\'IA apporte une vraie valeur et traçons une feuille de route priorisée par impact et complexité.',
+    nx_s5_f1: 'Diagnostic', nx_s5_f2: 'Roadmap', nx_s5_f3: 'Viabilité',
+    nx_s6_tag: 'Acquisition',
+    nx_s6_title: 'Acquisition & Funnels IA',
+    nx_s6_desc: 'Nous concevons des entonnoirs automatisés avec IA qui captent, qualifient et nourrissent les leads jusqu\'à la conversion — sans intervention manuelle.',
+    nx_s6_f1: 'Funnels', nx_s6_f2: 'Qualification', nx_s6_f3: 'Nurture',
+    nx_paso1_branch: 'Après l\'Express, vous pouvez passer directement à l\'Implémentation si la solution est claire, ou approfondir avec l\'Audit Profond.',
   },
 
   en: {
@@ -684,5 +720,23 @@ module.exports = {
     nx_aud_title_lead: 'Express',
     nx_aud_title_italic: 'Audit.',
     nx_aud_eyebrow: 'Diagnostic · Free · 30 min',
+
+    // --- W15.1 ---
+    nx_why_eyebrow: 'Why us?',
+    nx_why_title_lead: 'Four reasons,',
+    nx_why_title_italic: 'no fluff.',
+    nx_why_sub: 'Verifiable commitments, not marketing claims. What you see here is what we sign in the contract.',
+    nx_mv_eyebrow: 'Aion Essence',
+    nx_mv_title_lead: 'Why we',
+    nx_mv_title_italic: 'exist.',
+    nx_s5_tag: 'Strategy',
+    nx_s5_title: 'AI Consulting & Strategy',
+    nx_s5_desc: 'We audit your processes, identify where AI delivers real value and map out a roadmap prioritized by impact and complexity.',
+    nx_s5_f1: 'Diagnosis', nx_s5_f2: 'Roadmap', nx_s5_f3: 'Feasibility',
+    nx_s6_tag: 'Acquisition',
+    nx_s6_title: 'AI Funnels & Lead Capture',
+    nx_s6_desc: 'We design automated funnels with AI that capture, qualify and nurture leads through to conversion — without manual intervention.',
+    nx_s6_f1: 'Funnels', nx_s6_f2: 'Qualification', nx_s6_f3: 'Nurture',
+    nx_paso1_branch: 'After Express, you can jump straight to Implementation if the solution is clear, or go deeper with the Deep Audit.',
   },
 };
