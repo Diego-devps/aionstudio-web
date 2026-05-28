@@ -218,13 +218,16 @@ em.serif,
   --btn-icon-bg:  #FFFFFF;
   --btn-icon-ink: var(--ink);
   --btn-icon-size: 32px;
-  --btn-icon-edge: 8px;
+  --btn-side-gap: 12px;
 
-  position: relative;
-  display: inline-flex;
+  /* Grid de 3 columnas: [spacer][texto][icon].
+     spacer (col 1) e icon-col (col 3) tienen el MISMO ancho, así el texto
+     (col 2) queda perfectamente centrado entre ambos — con o sin icon. */
+  display: inline-grid;
+  grid-template-columns: var(--btn-icon-size) auto var(--btn-icon-size);
   align-items: center;
-  justify-content: center;
-  padding: 10px 50px;
+  gap: var(--btn-side-gap);
+  padding: 9px 16px;
   background: var(--btn-bg);
   color: var(--btn-ink);
   border: 1.5px solid var(--btn-border);
@@ -240,13 +243,15 @@ em.serif,
   text-decoration: none;
   text-align: center;
 }
-/* Icon-circle en position absolute — NO participa del flujo, el texto
-   queda centrado por padding simétrico + justify-content center. */
+/* Spacer izquierdo (col 1) — invisible, iguala el ancho del icon (col 3) */
+.btn::before {
+  content: '';
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+}
+.btn-label { text-align: center; white-space: nowrap; }
+/* Icon-circle en col 3 (flujo grid) */
 .btn .btn-icon {
-  position: absolute;
-  right: var(--btn-icon-edge);
-  top: 50%;
-  transform: translateY(-50%);
   width: var(--btn-icon-size);
   height: var(--btn-icon-size);
   border-radius: 50%;
@@ -257,10 +262,8 @@ em.serif,
   justify-content: center;
   transition: transform var(--t-med);
 }
-.btn:hover .btn-icon { transform: translateY(-50%) rotate(-45deg); }
+.btn:hover .btn-icon { transform: rotate(-45deg); }
 .btn .btn-icon svg { width: 14px; height: 14px; }
-/* Botón sin icon: padding simétrico estándar (no necesita hueco para icon) */
-.btn:not(:has(.btn-icon)) { padding-left: 28px; padding-right: 28px; }
 
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
@@ -310,20 +313,18 @@ em.serif,
 
 .btn-sm {
   --btn-icon-size: 26px;
-  --btn-icon-edge: 6px;
-  padding: 6px 42px;
+  --btn-side-gap: 9px;
+  padding: 5px 14px;
   font-size: 13px;
 }
-.btn-sm:not(:has(.btn-icon)) { padding-left: 22px; padding-right: 22px; }
 .btn-sm .btn-icon svg { width: 11px; height: 11px; }
 
 .btn-lg {
   --btn-icon-size: 38px;
-  --btn-icon-edge: 10px;
-  padding: 12px 60px;
+  --btn-side-gap: 14px;
+  padding: 11px 22px;
   font-size: 16px;
 }
-.btn-lg:not(:has(.btn-icon)) { padding-left: 32px; padding-right: 32px; }
 .btn-lg .btn-icon svg { width: 15px; height: 15px; }
 
 /* Simple text link (arrow) */
