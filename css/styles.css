@@ -1745,46 +1745,53 @@ section.s-block.dark .servicio-link { color: var(--ink-on-dark); }
 }
 
 /* ============================================================
-   BLOG POST INTERIOR — shell dark con artículo dentro
+   BLOG POST INTERIOR — el cuerpo del artículo va en card oscura
+   (recuadro negro, bordes redondeados, letra blanca). El hero y el
+   sidebar quedan claros → contraste editorial.
    ============================================================ */
-body.blog-post {
-  background: var(--bg-base);
-}
-body.blog-post main,
-body.blog-post .blog-article-wrap {
-  padding: 130px 24px 64px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-body.blog-post .blog-article-shell {
+body.blog-post .article-content {
+  max-width: none;
   background: var(--bg-dark);
   color: var(--ink-on-dark);
   border-radius: var(--radius-lg);
-  padding: clamp(40px, 6vw, 88px);
+  padding: clamp(32px, 4vw, 60px);
   box-shadow: var(--shadow-lg);
 }
-body.blog-post .blog-article-shell a {
+body.blog-post .article-content h2 {
+  color: var(--ink-on-dark);
+  border-left-color: var(--accent-tint);
+}
+body.blog-post .article-content h3 { color: var(--ink-on-dark); }
+body.blog-post .article-content p { color: var(--ink-on-dark-soft); }
+body.blog-post .article-content strong { color: var(--ink-on-dark); }
+body.blog-post .article-content ul li { color: var(--ink-on-dark-soft); }
+body.blog-post .article-content ul li::before { color: var(--accent-tint); }
+body.blog-post .article-content a:not(.btn) {
   color: var(--ink-on-dark);
   border-bottom: 1px solid var(--rule-dark-strong);
   transition: border-color var(--t-med);
 }
-body.blog-post .blog-article-shell a:hover { border-color: var(--ink-on-dark); }
-body.blog-post .blog-article-shell h1,
-body.blog-post .blog-article-shell h2,
-body.blog-post .blog-article-shell h3,
-body.blog-post .blog-article-shell h4 {
-  color: var(--ink-on-dark);
+body.blog-post .article-content a:not(.btn):hover { border-color: var(--ink-on-dark); }
+
+/* Author card + CTA block dentro del cuerpo oscuro → un escalón más claro */
+body.blog-post .article-content .sidebar-card {
+  background: var(--bg-dark-elev);
+  border-color: var(--rule-dark);
 }
-body.blog-post .blog-article-shell p,
-body.blog-post .blog-article-shell li {
-  color: var(--ink-on-dark-soft);
+body.blog-post .article-content .sidebar-author-name { color: var(--ink-on-dark); }
+body.blog-post .article-content .sidebar-author-role { color: var(--ink-on-dark-muted); }
+body.blog-post .article-content .article-cta-block {
+  background: var(--bg-dark-elev);
+  border-color: var(--rule-dark-strong);
 }
-body.blog-post .blog-article-shell strong { color: var(--ink-on-dark); }
-body.blog-post .blog-article-shell code,
-body.blog-post .blog-article-shell pre {
-  background: rgba(255,255,255,0.06);
-  color: var(--ink-on-dark);
-  border: 1px solid var(--rule-dark);
+body.blog-post .article-content .article-cta-block h3 { color: var(--ink-on-dark); }
+body.blog-post .article-content .article-cta-block p { color: var(--ink-on-dark-soft); }
+/* Botón del CTA sobre fondo oscuro → blanco con icon negro */
+body.blog-post .article-content .article-cta-block .btn {
+  --btn-bg: #FFFFFF;
+  --btn-ink: var(--ink);
+  --btn-icon-bg: var(--ink);
+  --btn-icon-ink: #FFFFFF;
 }
 
 /* ============================================================
