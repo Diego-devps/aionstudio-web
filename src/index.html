@@ -73,24 +73,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV — pill flotante -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="{{HOME_URL}}" class="nav-logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+        <span class="logo-text">AionStudio</span>
       </a>
       <ul class="nav-links">
         <li><a href="#servicios" data-i18n="nav_services"></a></li>
         <li><a href="#mision" data-i18n="nav_mission"></a></li>
-        <!-- <li><a href="/subvenciones" data-i18n="nav_grants"></a></li> -->
         <li><a href="{{BLOG_URL}}" data-i18n="nav_blog"></a></li>
         <li><a href="{{AUDITORIA_URL}}" data-i18n="nav_contact"></a></li>
       </ul>
@@ -98,7 +95,11 @@
         <div class="lang-selector">
           {{LANG_TOGGLE}}
         </div>
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary" data-i18n="nav_cta"></a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-accent"><span class="btn-label" data-i18n="nav_cta"></span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
       </div>
       <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
         <span></span><span></span><span></span>
@@ -109,23 +110,49 @@
   <!-- HERO -->
   <section id="hero" class="hero">
     <canvas id="hero-canvas"></canvas>
-    <div class="hero-content container">
-      <div class="hero-badge" data-i18n="hero_badge"></div>
-      <h1 class="hero-title" data-i18n="hero_title"></h1>
-      <p class="hero-subtitle" data-i18n="hero_subtitle"></p>
-      <div class="hero-ctas">
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg" data-i18n="hero_cta1"></a>
-        <a href="#servicios" class="btn btn-outline btn-lg" data-i18n="hero_cta2"></a>
+    <div class="hero-watermark" aria-hidden="true">
+      <div class="hero-watermark-track">
+        <span>AionStudio&nbsp;</span>
+        <span>AionStudio&nbsp;</span>
+        <span>AionStudio&nbsp;</span>
       </div>
     </div>
-    <div class="hero-scroll-indicator">
-      <span></span>
+    <div class="hero-content container">
+      <h1 class="hero-title">
+        <span data-i18n="nx_hero_lead"></span>
+        <em class="italic" data-i18n="nx_hero_italic"></em>
+      </h1>
+      <div class="hero-meta">
+        <p class="hero-subtitle" data-i18n="hero_subtitle"></p>
+        <div class="hero-ctas">
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg"><span class="btn-label" data-i18n="hero_cta1"></span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a href="#servicios" class="btn btn-outline btn-lg"><span class="btn-label" data-i18n="hero_cta2"></span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PROPUESTA DE VALOR (W23) -->
-  <section id="metricas" class="metricas">
+  <!-- ¿POR QUÉ NOSOTROS? -->
+  <section id="por-que" class="metricas">
     <div class="container">
+      <div class="metricas-head">
+        <div>
+          <div class="eyebrow" data-i18n="nx_why_eyebrow"></div>
+          <h2 class="display-3" style="margin-top: 18px;">
+            <span data-i18n="nx_why_title_lead"></span>
+            <em class="italic" data-i18n="nx_why_title_italic"></em>
+          </h2>
+        </div>
+        <p class="lead" style="max-width: 36ch;" data-i18n="nx_why_sub"></p>
+      </div>
       <div class="metricas-grid">
         <div class="metrica-card">
           <div class="value-prop-title" data-i18n="value_prop_1"></div>
@@ -147,25 +174,48 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="servicios">
+  <!-- MARQUEE — entre Por qué nosotros y Servicios -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item" data-i18n="nx_mq1"></span>
+      <span class="marquee-item" data-i18n="nx_mq2"></span>
+      <span class="marquee-item" data-i18n="nx_mq3"></span>
+      <span class="marquee-item" data-i18n="nx_mq4"></span>
+      <span class="marquee-item" data-i18n="nx_mq5"></span>
+      <span class="marquee-item" data-i18n="nx_mq6"></span>
+      <span class="marquee-item" data-i18n="nx_mq1"></span>
+      <span class="marquee-item" data-i18n="nx_mq2"></span>
+      <span class="marquee-item" data-i18n="nx_mq3"></span>
+      <span class="marquee-item" data-i18n="nx_mq4"></span>
+      <span class="marquee-item" data-i18n="nx_mq5"></span>
+      <span class="marquee-item" data-i18n="nx_mq6"></span>
+    </div>
+  </div>
+
+  <!-- SERVICIOS — dark con cards numeradas (6 servicios) -->
+  <section id="servicios" class="s-block dark">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="services_title"></h2>
-        <p class="section-subtitle" data-i18n="services_subtitle"></p>
+      <div class="section-head">
+        <div class="section-head-left">
+          <div class="eyebrow on-dark" data-i18n="nx_services_eyebrow"></div>
+          <h2 class="display-2">
+            <span data-i18n="nx_services_title_lead"></span>
+            <em class="italic" data-i18n="nx_services_title_italic"></em>
+          </h2>
+        </div>
+        <div class="section-head-right">
+          <p class="lead" data-i18n="nx_services_sub"></p>
+        </div>
       </div>
+
       <div class="servicios-grid">
 
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8v2H16v-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <rect x="14" y="22" width="20" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
-              <circle cx="21" cy="28" r="1.5" fill="currentColor"/>
-              <circle cx="27" cy="28" r="1.5" fill="currentColor"/>
-              <path d="M21 31c0.8 0.8 2.4 1.2 3 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">01</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
           </div>
           <div class="servicio-tag" data-i18n="s1_tag"></div>
           <h3 class="servicio-title" data-i18n="s1_title"></h3>
@@ -175,18 +225,14 @@
             <li data-i18n="s1_f2"></li>
             <li data-i18n="s1_f3"></li>
           </ul>
-          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="28" y="10" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="18" y="28" width="12" height="10" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M14 20v4h20v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M24 24v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">02</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
           </div>
           <div class="servicio-tag" data-i18n="s2_tag"></div>
           <h3 class="servicio-title" data-i18n="s2_title"></h3>
@@ -196,17 +242,14 @@
             <li data-i18n="s2_f2"></li>
             <li data-i18n="s2_f3"></li>
           </ul>
-          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 12h32v24H8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M8 12l16 14L40 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <circle cx="36" cy="36" r="8" fill="#0a0a14" stroke="currentColor" stroke-width="2"/>
-              <path d="M33 36l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">03</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
           </div>
           <div class="servicio-tag" data-i18n="s3_tag"></div>
           <h3 class="servicio-title" data-i18n="s3_title"></h3>
@@ -216,18 +259,14 @@
             <li data-i18n="s3_f2"></li>
             <li data-i18n="s3_f3"></li>
           </ul>
-          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
         </div>
 
-        <div class="servicio-card">
-          <div class="servicio-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="8" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 40h16M24 32v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M16 18h4M16 23h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="34" cy="20" r="4" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M32.5 20l1 1 2-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">04</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
           </div>
           <div class="servicio-tag" data-i18n="s4_tag"></div>
           <h3 class="servicio-title" data-i18n="s4_title"></h3>
@@ -237,64 +276,93 @@
             <li data-i18n="s4_f2"></li>
             <li data-i18n="s4_f3"></li>
           </ul>
-          <a href="{{AUDITORIA_URL}}" class="servicio-link" data-i18n="services_learn_more"></a>
+        </div>
+
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">05</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </div>
+          <div class="servicio-tag" data-i18n="nx_s5_tag"></div>
+          <h3 class="servicio-title" data-i18n="nx_s5_title"></h3>
+          <p class="servicio-desc" data-i18n="nx_s5_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="nx_s5_f1"></li>
+            <li data-i18n="nx_s5_f2"></li>
+            <li data-i18n="nx_s5_f3"></li>
+          </ul>
+        </div>
+
+        <div class="servicio-card fade-in-up">
+          <div class="card-head">
+            <span class="card-number">06</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </div>
+          <div class="servicio-tag" data-i18n="nx_s6_tag"></div>
+          <h3 class="servicio-title" data-i18n="nx_s6_title"></h3>
+          <p class="servicio-desc" data-i18n="nx_s6_desc"></p>
+          <ul class="servicio-features">
+            <li data-i18n="nx_s6_f1"></li>
+            <li data-i18n="nx_s6_f2"></li>
+            <li data-i18n="nx_s6_f3"></li>
+          </ul>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- MISIÓN Y VISIÓN -->
-  <section id="mision" class="mision">
+  <!-- MISIÓN & VISIÓN -->
+  <section id="mision" class="s-block">
     <div class="container">
-      <div class="mision-grid">
-        <div class="mision-content">
-          <div class="mision-block">
-            <div class="mision-label" data-i18n="mission_label"></div>
-            <h2 class="mision-title" data-i18n="mission_title"></h2>
-            <p class="mision-text" data-i18n="mission_text"></p>
-          </div>
-          <div class="mision-block vision-block">
-            <div class="mision-label" data-i18n="vision_label"></div>
-            <p class="mision-text" data-i18n="vision_text"></p>
+      <div class="mision-layout">
+        <div class="mision-head">
+          <div class="eyebrow" data-i18n="nx_mv_eyebrow"></div>
+          <h2 class="display-3">
+            <span data-i18n="nx_mv_title_lead"></span>
+            <em class="italic" data-i18n="nx_mv_title_italic"></em>
+          </h2>
+        </div>
+        <div>
+          <div class="mision-blocks">
+            <div class="mision-block">
+              <div class="eyebrow" data-i18n="mission_label"></div>
+              <h3 data-i18n="mission_title"></h3>
+              <p data-i18n="mission_text"></p>
+            </div>
+            <div class="mision-block">
+              <div class="eyebrow" data-i18n="vision_label"></div>
+              <p data-i18n="vision_text"></p>
+            </div>
           </div>
           <div class="mision-valores">
-            <div class="valor-item">
-              <div class="valor-dot"></div>
-              <span data-i18n="value1"></span>
-            </div>
-            <div class="valor-item">
-              <div class="valor-dot"></div>
-              <span data-i18n="value2"></span>
-            </div>
-            <div class="valor-item">
-              <div class="valor-dot"></div>
-              <span data-i18n="value3"></span>
-            </div>
-          </div>
-        </div>
-        <div class="mision-visual">
-          <div class="founder-card">
-            <div class="founder-photo">
-              <img src="/assets/img/founder.jpeg" alt="Diego Camiña Alonso" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-            </div>
-            <div class="founder-info">
-              <div class="founder-name">Diego Camiña Alonso</div>
-              <div class="founder-role" data-i18n="founder_role"></div>
-              <p class="founder-quote" data-i18n="founder_quote"></p>
-            </div>
+            <div class="valor-item"><div class="valor-dot"></div><span data-i18n="value1"></span></div>
+            <div class="valor-item"><div class="valor-dot"></div><span data-i18n="value2"></span></div>
+            <div class="valor-item"><div class="valor-dot"></div><span data-i18n="value3"></span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESO 4 PASOS (W21) -->
-  <section id="proceso" class="proceso">
+  <!-- PROCESO 4 PASOS -->
+  <section id="proceso" class="s-block paper">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="proceso_title"></h2>
-        <p class="section-subtitle" data-i18n="proceso_subtitle"></p>
+      <div class="section-head">
+        <div class="section-head-left">
+          <div class="eyebrow" data-i18n="nx_proceso_eyebrow"></div>
+          <h2 class="display-2">
+            <span data-i18n="nx_proceso_title_lead"></span>
+            <em class="italic" data-i18n="nx_proceso_title_italic"></em>
+          </h2>
+        </div>
+        <div class="section-head-right">
+          <p class="lead" data-i18n="nx_proceso_sub"></p>
+        </div>
       </div>
       <div class="proceso-grid">
         <div class="proceso-step">
@@ -303,6 +371,7 @@
           <h3 class="proceso-step-title" data-i18n="paso1_title"></h3>
           <div class="proceso-step-meta" data-i18n="paso1_meta"></div>
           <p class="proceso-step-desc" data-i18n="paso1_desc"></p>
+          <div class="proceso-branch-note" data-i18n="nx_paso1_branch"></div>
         </div>
         <div class="proceso-step">
           <div class="proceso-number">02</div>
@@ -329,45 +398,40 @@
     </div>
   </section>
 
-  <!-- SUBVENCIONES — DESACTIVADO HASTA SESIÓN 7.6 (W8 bloqueada por investigación de elegibilidad)
-  <section id="subvenciones" class="subvenciones-teaser">
-    <div class="container">
-      <div class="sub-teaser-inner">
-        <div class="sub-teaser-badge" data-i18n="grants_badge"></div>
-        <h2 class="sub-teaser-title" data-i18n="grants_title"></h2>
-        <p class="sub-teaser-text" data-i18n="grants_text"></p>
-        <div class="sub-teaser-flags">
-          <span>🇪🇸 Kit Digital · hasta 29.000€</span>
-          <span>🇫🇷 Bpifrance · 80% financiado</span>
-        </div>
-        <a href="/subvenciones" class="btn btn-outline btn-lg" data-i18n="grants_cta"></a>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- CTA AUDITORÍA EXPRESS (reemplaza form home — el cuestionario completo vive en /auditoria) -->
+  <!-- CTA AUDIT -->
   <section id="contacto" class="cta-audit">
     <div class="container">
       <div class="cta-audit-card">
-        <h2 class="cta-audit-title" data-i18n="home_audit_cta_title"></h2>
-        <p class="cta-audit-desc" data-i18n="home_audit_cta_desc"></p>
-        <div class="cta-audit-beneficios">
-          <div class="beneficio">
-            <div class="beneficio-icon">✓</div>
-            <span data-i18n="benefit1"></span>
-          </div>
-          <div class="beneficio">
-            <div class="beneficio-icon">✓</div>
-            <span data-i18n="benefit2"></span>
-          </div>
-          <div class="beneficio">
-            <div class="beneficio-icon">✓</div>
-            <span data-i18n="benefit3"></span>
-          </div>
+        <div>
+          <div class="eyebrow" data-i18n="nx_cta_eyebrow"></div>
+          <h2 class="cta-audit-title" style="margin-top:20px;">
+            <span data-i18n="nx_cta_title_lead"></span>
+            <em class="italic" data-i18n="nx_cta_title_italic"></em>
+          </h2>
+          <p class="cta-audit-desc" data-i18n="home_audit_cta_desc"></p>
         </div>
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg cta-audit-button" data-i18n="home_audit_cta_button"></a>
-        <p class="cta-audit-note" data-i18n="home_audit_cta_note"></p>
+        <div>
+          <div class="cta-audit-beneficios">
+            <div class="beneficio">
+              <span class="beneficio-icon" aria-hidden="true">✓</span>
+              <span data-i18n="benefit1"></span>
+            </div>
+            <div class="beneficio">
+              <span class="beneficio-icon" aria-hidden="true">✓</span>
+              <span data-i18n="benefit2"></span>
+            </div>
+            <div class="beneficio">
+              <span class="beneficio-icon" aria-hidden="true">✓</span>
+              <span data-i18n="benefit3"></span>
+            </div>
+          </div>
+          <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg"><span class="btn-label" data-i18n="home_audit_cta_button"></span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <p class="cta-audit-note" data-i18n="home_audit_cta_note"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -375,8 +439,15 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-wordmark" aria-hidden="true">
+        <span data-i18n="nx_footer_wm_lead"></span><em class="italic" data-i18n="nx_footer_wm_italic"></em>
+      </div>
       <div class="footer-grid">
         <div class="footer-brand">
+          <a href="{{HOME_URL}}" class="nav-logo">
+            <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+            <span class="logo-text">AionStudio</span>
+          </a>
           <p class="footer-tagline" data-i18n="footer_tagline"></p>
           <div class="footer-social">
             <a href="#" class="social-link" aria-label="LinkedIn">
@@ -397,6 +468,8 @@
             <li><a href="#servicios" data-i18n="s2_title"></a></li>
             <li><a href="#servicios" data-i18n="s3_title"></a></li>
             <li><a href="#servicios" data-i18n="footer_webai"></a></li>
+            <li><a href="#servicios" data-i18n="nx_s5_title"></a></li>
+            <li><a href="#servicios" data-i18n="nx_s6_title"></a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -405,7 +478,6 @@
             <li><a href="#mision" data-i18n="footer_mission"></a></li>
             <li><a href="{{AUDITORIA_URL}}" data-i18n="footer_audit"></a></li>
             <li><a href="{{BLOG_URL}}" data-i18n="footer_blog"></a></li>
-            <!-- <li><a href="/subvenciones" data-i18n="footer_grants"></a></li> -->
           </ul>
         </div>
         <div class="footer-col">
@@ -424,7 +496,7 @@
       </div>
       <div class="footer-bottom">
         <p class="footer-legal">
-          &copy; <span id="year"></span> Aion Studio. <span data-i18n="footer_rights"></span>
+          &copy; <span id="year"></span> Aion Studio · <span data-i18n="footer_rights"></span>
         </p>
         <div class="footer-legal-links">
           <a href="/privacidad" data-i18n="footer_privacy"></a>

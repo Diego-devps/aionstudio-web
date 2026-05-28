@@ -27,113 +27,131 @@
   <meta name="twitter:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
     .blog-hero {
-      padding: 140px 0 72px;
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border);
+      padding: 180px 0 80px;
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--rule);
     }
-    .blog-hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid var(--border-cyan);
-      color: var(--cyan);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
+    .blog-hero-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: end;
     }
     .blog-hero-title {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 900;
-      margin-bottom: 12px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(56px, 8vw, 128px);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+      color: var(--ink);
+    }
+    .blog-hero-title .italic {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
     }
     .blog-hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 520px;
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 42ch;
     }
-    .blog-section {
-      padding: 72px 0 100px;
-    }
+    .blog-section { padding: 80px 0 140px; background: var(--bg-base); }
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
+      gap: 24px;
     }
     .blog-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark);
+      color: var(--ink-on-dark);
+      border: 1px solid var(--rule-dark);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 36px 32px 32px;
       display: flex;
       flex-direction: column;
-      transition: border-color var(--transition), box-shadow var(--transition);
+      gap: 16px;
+      transition: border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med);
+      position: relative;
     }
     .blog-card:hover {
-      border-color: var(--border-cyan);
-      box-shadow: 0 0 30px rgba(0,212,255,0.08);
+      border-color: var(--rule-dark-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
     }
-    .blog-card.draft {
-      opacity: 0.45;
-      pointer-events: none;
+    .blog-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
     }
     .blog-card-category {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-on-dark-muted);
+    }
+    .blog-card-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--rule-dark-strong);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-on-dark);
+      transition: background var(--t-med), color var(--t-med), transform var(--t-med);
+      flex-shrink: 0;
+    }
+    .blog-card-arrow svg { width: 13px; height: 13px; }
+    .blog-card:hover .blog-card-arrow { background: var(--accent-tint); border-color: var(--accent-tint); color: #FFFFFF; transform: rotate(-45deg); }
+    .blog-card-title {
+      font-family: var(--sans);
+      font-size: clamp(22px, 2vw, 28px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+    .blog-card-title a { color: var(--ink-on-dark); transition: color var(--t-fast); }
+    .blog-card-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 14px;
-    }
-    .blog-card-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .blog-card-title a {
-      color: var(--text-primary);
-      transition: color var(--transition);
-    }
-    .blog-card-title a:hover { color: var(--cyan); }
-    .blog-card-date {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      color: var(--ink-on-dark-muted);
     }
     .blog-card-desc {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 15px;
+      color: var(--ink-on-dark-soft);
+      line-height: 1.6;
       flex: 1;
-      margin-bottom: 24px;
     }
     .blog-card-link {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--cyan);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-on-dark);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: gap var(--transition);
       align-self: flex-start;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule-dark);
+      width: 100%;
+      transition: gap var(--t-med);
     }
     .blog-card-link:hover { gap: 10px; }
-    @media (max-width: 768px) {
+    .blog-card.draft { opacity: 0.45; pointer-events: none; }
+    @media (max-width: 900px) {
+      .blog-hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .blog-grid { grid-template-columns: 1fr; }
-      .blog-hero { padding: 110px 0 56px; }
+      .blog-hero { padding: 140px 0 56px; }
     }
   </style>
 </head>
@@ -142,11 +160,9 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="{{HOME_URL}}" class="nav-logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+        <span class="logo-text">AionStudio</span>
       </a>
       <ul class="nav-links">
         <li><a href="{{HOME_URL}}#servicios">Servicios</a></li>
@@ -158,7 +174,11 @@
         <div class="lang-selector">
           {{LANG_TOGGLE}}
         </div>
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Auditoría Gratuita</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-accent"><span class="btn-label">Auditoría Gratuita</span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
       </div>
       <button class="nav-toggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
@@ -169,9 +189,15 @@
   <!-- BLOG HERO -->
   <section class="blog-hero">
     <div class="container">
-      <div class="blog-hero-badge">Blog</div>
-      <h1 class="blog-hero-title">Blog</h1>
-      <p class="blog-hero-subtitle">Inteligencia artificial para empresas que quieren crecer</p>
+      <div class="blog-hero-inner">
+        <div>
+          <div class="eyebrow">Blog</div>
+          <h1 class="blog-hero-title" style="margin-top: 24px;">
+            Inteligencia <em class="italic">aplicada</em>.
+          </h1>
+        </div>
+        <p class="blog-hero-subtitle">Casos reales, guías prácticas y análisis del sector. Inteligencia artificial para empresas que quieren crecer.</p>
+      </div>
     </div>
   </section>
 
@@ -180,48 +206,64 @@
     <div class="container">
       <div class="blog-grid">
 
-        <!-- Artículo 1 -->
         <article class="blog-card">
-          <div class="blog-card-category">Sector Salud</div>
+          <div class="blog-card-head">
+            <span class="blog-card-category">Sector Salud</span>
+            <a href="ia-para-clinicas-dentales.html" class="blog-card-arrow" aria-label="Leer artículo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
           <h2 class="blog-card-title">
             <a href="ia-para-clinicas-dentales.html">Cómo la IA está transformando las clínicas dentales en 2026</a>
           </h2>
           <div class="blog-card-date">10 marzo 2026</div>
           <p class="blog-card-desc">Llamadas perdidas, citas sin confirmar, no-shows... Las clínicas que ya usan IA ahorran tiempo, reducen ausencias y aumentan ingresos con sistemas que trabajan 24/7.</p>
-          <a href="ia-para-clinicas-dentales.html" class="blog-card-link">Leer más →</a>
+          <a href="ia-para-clinicas-dentales.html" class="blog-card-link">Leer artículo <span style="margin-left:auto;">→</span></a>
         </article>
 
-        <!-- Artículo 2 -->
         <article class="blog-card">
-          <div class="blog-card-category">Automatización</div>
+          <div class="blog-card-head">
+            <span class="blog-card-category">Automatización</span>
+            <a href="ia-para-gestorias.html" class="blog-card-arrow" aria-label="Leer artículo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
           <h2 class="blog-card-title">
             <a href="ia-para-gestorias.html">5 procesos que toda gestoría debería automatizar con IA en 2026</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
           <p class="blog-card-desc">Desde la recepción de documentos hasta el envío de recordatorios fiscales, estas son las automatizaciones que más tiempo ahorran en despachos contables.</p>
-          <a href="ia-para-gestorias.html" class="blog-card-link">Leer más →</a>
+          <a href="ia-para-gestorias.html" class="blog-card-link">Leer artículo <span style="margin-left:auto;">→</span></a>
         </article>
 
-        <!-- Artículo 3 -->
         <article class="blog-card">
-          <div class="blog-card-category">Productividad</div>
+          <div class="blog-card-head">
+            <span class="blog-card-category">Productividad</span>
+            <a href="recepcionista-3am.html" class="blog-card-arrow" aria-label="Leer artículo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
           <h2 class="blog-card-title">
             <a href="recepcionista-3am.html">Tu recepcionista no trabaja a las 3am. Tu agente de voz sí.</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
           <p class="blog-card-desc">Entre el 25% y el 40% de las llamadas a una pyme se producen fuera de horario. Calcula cuánto te cuesta y cómo un agente de voz lo resuelve.</p>
-          <a href="recepcionista-3am.html" class="blog-card-link">Leer más →</a>
+          <a href="recepcionista-3am.html" class="blog-card-link">Leer artículo <span style="margin-left:auto;">→</span></a>
         </article>
 
-        <!-- Artículo 4 -->
         <article class="blog-card">
-          <div class="blog-card-category">Automatización</div>
+          <div class="blog-card-head">
+            <span class="blog-card-category">Automatización</span>
+            <a href="6-tareas-ia.html" class="blog-card-arrow" aria-label="Leer artículo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
           <h2 class="blog-card-title">
             <a href="6-tareas-ia.html">Las 6 tareas que tu equipo hace cada semana y que la IA puede hacer en 3 segundos</a>
           </h2>
           <div class="blog-card-date">11 marzo 2026</div>
           <p class="blog-card-desc">Emails repetitivos, copiar datos entre sistemas, informes periódicos... Calcula el coste real de estas tareas en tu empresa y qué automatiza la IA.</p>
-          <a href="6-tareas-ia.html" class="blog-card-link">Leer más →</a>
+          <a href="6-tareas-ia.html" class="blog-card-link">Leer artículo <span style="margin-left:auto;">→</span></a>
         </article>
 
       </div>
@@ -231,8 +273,13 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-wordmark" aria-hidden="true">Aion<em class="italic">Studio.</em></div>
       <div class="footer-grid">
         <div class="footer-brand">
+          <a href="{{HOME_URL}}" class="nav-logo">
+            <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+            <span class="logo-text">AionStudio</span>
+          </a>
           <p class="footer-tagline">Inteligencia Artificial para empresas que no se conforman.</p>
           <div class="footer-social">
             <a href="#" class="social-link" aria-label="LinkedIn">
@@ -278,9 +325,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-legal">
-          &copy; <span id="year"></span> Aion Studio. <span>Todos los derechos reservados.</span>
-        </p>
+        <p class="footer-legal">&copy; <span id="year"></span> Aion Studio · Todos los derechos reservados.</p>
         <div class="footer-legal-links">
           <a href="/privacidad/">Política de Privacidad</a>
           <a href="/terminos/">Términos de Uso</a>
@@ -290,8 +335,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

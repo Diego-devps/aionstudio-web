@@ -53,6 +53,9 @@ function initNavbar() {
 function initHeroCanvas() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
+  // Canvas oculto por CSS desde el rediseño editorial (W15). Saltar para no
+  // gastar RAF sobre un offsetWidth=0.
+  if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) return;
   const ctx = canvas.getContext('2d');
 
   let width, height, particles, animFrameId;
