@@ -219,12 +219,14 @@ em.serif,
   --btn-icon-ink: var(--ink);
   --btn-icon-size: 32px;
   --btn-side-gap: 12px;
+  /* Spacer izquierdo a ~45% del icon: el texto se desplaza ligeramente a la
+     izquierda para compensar el peso visual del icon-circle (corrección
+     óptica — el centrado geométrico "parece" desviado a la derecha). */
+  --btn-spacer: calc(var(--btn-icon-size) * 0.45);
 
-  /* Grid de 3 columnas: [spacer][texto][icon].
-     spacer (col 1) e icon-col (col 3) tienen el MISMO ancho, así el texto
-     (col 2) queda perfectamente centrado entre ambos — con o sin icon. */
+  /* Grid de 3 columnas: [spacer][texto][icon]. */
   display: inline-grid;
-  grid-template-columns: var(--btn-icon-size) auto var(--btn-icon-size);
+  grid-template-columns: var(--btn-spacer) auto var(--btn-icon-size);
   align-items: center;
   gap: var(--btn-side-gap);
   padding: 9px 16px;
@@ -243,10 +245,10 @@ em.serif,
   text-decoration: none;
   text-align: center;
 }
-/* Spacer izquierdo (col 1) — invisible, iguala el ancho del icon (col 3) */
+/* Spacer izquierdo (col 1) — invisible, compensa ópticamente el icon (col 3) */
 .btn::before {
   content: '';
-  width: var(--btn-icon-size);
+  width: var(--btn-spacer);
   height: var(--btn-icon-size);
 }
 .btn-label { text-align: center; white-space: nowrap; }
