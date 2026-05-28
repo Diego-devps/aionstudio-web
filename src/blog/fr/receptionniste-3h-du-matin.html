@@ -102,11 +102,9 @@
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="{{HOME_URL}}" class="nav-logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+        <span class="logo-text">AionStudio</span>
       </a>
       <ul class="nav-links">
         <li><a href="{{HOME_URL}}#servicios">Services</a></li>
@@ -118,7 +116,7 @@
         <div class="lang-selector">
           {{LANG_TOGGLE}}
         </div>
-        <a href="{{AUDITORIA_URL}}" class="btn btn-primary">Audit Gratuit</a>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-accent btn-sm"><span class="btn-label">Audit Gratuit</span><span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
       </div>
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
