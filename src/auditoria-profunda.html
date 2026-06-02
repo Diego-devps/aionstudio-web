@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Aion Studio" />
+
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/auditoria/" />
+  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/auditoria/" />
+  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria/" />
+  <link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria/" />
+
+  <meta property="og:title" content="{{META_TITLE}}" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="page-auditoria">
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner container">
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+        <span class="logo-text">AionStudio</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="{{HOME_URL}}#servicios" data-i18n="nav_services"></a></li>
+        <li><a href="{{HOME_URL}}#mision" data-i18n="nav_mission"></a></li>
+        <li><a href="{{BLOG_URL}}" data-i18n="nav_blog"></a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-selector">
+          {{LANG_TOGGLE}}
+        </div>
+        <a href="{{HOME_URL}}" class="btn btn-outline btn-sm"><span class="btn-label" data-i18n="aud_back_home"></span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </span>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="aud-header">
+    <div class="container">
+      <div class="aud-header-inner">
+        <div>
+          <div class="aud-badge" data-i18n="prof_eyebrow"></div>
+          <h1 class="aud-title">
+            <span data-i18n="prof_title_lead"></span>
+            <em class="italic" data-i18n="prof_title_italic"></em>
+          </h1>
+        </div>
+        <p class="aud-subtitle" data-i18n="prof_subtitle"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFUNDA — contenido informativo (sin precio) -->
+  <section class="aud-section">
+    <div class="container-narrow">
+
+      <p class="prof-lead" data-i18n="prof_intro"></p>
+
+      <div class="prof-block">
+        <div class="eyebrow" data-i18n="prof_what_eyebrow"></div>
+        <div class="prof-features">
+          <div class="prof-feature">
+            <div class="prof-feature-meta" data-i18n="prof_f1_meta"></div>
+            <h3 class="prof-feature-title" data-i18n="prof_f1_title"></h3>
+            <p class="prof-feature-desc" data-i18n="prof_f1_desc"></p>
+          </div>
+          <div class="prof-feature">
+            <div class="prof-feature-meta" data-i18n="prof_f2_meta"></div>
+            <h3 class="prof-feature-title" data-i18n="prof_f2_title"></h3>
+            <p class="prof-feature-desc" data-i18n="prof_f2_desc"></p>
+          </div>
+          <div class="prof-feature">
+            <div class="prof-feature-meta" data-i18n="prof_f3_meta"></div>
+            <h3 class="prof-feature-title" data-i18n="prof_f3_title"></h3>
+            <p class="prof-feature-desc" data-i18n="prof_f3_desc"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prof-block">
+        <div class="eyebrow" data-i18n="prof_diff_eyebrow"></div>
+        <h2 class="prof-h2" data-i18n="prof_diff_title"></h2>
+        <p class="prof-diff-text" data-i18n="prof_diff_text"></p>
+      </div>
+
+      <div class="prof-cta">
+        <h2 class="prof-cta-title" data-i18n="prof_cta_title"></h2>
+        <p class="prof-cta-desc" data-i18n="prof_cta_desc"></p>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg"><span class="btn-label" data-i18n="prof_cta_btn"></span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER mínimo -->
+  <footer class="footer footer-minimal">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">© <span id="year"></span> Aion Studio · <span data-i18n="footer_rights"></span></p>
+        <div class="footer-legal-links">
+          <a href="/privacidad/" data-i18n="footer_privacy"></a>
+          <a href="/terminos/" data-i18n="footer_terms"></a>
+          <a href="/cookies/" data-i18n="footer_cookies"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante (W18) — href por idioma inyectado por el build -->
+  <a class="wa-float" href="{{WHATSAPP_HREF}}" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+  </a>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -55,6 +55,33 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria/" />
   </url>
+  <url>
+    <loc>https://aionstudio.tech/auditoria-profunda/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria-profunda/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/auditoria-profunda/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria-profunda/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/auditoria-profunda/</loc>
+    <lastmod>2026-06-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/auditoria-profunda/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria-profunda/" />
+  </url>
 
   <!-- Blog index (3 idiomas) -->
   <url>

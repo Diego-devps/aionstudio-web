@@ -15,6 +15,7 @@ const DIST = path.join(ROOT, 'dist');
 
 const TEMPLATE_HOME = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
 const TEMPLATE_AUDITORIA = fs.readFileSync(path.join(SRC, 'auditoria.html'), 'utf8');
+const TEMPLATE_PROFUNDA = fs.readFileSync(path.join(SRC, 'auditoria-profunda.html'), 'utf8');
 const TRANSLATIONS = require(path.join(SRC, 'translations.js'));
 
 const SITE_URL = 'https://aionstudio.tech';
@@ -30,6 +31,7 @@ const LANG_ORDER = ['es', 'fr', 'en'];
 const LANG_LABEL = { es: 'ES', fr: 'FR', en: 'EN' };
 const LANG_PATH  = { es: '/',  fr: '/fr/', en: '/en/' };
 const AUDITORIA_PATH = { es: '/auditoria/', fr: '/fr/auditoria/', en: '/en/auditoria/' };
+const PROFUNDA_PATH = { es: '/auditoria-profunda/', fr: '/fr/auditoria-profunda/', en: '/en/auditoria-profunda/' };
 const BLOG_PATH = { es: '/blog/', fr: '/fr/blog/', en: '/en/blog/' };
 
 // WhatsApp por idioma (W18). ES y EN → número +34; FR → número +33.
@@ -45,8 +47,9 @@ function buildWhatsappHref(lang) {
 
 // Páginas top-level a generar.
 const PAGES = [
-  { name: 'home',      template: TEMPLATE_HOME,      outFile: 'index.html',            seoPrefix: '' },
-  { name: 'auditoria', template: TEMPLATE_AUDITORIA, outFile: 'auditoria/index.html',  seoPrefix: 'aud_' },
+  { name: 'home',                template: TEMPLATE_HOME,      outFile: 'index.html',                       seoPrefix: '' },
+  { name: 'auditoria',           template: TEMPLATE_AUDITORIA, outFile: 'auditoria/index.html',             seoPrefix: 'aud_' },
+  { name: 'auditoria-profunda',  template: TEMPLATE_PROFUNDA,  outFile: 'auditoria-profunda/index.html',    seoPrefix: 'prof_' },
 ];
 
 // Posts del blog. Cada post tiene un id estable + slug por idioma (sin .html, sin paths).
@@ -77,7 +80,9 @@ const BLOG_POSTS = [
 
 // Construye el toggle ES/FR/EN. Si pageName === 'auditoria', el toggle apunta a /[lang/]auditoria/.
 function buildLangToggle(activeLang, pageName) {
-  const pathMap = pageName === 'auditoria' ? AUDITORIA_PATH : LANG_PATH;
+  const pathMap = pageName === 'auditoria' ? AUDITORIA_PATH
+    : pageName === 'auditoria-profunda' ? PROFUNDA_PATH
+    : LANG_PATH;
   return LANG_ORDER.map(l => {
     const isActive = l === activeLang;
     const cls = 'lang-btn' + (isActive ? ' active' : '');
@@ -107,6 +112,8 @@ function applyStructuralReplacements(html, lang, page) {
     : t.meta_keywords;
   const canonicalBase = page.name === 'auditoria'
     ? SITE_URL + AUDITORIA_PATH[lang]
+    : page.name === 'auditoria-profunda'
+    ? SITE_URL + PROFUNDA_PATH[lang]
     : SITE_URL + '/' + loc.path;
 
   const replacements = {
@@ -120,6 +127,7 @@ function applyStructuralReplacements(html, lang, page) {
     '{{OG_LOCALE_ALTERNATES}}': buildOgAlternates(loc.alternates),
     '{{HOME_URL}}': LANG_PATH[lang],
     '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
+    '{{PROFUNDA_URL}}': PROFUNDA_PATH[lang],
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),

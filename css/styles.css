@@ -2165,3 +2165,89 @@ body.page-legal {
   .wa-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
   .wa-float svg { width: 28px; height: 28px; }
 }
+
+/* ============================================================
+   AUDITORÍA PROFUNDA (W5)
+   ============================================================ */
+.prof-lead {
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 62ch;
+}
+.prof-block {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+.prof-block .eyebrow { margin-bottom: 24px; }
+.prof-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.prof-feature {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prof-feature-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-tint);
+}
+.prof-feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.prof-feature-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.prof-h2 {
+  font-family: var(--sans);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.prof-diff-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+.prof-cta {
+  margin-top: 56px;
+  padding: 44px 40px;
+  background: var(--bg-paper);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.prof-cta-title {
+  font-family: var(--sans);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.prof-cta-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin: 14px auto 24px;
+}
+.prof-cta .btn { display: inline-flex; }
+@media (max-width: 720px) {
+  .prof-features { grid-template-columns: 1fr; }
+}
