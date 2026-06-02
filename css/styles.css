@@ -1878,6 +1878,11 @@ section.s-block.dark .servicio-card--complemento:hover {
   .footer-legal-links { justify-content: center; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { width: 100%; }
+  /* CTA final: botones a ancho completo y etiqueta que puede envolver — evita que
+     el botón largo ("Solicitar Auditoría Express gratuita") fuerce overflow y recorte. */
+  .cta-audit-actions { flex-direction: column; align-items: stretch; }
+  .cta-audit-actions .btn { width: 100%; }
+  .cta-audit-actions .btn-label { white-space: normal; }
 }
 
 @media (max-width: 480px) {
@@ -2139,6 +2144,9 @@ body.page-legal {
 
   /* El watermark gigante del hero no debe forzar scroll */
   .hero-watermark-track span { font-size: clamp(120px, 40vw, 200px); }
+
+  /* El wordmark gigante del footer no debe salirse / recortarse en móvil */
+  .footer-wordmark { font-size: clamp(40px, 13vw, 72px); margin-bottom: 40px; }
 
   /* CTA card en una columna con padding contenido */
   .cta-audit-card { padding: 32px 22px; gap: 28px; }

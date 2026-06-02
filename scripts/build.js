@@ -345,7 +345,7 @@ function copyStaticAssets() {
   }
 
   // Archivos sueltos en la raíz.
-  const files = ['favicon.png', 'favicon.svg', 'sitemap.xml', 'robots.txt'];
+  const files = ['favicon.ico', 'favicon.png', 'favicon.svg', 'sitemap.xml', 'robots.txt'];
   for (const f of files) {
     const src = path.join(ROOT, f);
     if (!fs.existsSync(src)) continue;
