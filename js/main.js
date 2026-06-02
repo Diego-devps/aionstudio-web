@@ -48,118 +48,6 @@ function initNavbar() {
 }
 
 /* ============================================================
-   HERO CANVAS — animated geometric mesh
-   ============================================================ */
-function initHeroCanvas() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  // Canvas oculto por CSS desde el rediseño editorial (W15). Saltar para no
-  // gastar RAF sobre un offsetWidth=0.
-  if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) return;
-  const ctx = canvas.getContext('2d');
-
-  let width, height, particles, animFrameId;
-  const PARTICLE_COUNT = 80;
-  const CONNECT_DIST = 140;
-  const CYAN = '0, 212, 255';
-
-  function resize() {
-    width = canvas.width = canvas.offsetWidth;
-    height = canvas.height = canvas.offsetHeight;
-  }
-
-  function createParticles() {
-    particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      r: Math.random() * 1.5 + 0.5,
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    const grad = ctx.createLinearGradient(0, 0, 0, height);
-    grad.addColorStop(0, 'rgba(10,10,20,0)');
-    grad.addColorStop(1, 'rgba(10,10,20,1)');
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECT_DIST) {
-          const opacity = (1 - dist / CONNECT_DIST) * 0.25;
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(${CYAN}, ${opacity})`;
-          ctx.lineWidth = 0.6;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${CYAN}, 0.6)`;
-      ctx.fill();
-    });
-
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, width, height);
-  }
-
-  function update() {
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > width)  p.vx *= -1;
-      if (p.y < 0 || p.y > height) p.vy *= -1;
-    });
-  }
-
-  function loop() {
-    update();
-    draw();
-    animFrameId = requestAnimationFrame(loop);
-  }
-
-  function init() {
-    resize();
-    createParticles();
-    if (animFrameId) cancelAnimationFrame(animFrameId);
-    loop();
-  }
-
-  const mouse = { x: -9999, y: -9999 };
-  document.getElementById('hero').addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    particles.forEach(p => {
-      const dx = mouse.x - p.x;
-      const dy = mouse.y - p.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 120) {
-        p.vx += dx / dist * 0.015;
-        p.vy += dy / dist * 0.015;
-        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        if (speed > 1.5) { p.vx = (p.vx / speed) * 1.5; p.vy = (p.vy / speed) * 1.5; }
-      }
-    });
-  });
-
-  window.addEventListener('resize', () => {
-    resize();
-    createParticles();
-  });
-
-  init();
-}
-
-/* ============================================================
    FADE-IN ANIMATIONS on scroll
    ============================================================ */
 function initFadeInAnimations() {
@@ -308,6 +196,49 @@ function initAuditForm() {
 }
 
 /* ============================================================
+   SUBVENCIONES — tabs país (ES/FR) + acordeón de ayudas
+   ============================================================
+   Sólo se activa en /subvenciones/. Sustituye el script inline
+   de la página vieja (eliminado al migrar al build editorial).
+   ============================================================ */
+function initSubvenciones() {
+  const tabsNav = document.querySelector('.tabs-nav');
+  if (!tabsNav) return;
+
+  // Tabs país
+  const tabBtns = tabsNav.querySelectorAll('.tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.tab;
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      tabBtns.forEach(b => b.classList.remove('active'));
+      const panel = document.getElementById('tab-' + id);
+      if (panel) panel.classList.add('active');
+      btn.classList.add('active');
+    });
+  });
+
+  // Acordeón (abre uno, cierra el resto)
+  document.querySelectorAll('.acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.closest('.acc-item');
+      if (!item) return;
+      const body = item.querySelector('.acc-body');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item').forEach(i => {
+        i.classList.remove('open');
+        const b = i.querySelector('.acc-body');
+        if (b) b.style.maxHeight = null;
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        if (body) body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+/* ============================================================
    FOOTER — current year
    ============================================================ */
 function setYear() {
@@ -339,8 +270,8 @@ function initSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   initNavbar();
-  initHeroCanvas();
   initFadeInAnimations();
   initAuditForm();
+  initSubvenciones();
   initSmoothScroll();
 });

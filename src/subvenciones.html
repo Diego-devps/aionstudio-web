@@ -1,133 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Subvenciones IA para Pymes | Aion Studio</title>
-  <meta name="description" content="Guía de ayudas y subvenciones disponibles en España y Francia para financiar proyectos de inteligencia artificial y automatización en pymes." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://aionstudio.tech/subvenciones" />
-  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
   <link rel="shortcut icon" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{META_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Aion Studio" />
+
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" hreflang="es" href="https://aionstudio.tech/subvenciones/" />
+  <link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/subvenciones/" />
+  <link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/subvenciones/" />
+  <link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/subvenciones/" />
+
+  <meta property="og:title" content="{{META_TITLE}}" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://aionstudio.tech/assets/img/og-image.jpg" />
+  <meta property="og:site_name" content="Aion Studio" />
+  <meta property="og:locale" content="{{OG_LOCALE}}" />
+  {{OG_LOCALE_ALTERNATES}}
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+
   <style>
-    /* ── PAGE SPECIFIC ── */
-    .sub-hero {
-      padding: 140px 0 80px;
-      text-align: center;
-      position: relative;
-    }
-    .sub-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .sub-badge {
-      display: inline-block;
-      background: rgba(0,212,255,0.1);
-      border: 1px solid rgba(0,212,255,0.3);
-      color: #00d4ff;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-    }
-    .sub-title {
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .sub-title span { color: #00d4ff; }
-    .sub-subtitle {
-      font-size: 18px;
-      color: #8892a4;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      line-height: 1.6;
-    }
+    /* ── SUBVENCIONES — específico de página (paleta editorial) ── */
     .sub-stats {
       display: flex;
-      justify-content: center;
-      gap: 48px;
       flex-wrap: wrap;
-      margin-bottom: 80px;
+      gap: 40px;
+      margin-top: 36px;
     }
-    .sub-stat { text-align: center; }
     .sub-stat-num {
-      font-size: 36px;
-      font-weight: 800;
-      color: #00d4ff;
-      letter-spacing: -0.03em;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--accent-tint);
+      line-height: 1;
     }
     .sub-stat-label {
-      font-size: 13px;
-      color: #8892a4;
-      margin-top: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 8px;
     }
 
-    /* ── TABS ── */
-    .tabs-wrapper { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+    /* Tabs país */
     .tabs-nav {
       display: flex;
-      gap: 12px;
-      margin-bottom: 40px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 6px;
+      gap: 8px;
+      margin-bottom: 32px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius-pill);
+      padding: 5px;
+      max-width: 360px;
     }
     .tab-btn {
       flex: 1;
-      padding: 12px 20px;
+      padding: 10px 18px;
       border: none;
       background: transparent;
-      color: #8892a4;
-      font-family: inherit;
-      font-size: 15px;
+      color: var(--ink-muted);
+      font-family: var(--sans);
+      font-size: 14px;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: var(--radius-pill);
       cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
+      transition: background var(--t-fast), color var(--t-fast);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
     }
-    .tab-btn.active {
-      background: rgba(0,212,255,0.1);
-      color: #00d4ff;
-      border: 1px solid rgba(0,212,255,0.2);
-    }
-    .tab-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.04); }
-    .tab-flag { font-size: 20px; }
+    .tab-btn.active { background: var(--ink); color: var(--bg-base); }
+    .tab-btn:hover:not(.active) { color: var(--ink); }
+    .tab-flag { font-size: 17px; }
 
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ── ACCORDION ── */
+    /* Acordeón */
     .accordion { display: flex; flex-direction: column; gap: 12px; }
     .acc-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: border-color var(--t-fast);
     }
-    .acc-item:hover { border-color: rgba(0,212,255,0.2); }
-    .acc-item.open { border-color: rgba(0,212,255,0.3); }
+    .acc-item:hover { border-color: var(--rule-strong); }
+    .acc-item.open { border-color: var(--accent-tint); }
     .acc-header {
       width: 100%;
       background: none;
@@ -138,243 +114,168 @@
       gap: 16px;
       cursor: pointer;
       text-align: left;
+      font-family: var(--sans);
     }
     .acc-icon-wrap {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
-      background: rgba(0,212,255,0.1);
+      background: var(--bg-paper);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 19px;
       flex-shrink: 0;
     }
-    .acc-meta { flex: 1; }
-    .acc-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .acc-tagline { font-size: 13px; color: #8892a4; }
+    .acc-meta { flex: 1; min-width: 0; }
+    .acc-name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+    .acc-tagline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-muted); }
     .acc-amount {
       font-size: 15px;
-      font-weight: 700;
-      color: #00d4ff;
+      font-weight: 600;
+      color: var(--accent-tint);
       white-space: nowrap;
       text-align: right;
     }
-    .acc-amount small { display: block; font-size: 11px; font-weight: 400; color: #8892a4; }
+    .acc-amount small { display: block; font-size: 11px; font-weight: 400; color: var(--ink-muted); }
     .acc-arrow {
-      width: 24px;
-      height: 24px;
-      color: #8892a4;
-      transition: transform 0.25s;
+      width: 22px;
+      height: 22px;
+      color: var(--ink-muted);
+      transition: transform var(--t-med), color var(--t-fast);
       flex-shrink: 0;
     }
-    .acc-item.open .acc-arrow { transform: rotate(180deg); color: #00d4ff; }
+    .acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--accent-tint); }
 
-    .acc-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .acc-body-inner {
-      padding: 0 24px 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: 0;
-    }
+    .acc-body { max-height: 0; overflow: hidden; transition: max-height var(--t-med); }
+    .acc-body-inner { padding: 0 24px 24px; border-top: 1px solid var(--rule); }
     .acc-body-inner p {
       font-size: 14px;
-      color: #8892a4;
+      color: var(--ink-soft);
       line-height: 1.7;
-      margin-bottom: 16px;
-      padding-top: 16px;
+      margin-bottom: 18px;
+      padding-top: 18px;
     }
     .acc-details {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 10px;
+      margin-bottom: 18px;
     }
-    .acc-detail {
-      background: rgba(255,255,255,0.03);
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
+    .acc-detail { background: var(--bg-paper); border-radius: 8px; padding: 12px 14px; }
     .acc-detail-label {
+      font-family: var(--mono);
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #555c6e;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
       margin-bottom: 4px;
     }
-    .acc-detail-val {
-      font-size: 13px;
-      font-weight: 600;
-      color: #c8d0de;
-    }
-    .acc-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
+    .acc-detail-val { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .acc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
     .acc-tag {
+      font-family: var(--mono);
       font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 100px;
-      border: 1px solid rgba(0,212,255,0.2);
-      color: #00d4ff;
-      background: rgba(0,212,255,0.06);
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--rule-strong);
+      color: var(--ink-soft);
     }
-    .acc-tag.green {
-      border-color: rgba(52,211,153,0.3);
-      color: #34d399;
-      background: rgba(52,211,153,0.06);
-    }
-    .acc-tag.yellow {
-      border-color: rgba(251,191,36,0.3);
-      color: #fbbf24;
-      background: rgba(251,191,36,0.06);
-    }
+    .acc-tag.green { border-color: rgba(26, 90, 50, 0.3); color: #1a5a32; }
+    .acc-tag.yellow { border-color: rgba(140, 100, 10, 0.3); color: #8c640a; }
     .acc-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 13px;
       font-weight: 600;
-      color: #00d4ff;
-      text-decoration: none;
-      margin-top: 4px;
+      color: var(--accent-tint);
     }
-    .acc-link:hover { opacity: 0.8; }
-
-    /* ── CTA BOTTOM ── */
-    .sub-cta {
-      background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,212,255,0.02) 100%);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 24px;
-      padding: 56px 40px;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 80px;
-    }
-    .sub-cta h2 {
-      font-size: 28px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .sub-cta p {
-      color: #8892a4;
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .sub-cta .btn { text-decoration: none; }
-
-    /* ── NAV BACK ── */
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #8892a4;
-      font-size: 14px;
-      text-decoration: none;
-      margin-bottom: 32px;
-      transition: color 0.2s;
-    }
-    .nav-back:hover { color: #00d4ff; }
+    .acc-link:hover { text-decoration: underline; }
 
     @media (max-width: 640px) {
       .sub-stats { gap: 28px; }
       .acc-header { padding: 18px 16px; gap: 12px; }
       .acc-body-inner { padding: 0 16px 20px; }
       .acc-amount { display: none; }
-      .sub-cta { padding: 40px 24px; }
-      .tabs-wrapper { padding: 0 16px 60px; }
     }
   </style>
 </head>
-<body>
+<body class="page-auditoria">
 
   <!-- NAV -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner container">
-      <a href="/" class="nav-logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13.5 1.5L4 13h7.5L9 20.5l9.5-12H11l2.5-7z" fill="#00d4ff" stroke="#00d4ff" stroke-width="0.5" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">Aion<span class="logo-accent">Studio</span></span>
+      <a href="{{HOME_URL}}" class="nav-logo" aria-label="Aion Studio">
+        <span class="logo-mark"><svg viewBox="0 0 44 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22 L9 4 L16 22 M5 16 L13 16"/><path d="M16 22 L22 14" stroke-width="1" opacity="0.45"/><path d="M42 8 Q42 4 38 4 L30 4 Q26 4 26 8 Q26 12 30 12 L38 12 Q42 12 42 16 Q42 20 38 20 L30 20 Q26 20 26 16"/></svg></span>
+        <span class="logo-text">AionStudio</span>
       </a>
       <ul class="nav-links">
-        <li><a href="/#servicios" data-i18n="nav_services">Servicios</a></li>
-        <li><a href="/#mision" data-i18n="nav_mission">Misión</a></li>
-        <!-- <li><a href="/subvenciones" data-i18n="nav_grants">Subvenciones</a></li> -->
-        <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
-        <li><a href="/#contacto" data-i18n="nav_contact">Contacto</a></li>
+        <li><a href="{{HOME_URL}}#servicios" data-i18n="nav_services"></a></li>
+        <li><a href="{{HOME_URL}}#mision" data-i18n="nav_mission"></a></li>
+        <li><a href="{{BLOG_URL}}" data-i18n="nav_blog"></a></li>
       </ul>
       <div class="nav-right">
         <div class="lang-selector">
-          <button class="lang-btn active" data-lang="es">ES</button>
-          <button class="lang-btn" data-lang="fr">FR</button>
-          <button class="lang-btn" data-lang="en">EN</button>
+          {{LANG_TOGGLE}}
         </div>
-        <a href="/#contacto" class="btn btn-primary" data-i18n="nav_cta">Auditoría Gratuita</a>
+        <a href="{{HOME_URL}}" class="btn btn-outline btn-sm"><span class="btn-label" data-i18n="aud_back_home"></span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </span>
+        </a>
       </div>
-      <button class="nav-toggle" aria-label="Abrir menú">
+      <button class="nav-toggle" aria-label="{{NAV_MENU_OPEN}}" data-i18n-attr-aria-label-open="nav_menu_open" data-i18n-attr-aria-label-close="nav_menu_close">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <main class="container">
-
-    <!-- HERO -->
-    <section class="sub-hero">
-      <div class="sub-badge" data-i18n="sub_badge">💰 Subvenciones &amp; Ayudas</div>
-      <h1 class="sub-title" data-i18n="sub_title">Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span></h1>
-      <p class="sub-subtitle" data-i18n="sub_subtitle">Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.</p>
+  <!-- HEADER -->
+  <section class="aud-header">
+    <div class="container">
+      <div class="aud-header-inner">
+        <div>
+          <div class="aud-badge" data-i18n="sub_eyebrow"></div>
+          <h1 class="aud-title">
+            <span data-i18n="sub_title_lead"></span>
+            <em class="italic" data-i18n="sub_title_italic"></em>
+          </h1>
+        </div>
+        <p class="aud-subtitle" data-i18n="sub_subtitle"></p>
+      </div>
       <div class="sub-stats">
         <div class="sub-stat">
           <div class="sub-stat-num">80%</div>
-          <div class="sub-stat-label" data-i18n="stat1_label">Coste cubierto (máx.)</div>
+          <div class="sub-stat-label" data-i18n="sub_stat1_label"></div>
         </div>
         <div class="sub-stat">
           <div class="sub-stat-num">29.000€</div>
-          <div class="sub-stat-label" data-i18n="stat2_label">Bono máximo España</div>
+          <div class="sub-stat-label" data-i18n="sub_stat2_label"></div>
         </div>
         <div class="sub-stat">
           <div class="sub-stat-num">+300M€</div>
-          <div class="sub-stat-label" data-i18n="stat3_label">Movilizados en Francia</div>
+          <div class="sub-stat-label" data-i18n="sub_stat3_label"></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TABS + ACCORDION -->
-    <div class="tabs-wrapper">
-      <a href="/" class="nav-back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Volver a inicio
-      </a>
+  <!-- AYUDAS — tabs España / France + acordeón -->
+  <section class="aud-section">
+    <div class="container-narrow">
 
-      <div class="tabs-nav">
-        <button class="tab-btn active" onclick="switchTab('es', this)">
-          <span class="tab-flag">🇪🇸</span> España
-        </button>
-        <button class="tab-btn" onclick="switchTab('fr', this)">
-          <span class="tab-flag">🇫🇷</span> France
-        </button>
+      <div class="tabs-nav" role="tablist">
+        <button class="tab-btn active" data-tab="es" role="tab"><span class="tab-flag">🇪🇸</span> España</button>
+        <button class="tab-btn" data-tab="fr" role="tab"><span class="tab-flag">🇫🇷</span> France</button>
       </div>
 
-      <!-- ESPAÑA -->
+      <!-- ESPAÑA (contenido en español) -->
       <div class="tab-panel active" id="tab-es">
         <div class="accordion">
 
-          <div class="acc-item" id="acc-1">
-            <button class="acc-header" onclick="toggleAcc('acc-1')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🎯</div>
               <div class="acc-meta">
                 <div class="acc-name">Kit Digital</div>
@@ -403,8 +304,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-2">
-            <button class="acc-header" onclick="toggleAcc('acc-2')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🧠</div>
               <div class="acc-meta">
                 <div class="acc-name">Ayudas IA en Cadenas de Valor</div>
@@ -433,8 +334,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-3">
-            <button class="acc-header" onclick="toggleAcc('acc-3')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🔬</div>
               <div class="acc-meta">
                 <div class="acc-name">I+D en IA y Tecnologías Duales</div>
@@ -463,8 +364,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-4">
-            <button class="acc-header" onclick="toggleAcc('acc-4')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">📋</div>
               <div class="acc-meta">
                 <div class="acc-name">Kit Consulting</div>
@@ -495,12 +396,12 @@
         </div>
       </div>
 
-      <!-- FRANCE -->
+      <!-- FRANCE (contenu en français) -->
       <div class="tab-panel" id="tab-fr">
         <div class="accordion">
 
-          <div class="acc-item" id="acc-fr-1">
-            <button class="acc-header" onclick="toggleAcc('acc-fr-1')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🚀</div>
               <div class="acc-meta">
                 <div class="acc-name">Diagnostic Data IA — Bpifrance</div>
@@ -529,8 +430,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-fr-2">
-            <button class="acc-header" onclick="toggleAcc('acc-fr-2')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🏆</div>
               <div class="acc-meta">
                 <div class="acc-name">Pionniers de l'IA</div>
@@ -559,8 +460,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-fr-3">
-            <button class="acc-header" onclick="toggleAcc('acc-fr-3')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">🌍</div>
               <div class="acc-meta">
                 <div class="acc-name">Aides Régionales IA — Occitanie</div>
@@ -589,8 +490,8 @@
             </div>
           </div>
 
-          <div class="acc-item" id="acc-fr-4">
-            <button class="acc-header" onclick="toggleAcc('acc-fr-4')">
+          <div class="acc-item">
+            <button class="acc-header">
               <div class="acc-icon-wrap">💡</div>
               <div class="acc-meta">
                 <div class="acc-name">Concours i-Nov — Innovation PME</div>
@@ -622,113 +523,39 @@
         </div>
       </div>
 
-    </div><!-- /tabs-wrapper -->
+      <!-- CTA -->
+      <div class="prof-cta">
+        <h2 class="prof-cta-title" data-i18n="sub_cta_title"></h2>
+        <p class="prof-cta-desc" data-i18n="sub_cta_desc"></p>
+        <a href="{{AUDITORIA_URL}}" class="btn btn-primary btn-lg"><span class="btn-label" data-i18n="sub_cta_btn"></span>
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+      </div>
 
-    <!-- CTA -->
-    <div class="sub-cta">
-      <h2 data-i18n="cta_title">¿No sabes cuál te corresponde?</h2>
-      <p data-i18n="cta_text">En tu auditoría gratuita te identificamos las ayudas para las que tu empresa es elegible y te acompañamos en la solicitud. Sin burocracia, sin complicaciones.</p>
-      <a href="/#contacto" class="btn btn-primary btn-lg" data-i18n="cta_btn">Solicitar Auditoría Gratuita</a>
     </div>
+  </section>
 
-  </main>
-
-  <!-- FOOTER minimal -->
-  <footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 0;text-align:center;">
-    <p style="color:#555c6e;font-size:13px;">© <span id="year"></span> Aion Studio · <a href="/" style="color:#8892a4;text-decoration:none;">Inicio</a> · <a href="/privacidad" style="color:#8892a4;text-decoration:none;">Privacidad</a></p>
+  <!-- FOOTER mínimo -->
+  <footer class="footer footer-minimal">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-copy">© <span id="year"></span> Aion Studio · <span data-i18n="footer_rights"></span></p>
+        <div class="footer-legal-links">
+          <a href="/privacidad/" data-i18n="footer_privacy"></a>
+          <a href="/terminos/" data-i18n="footer_terms"></a>
+          <a href="/cookies/" data-i18n="footer_cookies"></a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const i18n = {
-      es: {
-        nav_services: 'Servicios', nav_mission: 'Misión', nav_grants: 'Subvenciones',
-        nav_contact: 'Contacto', nav_blog: 'Blog', nav_cta: 'Auditoría Gratuita',
-        sub_badge: '💰 Subvenciones & Ayudas',
-        sub_title: 'Financia tu proyecto de IA<br/><span>sin poner todo de tu bolsillo</span>',
-        sub_subtitle: 'Existen ayudas públicas en España y Francia que cubren hasta el 80% del coste de implementar IA en tu empresa. Te ayudamos a identificarlas y gestionarlas.',
-        stat1_label: 'Coste cubierto (máx.)', stat2_label: 'Bono máximo España', stat3_label: 'Movilizados en Francia',
-        cta_title: '¿No sabes cuál te corresponde?',
-        cta_text: 'En tu auditoría gratuita te identificamos las ayudas para las que tu empresa es elegible y te acompañamos en la solicitud. Sin burocracia, sin complicaciones.',
-        cta_btn: 'Solicitar Auditoría Gratuita',
-      },
-      fr: {
-        nav_services: 'Services', nav_mission: 'Mission', nav_grants: 'Subventions',
-        nav_contact: 'Contact', nav_blog: 'Blog', nav_cta: 'Audit Gratuit',
-        sub_badge: '💰 Subventions & Aides',
-        sub_title: 'Financez votre projet IA<br/><span>sans tout payer de votre poche</span>',
-        sub_subtitle: 'Des aides publiques en Espagne et en France couvrent jusqu\'à 80% du coût de mise en œuvre de l\'IA dans votre entreprise.',
-        stat1_label: 'Coût couvert (max.)', stat2_label: 'Bonus maximum Espagne', stat3_label: 'Mobilisés en France',
-        cta_title: 'Vous ne savez pas laquelle vous convient ?',
-        cta_text: 'Lors de votre audit gratuit, nous identifions les aides auxquelles votre entreprise est éligible et vous accompagnons dans la demande. Sans bureaucratie, sans complications.',
-        cta_btn: 'Demander un Audit Gratuit',
-      },
-      en: {
-        nav_services: 'Services', nav_mission: 'Mission', nav_grants: 'Grants',
-        nav_contact: 'Contact', nav_blog: 'Blog', nav_cta: 'Free Audit',
-        sub_badge: '💰 Grants & Subsidies',
-        sub_title: 'Fund your AI project<br/><span>without paying it all yourself</span>',
-        sub_subtitle: 'Public grants in Spain and France cover up to 80% of the cost of implementing AI in your business.',
-        stat1_label: 'Cost covered (max.)', stat2_label: 'Maximum bonus Spain', stat3_label: 'Mobilised in France',
-        cta_title: 'Not sure which one applies to you?',
-        cta_text: 'In your free audit we identify the grants your company is eligible for and guide you through the application. No bureaucracy, no complications.',
-        cta_btn: 'Request Free Audit',
-      }
-    };
+  <!-- WhatsApp flotante (W18) — href por idioma inyectado por el build -->
+  <a class="wa-float" href="{{WHATSAPP_HREF}}" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+  </a>
 
-    function applyLang(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
-      });
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-      });
-      localStorage.setItem('aion_lang', lang);
-    }
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang')));
-    });
-
-    // Nav toggle móvil
-    const toggle = document.querySelector('.nav-toggle');
-    const navInner = document.querySelector('.nav-inner');
-    if (toggle) toggle.addEventListener('click', () => navInner.classList.toggle('mobile-open'));
-
-    // Navbar scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Aplicar idioma guardado
-    const savedLang = localStorage.getItem('aion_lang') ||
-      (navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'es');
-    applyLang(savedLang);
-
-    function switchTab(id, btn) {
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + id).classList.add('active');
-      btn.classList.add('active');
-    }
-
-    function toggleAcc(id) {
-      const item = document.getElementById(id);
-      const body = item.querySelector('.acc-body');
-      const isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.acc-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.acc-body').style.maxHeight = null;
-      });
-      // Open clicked if was closed
-      if (!isOpen) {
-        item.classList.add('open');
-        body.style.maxHeight = body.scrollHeight + 'px';
-      }
-    }
-  </script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

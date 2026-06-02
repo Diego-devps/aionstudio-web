@@ -83,6 +83,35 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/auditoria-profunda/" />
   </url>
 
+  <!-- Subvenciones (3 idiomas) -->
+  <url>
+    <loc>https://aionstudio.tech/subvenciones/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/subvenciones/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/fr/subvenciones/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/subvenciones/" />
+  </url>
+  <url>
+    <loc>https://aionstudio.tech/en/subvenciones/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://aionstudio.tech/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aionstudio.tech/fr/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aionstudio.tech/en/subvenciones/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aionstudio.tech/subvenciones/" />
+  </url>
+
   <!-- Blog index (3 idiomas) -->
   <url>
     <loc>https://aionstudio.tech/blog/</loc>

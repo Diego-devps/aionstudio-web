@@ -15,7 +15,7 @@ Web corporativa de Aion Studio. HTML + CSS + JS vanilla con **build script Node 
 - CSS3 con variables custom (sin frameworks)
 - JS vanilla (sin jQuery, sin React)
 - **Build:** Node.js >=18, módulos nativos (`fs`, `path`) — cero dependencias npm
-- Fuente: Inter (Google Fonts)
+- Tipografía (rediseño editorial W16): **Geist** (sans, cuerpo + UI), **Playfair Display** (serif, displays/itálicas de acento), **Geist Mono** (tags, eyebrows, metadatos). Google Fonts.
 - Deploy: Vercel — `buildCommand: npm run build`, `outputDirectory: dist`
 
 ## Estructura del repo
@@ -24,7 +24,9 @@ aionstudio-web/
 ├── src/
 │   ├── index.html              ← plantilla home con marcadores {{...}} y data-i18n
 │   ├── auditoria.html          ← plantilla /auditoria/ (cuestionario pre-Express)
-│   ├── translations.js         ← objeto ES/FR/EN (fuente única de copy para home y auditoria)
+│   ├── auditoria-profunda.html ← plantilla /auditoria-profunda/ (W5, informativa sin precio)
+│   ├── subvenciones.html       ← plantilla /subvenciones/ (ayudas IA ES/FR · migrada al build)
+│   ├── translations.js         ← objeto ES/FR/EN (fuente única de copy para todas las páginas)
 │   └── blog/
 │       ├── es/                 ← 5 archivos monolingües ES (index + 4 entradas)
 │       ├── fr/                 ← 5 archivos monolingües FR (slugs nativos)
@@ -34,7 +36,7 @@ aionstudio-web/
 ├── css/styles.css              ← copiado a dist/css/ por el build
 ├── js/main.js                  ← copiado a dist/js/ por el build
 ├── assets/img/                 ← copiado a dist/assets/
-├── privacidad/, terminos/, cookies/, subvenciones/  ← copiado tal cual
+├── privacidad/, terminos/, cookies/  ← páginas legales copiadas tal cual
 ├── favicon.png, favicon.svg, sitemap.xml            ← idem
 ├── package.json                ← npm scripts (sin deps)
 ├── vercel.json                 ← config de deploy
@@ -42,9 +44,11 @@ aionstudio-web/
 └── dist/                       ← OUTPUT del build (no commit, lo genera Vercel)
     ├── index.html              ← ES home
     ├── auditoria/index.html
+    ├── auditoria-profunda/index.html
+    ├── subvenciones/index.html
     ├── blog/                   ← ES blog (5 archivos)
-    ├── fr/                     ← FR home + auditoria + blog
-    ├── en/                     ← EN home + auditoria + blog
+    ├── fr/                     ← FR home + auditoria + auditoria-profunda + subvenciones + blog
+    ├── en/                     ← EN idem
     └── [resto de assets copiados]
 ```
 
@@ -71,23 +75,29 @@ El build:
 - Toggle ES/FR/EN del navbar = `<a href>` a la URL correspondiente (no JS).
 - Form lleva `<input type="hidden" name="lang" value="es|fr|en">` para que el endpoint detecte idioma del prospect.
 
-## Paleta de colores (PENDIENTE refactor en 7.4b — W15)
-- Fondo principal: `#0a0a14`
-- Fondo secundario: `#0f0f1e`
-- Cyan principal: `#00d4ff` (W15 lo cambiará a blanco/negro/crema)
-- Cyan hover: `#00b8d9`
-- Texto principal: `#ffffff`
-- Texto secundario: `#8892a4`
+## Paleta de colores (editorial — W15 aplicada, PR #4 merge `23e933d`)
+Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se eliminó por completo.
+- Fondo base: `--bg-base #FFFFFF` · papel/crema: `--bg-paper #F2EDE3` · dark: `--bg-dark #0A0A0A`
+- Tinta (texto): `--ink #0A0A0A` · suave `--ink-soft #3A3631` · mudo `--ink-muted #8A857C`
+- Sobre dark: `--ink-on-dark #FFFFFF` + variantes soft/muted
+- **Acento azul tinta (firma de marca):** `--accent-tint #1A2A6C` (hover `#14225A`). Uso puntual, no decorativo.
+- Reglas/bordes: `--rule` / `--rule-strong` (claro) · `--rule-dark*` (sobre dark)
+- Aliases legacy (`--cyan`, `--accent`, `--border`) se mantienen mapeados a tokens editoriales solo hasta refactorizar el blog viejo. No usar en código nuevo.
 
-## Secciones home (orden actual)
-1. Nav — logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita" → `/auditoria/`
-2. Hero — headline + subtítulo + 2 CTAs + canvas con malla cyan animada
-3. Propuesta de valor (W23 aplicada 23/05) — 4 cards verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
-4. Servicios — grid 2x2: 4 cards con titulares públicos (W14 aplicada 7.4a Bloque 3)
-5. Misión y Visión — texto + foto fundador
-6. Proceso 4 pasos — Auditoría Express → Profunda → Implementación → Soporte (W21 aplicada 7.4a Bloque 3)
-7. CTA Auditoría Express — card grande con link a `/auditoria/` (reemplazó form Formspree en 7.4a Bloque 2)
-8. Footer — links + legal + ubicación + redes
+## Secciones home (orden actual — 12 bloques tras refactor 7.4)
+1. Nav — pill flotante: logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita" → `/auditoria/`
+2. Hero (`#hero`) — headline + subtítulo + 2 CTAs + watermark animado (sin canvas: la malla cyan se eliminó con el rediseño editorial)
+3. Por qué nosotros (`#por-que`, W23) — 4 métricas verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
+4. Marquee — banda de texto en movimiento entre métricas y servicios
+5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb como complemento fuera del frame IA** (card `--complemento`, marcada "+", W1). Titulares públicos sin marca interna (W14)
+6. Sectores (`#sectores`, W13) — grid de sectores destacados
+7. Misión y Visión (`#mision`) — texto + foto fundador
+8. Proceso 4 pasos (`#proceso`, W21) — Auditoría Express → Profunda → Implementación → Soporte
+9. Comparativa (`#comparativa`, W20) — Con / Sin Aion
+10. FAQ (`#faq`, W22) — acordeón de 8 preguntas
+11. CTA Auditoría Express (`#contacto`) — card grande con link a `/auditoria/`
+12. Footer — links + legal + ubicación + redes
++ WhatsApp flotante (W18) — href por idioma inyectado por el build
 
 ## Página /auditoria (W3 + W9 + W19 aplicadas 7.4a Bloque 2)
 - Template propia `src/auditoria.html` procesada por el build → `/auditoria/`, `/fr/auditoria/`, `/en/auditoria/`.
@@ -97,11 +107,23 @@ El build:
 - Branching: Q5 = "<80K" → Plantilla 2 (advertencia transparente). Resto → Plantilla 1 (confirmación estándar). Spam evidente → log silencioso.
 - Fuente de verdad copy: `business-os/agencia/servicios/aionaudit/cuestionario-pre-express.md` + `email-confirmacion-express.md`.
 
-## Animaciones
-- Cards de servicios: borde cyan al hover
-- Hero: malla geométrica animada (canvas, partículas + conexiones)
-- Nav: sticky con blur al hacer scroll
-- Fade-in al entrar en viewport (servicios, mision-block, founder-card)
+## Página /auditoria-profunda (W5)
+- Template `src/auditoria-profunda.html`, seoPrefix `prof_` → `/auditoria-profunda/`, `/fr/...`, `/en/...`.
+- Informativa, **sin precio** (decisión no-pricing 01/06). Explica qué es la Profunda y deriva a la Express.
+
+## Página /subvenciones (migrada al build editorial)
+- Template `src/subvenciones.html`, seoPrefix `sub_` → `/subvenciones/`, `/fr/subvenciones/`, `/en/subvenciones/`.
+- Guía de ayudas IA con **tabs España / France** + acordeón (Kit Digital, Kit Consulting, Bpifrance "Osez l'IA", Pionniers de l'IA, AD'OCC Occitanie, i-Nov…). El contenido de cada tab es fijo en su idioma (ES/FR); el chrome (hero, stats, CTA) se traduce vía `translations.js` (`sub_*`).
+- Migrada desde una página standalone antigua (i18n en runtime + paleta cyan/Inter). Hoy usa nav/footer y paleta editorial como el resto del sitio. JS de tabs/acordeón en `initSubvenciones` (`js/main.js`).
+- **No está enlazada en el nav** (link comentado a propósito) — es página de apoyo/SEO. Relacionada con W8 (KIT Digital como argumento), bloqueada hasta sesión 7.6.
+
+## Animaciones (`js/main.js`, vanilla)
+- Cards de servicios: borde resaltado + leve elevación al hover
+- Hero: watermark con drift lateral (CSS). El canvas de malla cyan se **eliminó** en el rediseño editorial.
+- Nav: sticky con blur al hacer scroll (`initNavbar`) + toggle móvil
+- Fade-in al entrar en viewport (`initFadeInAnimations`: servicio/sector/metrica cards, mision-block, founder-card)
+- `/subvenciones/`: tabs país (ES/FR) + acordeón (`initSubvenciones`, sólo se activa si existe `.tabs-nav`)
+- `/auditoria/`: validación + envío del formulario (`initAuditForm`)
 
 ## Blog trilingüe (7.4a.bis)
 
