@@ -2040,3 +2040,32 @@ body.page-legal {
   .hero-title { font-size: 32px; }
   .container, .container-narrow { padding: 0 18px; }
 }
+
+/* ============================================================
+   WhatsApp flotante (W18)
+   ============================================================ */
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 999;
+  transition: transform var(--t-med), box-shadow var(--t-med);
+}
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+.wa-float svg { width: 30px; height: 30px; }
+@media (max-width: 540px) {
+  .wa-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
+  .wa-float svg { width: 28px; height: 28px; }
+}

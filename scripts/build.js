@@ -32,6 +32,17 @@ const LANG_PATH  = { es: '/',  fr: '/fr/', en: '/en/' };
 const AUDITORIA_PATH = { es: '/auditoria/', fr: '/fr/auditoria/', en: '/en/auditoria/' };
 const BLOG_PATH = { es: '/blog/', fr: '/fr/blog/', en: '/en/blog/' };
 
+// WhatsApp por idioma (W18). ES y EN → número +34; FR → número +33.
+const WHATSAPP = {
+  es: { number: '34697554025', message: 'Hola, me gustaría información sobre Aion Studio' },
+  fr: { number: '33695325662', message: 'Bonjour, je voudrais des informations sur Aion Studio' },
+  en: { number: '34697554025', message: "Hi, I'd like information about Aion Studio" },
+};
+function buildWhatsappHref(lang) {
+  const w = WHATSAPP[lang] || WHATSAPP.es;
+  return 'https://wa.me/' + w.number + '?text=' + encodeURIComponent(w.message);
+}
+
 // Páginas top-level a generar.
 const PAGES = [
   { name: 'home',      template: TEMPLATE_HOME,      outFile: 'index.html',            seoPrefix: '' },
@@ -112,6 +123,7 @@ function applyStructuralReplacements(html, lang, page) {
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),
+    '{{WHATSAPP_HREF}}': buildWhatsappHref(lang),
   };
 
   for (const [marker, value] of Object.entries(replacements)) {
