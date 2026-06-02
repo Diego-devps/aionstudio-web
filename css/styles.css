@@ -1283,6 +1283,12 @@ section.s-block.dark .servicio-link { color: var(--ink-on-dark); }
   justify-content: center;
   flex-shrink: 0;
 }
+.cta-audit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
 .cta-audit-note {
   margin-top: 16px;
   font-family: var(--mono);
