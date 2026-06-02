@@ -84,19 +84,20 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 - Reglas/bordes: `--rule` / `--rule-strong` (claro) · `--rule-dark*` (sobre dark)
 - Aliases legacy (`--cyan`, `--accent`, `--border`) se mantienen mapeados a tokens editoriales solo hasta refactorizar el blog viejo. No usar en código nuevo.
 
-## Secciones home (orden actual — 12 bloques tras refactor 7.4)
+## Secciones home (orden actual — 13 bloques tras refactor 7.4)
 1. Nav — pill flotante: logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita" → `/auditoria/`
 2. Hero (`#hero`) — headline + subtítulo + 2 CTAs + watermark animado (sin canvas: la malla cyan se eliminó con el rediseño editorial)
 3. Por qué nosotros (`#por-que`, W23) — 4 métricas verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
 4. Marquee — banda de texto en movimiento entre métricas y servicios
 5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb como complemento fuera del frame IA** (card `--complemento`, marcada "+", W1). Titulares públicos sin marca interna (W14)
-6. Sectores (`#sectores`, W13) — grid de sectores destacados
-7. Misión y Visión (`#mision`) — texto + foto fundador
-8. Proceso 4 pasos (`#proceso`, W21) — Auditoría Express → Profunda → Implementación → Soporte
-9. Comparativa (`#comparativa`, W20) — Con / Sin Aion
-10. FAQ (`#faq`, W22) — acordeón de 8 preguntas
-11. CTA Auditoría Express (`#contacto`) — card grande con link a `/auditoria/`
-12. Footer — links + legal + ubicación + redes
+6. Cómo trabajamos (`#como-trabajamos`, W11) — mentalidad workflows especializados: "estaciones especializadas, no un bot que lo hace todo" (tríada `.prof-features`)
+7. Sectores (`#sectores`, W13) — grid de sectores destacados
+8. Misión y Visión (`#mision`) — texto + foto fundador
+9. Proceso 4 pasos (`#proceso`, W21) — Auditoría Express → Profunda → Implementación → Soporte
+10. Comparativa (`#comparativa`, W20) — Con / Sin Aion
+11. FAQ (`#faq`, W22) — acordeón de 8 preguntas
+12. CTA Auditoría Express (`#contacto`) — card grande con link a `/auditoria/`
+13. Footer — links + legal + ubicación + redes
 + WhatsApp flotante (W18) — href por idioma inyectado por el build
 
 ## Página /auditoria (W3 + W9 + W19 aplicadas 7.4a Bloque 2)
@@ -115,7 +116,7 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 - Template `src/subvenciones.html`, seoPrefix `sub_` → `/subvenciones/`, `/fr/subvenciones/`, `/en/subvenciones/`.
 - Guía de ayudas IA con **tabs España / France** + acordeón (Kit Digital, Kit Consulting, Bpifrance "Osez l'IA", Pionniers de l'IA, AD'OCC Occitanie, i-Nov…). El contenido de cada tab es fijo en su idioma (ES/FR); el chrome (hero, stats, CTA) se traduce vía `translations.js` (`sub_*`).
 - Migrada desde una página standalone antigua (i18n en runtime + paleta cyan/Inter). Hoy usa nav/footer y paleta editorial como el resto del sitio. JS de tabs/acordeón en `initSubvenciones` (`js/main.js`).
-- **No está enlazada en el nav** (link comentado a propósito) — es página de apoyo/SEO. Relacionada con W8 (KIT Digital como argumento), bloqueada hasta sesión 7.6.
+- **Oculta de momento (decisión Diego 02/06):** `<meta robots noindex,nofollow>` + fuera del sitemap + sin link en nav. No debe aparecer en web hasta desbloquear W8 (KIT Digital, sesión 7.6). Para publicarla: robots → `index,follow` + re-añadir las 3 URLs al sitemap + link en nav. La plantilla y el build quedan listos.
 
 ## Animaciones (`js/main.js`, vanilla)
 - Cards de servicios: borde resaltado + leve elevación al hover

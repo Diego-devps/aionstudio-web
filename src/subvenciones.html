@@ -11,7 +11,10 @@
   <title>{{META_TITLE}}</title>
   <meta name="description" content="{{META_DESCRIPTION}}" />
   <meta name="keywords" content="{{META_KEYWORDS}}" />
-  <meta name="robots" content="index, follow" />
+  <!-- Página oculta de momento (decisión Diego 02/06): no debe aparecer en web hasta
+       desbloquear W8 (KIT Digital, sesión 7.6). noindex + fuera del sitemap + sin link en nav.
+       Para publicarla: robots → index,follow + re-añadir las 3 URLs al sitemap + link en nav. -->
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="author" content="Aion Studio" />
 
   <link rel="canonical" href="{{CANONICAL_URL}}" />
