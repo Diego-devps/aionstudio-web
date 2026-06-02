@@ -163,7 +163,7 @@ function initHeroCanvas() {
    FADE-IN ANIMATIONS on scroll
    ============================================================ */
 function initFadeInAnimations() {
-  const targets = document.querySelectorAll('.servicio-card, .metrica-card, .mision-block, .founder-card');
+  const targets = document.querySelectorAll('.servicio-card, .sector-card, .metrica-card, .mision-block, .founder-card');
   targets.forEach(el => el.classList.add('fade-in-up'));
 
   const observer = new IntersectionObserver(entries => {

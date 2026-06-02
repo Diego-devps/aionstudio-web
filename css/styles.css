@@ -936,6 +936,49 @@ section.s-block.dark .servicio-card:hover .card-arrow {
 section.s-block.dark .servicio-link { color: var(--ink-on-dark); }
 
 /* ============================================================
+   SECTORES (W13) — grid horizontal de 6 sectores
+   ============================================================ */
+.sectores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sector-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med);
+}
+.sector-card:hover {
+  border-color: var(--rule-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.sector-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.sector-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+@media (max-width: 900px) {
+  .sectores-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .sectores-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    MISIÓN & VISIÓN — bloques editoriales
    ============================================================ */
 .mision-layout {
