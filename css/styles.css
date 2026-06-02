@@ -511,8 +511,6 @@ section.s-block.dark .logo-mark { color: var(--ink-on-dark); }
   background: var(--bg-base);
 }
 
-#hero-canvas { display: none; }
-
 /* Watermark animado — detrás del título, drift lateral */
 .hero-watermark {
   position: absolute;
@@ -934,6 +932,22 @@ section.s-block.dark .servicio-card:hover .card-arrow {
   color: var(--ink);
 }
 section.s-block.dark .servicio-link { color: var(--ink-on-dark); }
+
+/* AionWeb como complemento fuera del frame IA (W1).
+   Misma rejilla (mantiene la simetría de 6), pero lectura "secundaria":
+   fondo transparente + borde discreto punteado en vez de card sólida. */
+section.s-block.dark .servicio-card--complemento {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--rule-dark);
+}
+section.s-block.dark .servicio-card--complemento:hover {
+  border-color: var(--rule-dark-strong);
+}
+.servicio-card--complemento .card-number {
+  font-size: 18px;
+  line-height: 1;
+}
 
 /* ============================================================
    SECTORES (W13) — grid horizontal de 6 sectores
