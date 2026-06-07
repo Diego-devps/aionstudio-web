@@ -17,6 +17,7 @@ const TEMPLATE_HOME = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
 const TEMPLATE_AUDITORIA = fs.readFileSync(path.join(SRC, 'auditoria.html'), 'utf8');
 const TEMPLATE_PROFUNDA = fs.readFileSync(path.join(SRC, 'auditoria-profunda.html'), 'utf8');
 const TEMPLATE_SUBVENCIONES = fs.readFileSync(path.join(SRC, 'subvenciones.html'), 'utf8');
+const TEMPLATE_FOOTER = fs.readFileSync(path.join(SRC, '_footer.html'), 'utf8');
 const TRANSLATIONS = require(path.join(SRC, 'translations.js'));
 
 const SITE_URL = 'https://aionstudio.tech';
@@ -54,6 +55,22 @@ function buildLegalLinks(lang) {
   return LEGAL_SLUGS
     .map(slug => `<a href="${prefix}/${slug}/">${t[LEGAL_LINK_KEYS[slug]]}</a>`)
     .join('\n          ');
+}
+
+// Footer unificado: un único partial (src/_footer.html) resuelto por idioma e inyectado
+// con {{FOOTER}} en TODAS las páginas (home, auditoría, profunda, subvenciones, blog).
+// Devuelve HTML ya resuelto (sin data-i18n) para que sirva igual en plantillas con i18n
+// y en el blog (que no pasa por applyI18nReplacements).
+function buildFooter(lang) {
+  let html = TEMPLATE_FOOTER;
+  const repl = {
+    '{{HOME_URL}}': LANG_PATH[lang],
+    '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
+    '{{BLOG_URL}}': BLOG_PATH[lang],
+    '{{LEGAL_LINKS}}': buildLegalLinks(lang),
+  };
+  for (const [m, v] of Object.entries(repl)) html = html.split(m).join(v);
+  return applyI18nReplacements(html, lang);
 }
 
 // WhatsApp por idioma (W18). ES y EN → número +34; FR → número +33.
@@ -157,6 +174,7 @@ function applyStructuralReplacements(html, lang, page) {
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{LEGAL_LINKS}}': buildLegalLinks(lang),
+    '{{FOOTER}}': buildFooter(lang),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),
     '{{WHATSAPP_HREF}}': buildWhatsappHref(lang),
   };
@@ -302,6 +320,7 @@ function applyBlogReplacements(html, lang, postId) {
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildBlogLangToggle(lang, postId),
     '{{LEGAL_LINKS}}': buildLegalLinks(lang),
+    '{{FOOTER}}': buildFooter(lang),
   };
 
   for (const [marker, value] of Object.entries(replacements)) {

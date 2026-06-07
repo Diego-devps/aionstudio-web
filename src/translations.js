@@ -199,7 +199,7 @@ module.exports = {
     aud_optional: 'Opcional',
 
     // --- NX (rediseño editorial — W15) ---
-    nx_hero_lead: 'Automatiza<br />tu empresa.',
+    nx_hero_lead: 'Automatiza <br />tu empresa.',
     nx_hero_italic: 'Multiplica tus resultados.',
     nx_stat1_n: '24/7',
     nx_stat1_l: 'Agentes en producción',
@@ -545,7 +545,7 @@ module.exports = {
     aud_optional: 'Optionnel',
 
     // --- NX (rediseño éditorial — W15) ---
-    nx_hero_lead: 'Automatisez<br />votre entreprise.',
+    nx_hero_lead: 'Automatisez <br />votre entreprise.',
     nx_hero_italic: 'Multipliez vos résultats.',
     nx_stat1_n: '24/7',
     nx_stat1_l: 'Agents en production',
@@ -891,7 +891,7 @@ module.exports = {
     aud_optional: 'Optional',
 
     // --- NX (editorial redesign — W15) ---
-    nx_hero_lead: 'Automate<br />your business.',
+    nx_hero_lead: 'Automate <br />your business.',
     nx_hero_italic: 'Multiply your results.',
     nx_stat1_n: '24/7',
     nx_stat1_l: 'Agents in production',
