@@ -36,6 +36,26 @@ const PROFUNDA_PATH = { es: '/auditoria-profunda/', fr: '/fr/auditoria-profunda/
 const SUBVENCIONES_PATH = { es: '/subvenciones/', fr: '/fr/subvenciones/', en: '/en/subvenciones/' };
 const BLOG_PATH = { es: '/blog/', fr: '/fr/blog/', en: '/en/blog/' };
 
+// Páginas legales (estáticas, fuera del sistema data-i18n). ES en /<slug>/, FR en /fr/<slug>/.
+// Fuente: <slug>/index.html (ES) + <slug>/index.fr.html (FR). EN no tiene página propia → cae a la ES.
+const LEGAL_SLUGS = ['privacidad', 'aviso-legal', 'terminos', 'cookies'];
+const LEGAL_LINK_KEYS = {
+  privacidad: 'footer_privacy',
+  'aviso-legal': 'footer_legal_notice',
+  terminos: 'footer_terms',
+  cookies: 'footer_cookies',
+};
+
+// HTML de los enlaces legales del footer, resuelto por idioma (URL + etiqueta traducida).
+// fr → /fr/<slug>/ ; es y en → /<slug>/ (no hay legales en EN, cae a la ES).
+function buildLegalLinks(lang) {
+  const t = TRANSLATIONS[lang];
+  const prefix = lang === 'fr' ? '/fr' : '';
+  return LEGAL_SLUGS
+    .map(slug => `<a href="${prefix}/${slug}/">${t[LEGAL_LINK_KEYS[slug]]}</a>`)
+    .join('\n          ');
+}
+
 // WhatsApp por idioma (W18). ES y EN → número +34; FR → número +33.
 const WHATSAPP = {
   es: { number: '34697554025', message: 'Hola, me gustaría información sobre Aion Studio' },
@@ -136,6 +156,7 @@ function applyStructuralReplacements(html, lang, page) {
     '{{PROFUNDA_URL}}': PROFUNDA_PATH[lang],
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
+    '{{LEGAL_LINKS}}': buildLegalLinks(lang),
     '{{NAV_MENU_OPEN}}': escapeAttr(t.nav_menu_open),
     '{{WHATSAPP_HREF}}': buildWhatsappHref(lang),
   };
@@ -280,6 +301,7 @@ function applyBlogReplacements(html, lang, postId) {
     '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
     '{{BLOG_URL}}': BLOG_PATH[lang],
     '{{LANG_TOGGLE}}': buildBlogLangToggle(lang, postId),
+    '{{LEGAL_LINKS}}': buildLegalLinks(lang),
   };
 
   for (const [marker, value] of Object.entries(replacements)) {
@@ -335,7 +357,9 @@ function buildBlog() {
 function copyStaticAssets() {
   // Directorios completos (recursivo). 'blog' y 'subvenciones' eliminados — ahora se procesan
   // como páginas del build (src/blog/ y src/subvenciones.html).
-  const dirs = ['css', 'js', 'assets', 'cookies', 'privacidad', 'terminos'];
+  // Las páginas legales (privacidad/terminos/cookies/aviso-legal) las gestiona copyLegalPages()
+  // para enrutar la versión FR a /fr/<slug>/.
+  const dirs = ['css', 'js', 'assets'];
   for (const d of dirs) {
     const src = path.join(ROOT, d);
     if (!fs.existsSync(src)) continue;
@@ -351,6 +375,32 @@ function copyStaticAssets() {
     if (!fs.existsSync(src)) continue;
     fs.copyFileSync(src, path.join(DIST, f));
     console.log(`[build] copied file ${f}`);
+  }
+}
+
+// Páginas legales estáticas: ES (<slug>/index.html) → dist/<slug>/index.html,
+// FR (<slug>/index.fr.html) → dist/fr/<slug>/index.html.
+function copyLegalPages() {
+  for (const slug of LEGAL_SLUGS) {
+    const esSrc = path.join(ROOT, slug, 'index.html');
+    if (fs.existsSync(esSrc)) {
+      const esDest = path.join(DIST, slug, 'index.html');
+      ensureDir(path.dirname(esDest));
+      fs.copyFileSync(esSrc, esDest);
+      console.log(`[build] legal ES  ${slug}/index.html`);
+    } else {
+      console.warn(`[build] legal: missing ${slug}/index.html`);
+    }
+
+    const frSrc = path.join(ROOT, slug, 'index.fr.html');
+    if (fs.existsSync(frSrc)) {
+      const frDest = path.join(DIST, 'fr', slug, 'index.html');
+      ensureDir(path.dirname(frDest));
+      fs.copyFileSync(frSrc, frDest);
+      console.log(`[build] legal FR  fr/${slug}/index.html`);
+    } else {
+      console.warn(`[build] legal: missing ${slug}/index.fr.html (FR)`);
+    }
   }
 }
 
@@ -370,6 +420,7 @@ function main() {
   console.log('[build] start');
   clean();
   copyStaticAssets();
+  copyLegalPages();
   for (const lang of LANG_ORDER) {
     for (const page of PAGES) writePage(lang, page);
   }
