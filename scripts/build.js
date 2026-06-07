@@ -47,10 +47,10 @@ const LEGAL_LINK_KEYS = {
 };
 
 // HTML de los enlaces legales del footer, resuelto por idioma (URL + etiqueta traducida).
-// fr → /fr/<slug>/ ; es y en → /<slug>/ (no hay legales en EN, cae a la ES).
+// es → /<slug>/ · fr → /fr/<slug>/ · en → /en/<slug>/
 function buildLegalLinks(lang) {
   const t = TRANSLATIONS[lang];
-  const prefix = lang === 'fr' ? '/fr' : '';
+  const prefix = lang === 'es' ? '' : '/' + lang;
   return LEGAL_SLUGS
     .map(slug => `<a href="${prefix}/${slug}/">${t[LEGAL_LINK_KEYS[slug]]}</a>`)
     .join('\n          ');
@@ -378,28 +378,22 @@ function copyStaticAssets() {
   }
 }
 
-// Páginas legales estáticas: ES (<slug>/index.html) → dist/<slug>/index.html,
-// FR (<slug>/index.fr.html) → dist/fr/<slug>/index.html.
+// Páginas legales estáticas. Fuente por idioma: ES = <slug>/index.html,
+// FR = <slug>/index.fr.html, EN = <slug>/index.en.html.
+// Destino: ES → dist/<slug>/index.html · FR → dist/fr/<slug>/index.html · EN → dist/en/<slug>/index.html.
 function copyLegalPages() {
   for (const slug of LEGAL_SLUGS) {
-    const esSrc = path.join(ROOT, slug, 'index.html');
-    if (fs.existsSync(esSrc)) {
-      const esDest = path.join(DIST, slug, 'index.html');
-      ensureDir(path.dirname(esDest));
-      fs.copyFileSync(esSrc, esDest);
-      console.log(`[build] legal ES  ${slug}/index.html`);
-    } else {
-      console.warn(`[build] legal: missing ${slug}/index.html`);
-    }
-
-    const frSrc = path.join(ROOT, slug, 'index.fr.html');
-    if (fs.existsSync(frSrc)) {
-      const frDest = path.join(DIST, 'fr', slug, 'index.html');
-      ensureDir(path.dirname(frDest));
-      fs.copyFileSync(frSrc, frDest);
-      console.log(`[build] legal FR  fr/${slug}/index.html`);
-    } else {
-      console.warn(`[build] legal: missing ${slug}/index.fr.html (FR)`);
+    for (const lang of LANG_ORDER) {
+      const srcName = lang === 'es' ? 'index.html' : `index.${lang}.html`;
+      const src = path.join(ROOT, slug, srcName);
+      if (!fs.existsSync(src)) {
+        console.warn(`[build] legal: missing ${slug}/${srcName} (${lang.toUpperCase()})`);
+        continue;
+      }
+      const dest = path.join(DIST, LOCALES[lang].path, slug, 'index.html');
+      ensureDir(path.dirname(dest));
+      fs.copyFileSync(src, dest);
+      console.log(`[build] legal ${lang.toUpperCase()}  ${path.relative(ROOT, dest)}`);
     }
   }
 }
