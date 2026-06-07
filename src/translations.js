@@ -111,7 +111,7 @@ module.exports = {
     footer_grants: 'Subvenciones',
     footer_contact: 'Contacto', footer_location: 'Pennautier, Francia',
     footer_rights: 'Todos los derechos reservados.',
-    footer_privacy: 'Política de Privacidad', footer_terms: 'Términos de Uso', footer_cookies: 'Cookies',
+    footer_privacy: 'Política de Privacidad', footer_legal_notice: 'Aviso Legal', footer_terms: 'Términos de Uso', footer_cookies: 'Cookies',
 
     // --- Home CTA Auditoría (reemplaza form home, W2+W19) ---
     home_audit_cta_title: '¿Listo para empezar?',
@@ -459,7 +459,7 @@ module.exports = {
     footer_grants: 'Subventions',
     footer_contact: 'Contact', footer_location: 'Pennautier, France',
     footer_rights: 'Tous droits réservés.',
-    footer_privacy: 'Politique de Confidentialité', footer_terms: 'Conditions d\'Utilisation', footer_cookies: 'Cookies',
+    footer_privacy: 'Politique de Confidentialité', footer_legal_notice: 'Mentions Légales', footer_terms: 'Conditions d\'Utilisation', footer_cookies: 'Cookies',
 
     home_audit_cta_title: 'Prêt à commencer ?',
     home_audit_cta_desc: 'Racontez-nous ce que vous faites et le problème que vous souhaitez résoudre. Questionnaire de 5 minutes. Je le révise personnellement et je vous réponds sous 24h ouvrées.',
@@ -805,7 +805,7 @@ module.exports = {
     footer_grants: 'Grants',
     footer_contact: 'Contact', footer_location: 'Pennautier, France',
     footer_rights: 'All rights reserved.',
-    footer_privacy: 'Privacy Policy', footer_terms: 'Terms of Use', footer_cookies: 'Cookies',
+    footer_privacy: 'Privacy Policy', footer_legal_notice: 'Legal Notice', footer_terms: 'Terms of Use', footer_cookies: 'Cookies',
 
     home_audit_cta_title: 'Ready to start?',
     home_audit_cta_desc: 'Tell us what you do and what problem you want to solve. 5-minute questionnaire. I review it personally and reply within 24 working hours.',
