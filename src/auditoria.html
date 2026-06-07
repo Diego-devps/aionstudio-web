@@ -86,7 +86,7 @@
   <section class="aud-section">
     <div class="container aud-grid">
 
-      <form id="aud-form" class="aud-form" novalidate
+      <form id="aud-form" class="aud-form" method="post" novalidate
             data-i18n-success-title="aud_success_title"
             data-i18n-success-desc="aud_success_desc"
             data-i18n-error-required="aud_error_required"
@@ -241,16 +241,7 @@
   </section>
 
   <!-- FOOTER mínimo -->
-  <footer class="footer footer-minimal">
-    <div class="container">
-      <div class="footer-bottom">
-        <p class="footer-copy">© <span id="year"></span> Aion Studio · <span data-i18n="footer_rights"></span></p>
-        <div class="footer-legal-links">
-          {{LEGAL_LINKS}}
-        </div>
-      </div>
-    </div>
-  </footer>
+  {{FOOTER}}
 
   <!-- WhatsApp flotante (W18) — href por idioma inyectado por el build -->
   <a class="wa-float" href="{{WHATSAPP_HREF}}" target="_blank" rel="noopener" aria-label="WhatsApp">
