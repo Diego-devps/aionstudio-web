@@ -50,9 +50,9 @@ module.exports = {
     s3_tag: 'Texto', s3_title: 'Asistentes de Texto y Bandeja IA',
     s3_desc: 'Centraliza y gestiona todas tus comunicaciones con IA: emails, WhatsApp y chats clasificados, priorizados y respondidos automáticamente.',
     s3_f1: 'Email', s3_f2: 'WhatsApp', s3_f3: 'Multicanal',
-    s4_tag: 'Complemento', s4_title: 'Tu sitio web',
-    s4_desc: 'No somos agencia web. La diseñamos o mejoramos como complemento —cuando encaja con la automatización que montamos contigo, o si simplemente la necesitas—. También sirve de base para un asistente de chat.',
-    s4_f1: 'A medida', s4_f2: 'Base para chat IA', s4_f3: 'Solo bajo petición',
+    s4_tag: 'Web', s4_title: 'Tu sitio web',
+    s4_desc: 'Creamos y renovamos webs para consultas y pymes: claras, rápidas, legibles en el móvil, con la información al día y los textos legales obligatorios. Y sirven de base para un asistente de chat o para la recepción telefónica con IA.',
+    s4_f1: 'Creación o renovación', s4_f2: 'Pensada para el móvil', s4_f3: 'Precio cerrado, sin cuota',
 
     // --- Misión / Visión ---
     mission_label: 'Nuestra Misión',
@@ -403,9 +403,9 @@ module.exports = {
     s3_tag: 'Texte', s3_title: 'Assistants Texte et Boîte IA',
     s3_desc: 'Centralisez et gérez toutes vos communications avec l\'IA : emails, WhatsApp et chats classifiés, priorisés et répondus automatiquement.',
     s3_f1: 'Email', s3_f2: 'WhatsApp', s3_f3: 'Multi-canal',
-    s4_tag: 'Complément', s4_title: 'Votre site web',
-    s4_desc: "Nous ne sommes pas une agence web. Nous le concevons ou l'améliorons en complément —quand cela s'intègre à l'automatisation que nous construisons avec vous, ou si vous en avez simplement besoin—. Il sert aussi de base à un assistant de chat.",
-    s4_f1: 'Sur mesure', s4_f2: 'Base pour chat IA', s4_f3: 'Sur demande uniquement',
+    s4_tag: 'Site web', s4_title: 'Votre site internet',
+    s4_desc: "Nous créons et refaisons les sites des cabinets et des PME : clairs, rapides, lisibles sur mobile, avec des informations à jour et les mentions obligatoires. Ils servent aussi de base à un assistant de chat ou à l'accueil téléphonique par IA.",
+    s4_f1: 'Création ou refonte', s4_f2: 'Pensé pour le mobile', s4_f3: 'Prix fixe, sans abonnement',
 
     mission_label: 'Notre Mission',
     mission_title: 'Démocratiser l\'IA pour les entreprises qui veulent grandir',
@@ -749,9 +749,9 @@ module.exports = {
     s3_tag: 'Text', s3_title: 'Text & Inbox AI Assistants',
     s3_desc: 'Centralise and manage all your communications with AI: emails, WhatsApp and chats classified, prioritised and answered automatically.',
     s3_f1: 'Email', s3_f2: 'WhatsApp', s3_f3: 'Multi-channel',
-    s4_tag: 'Add-on', s4_title: 'Your website',
-    s4_desc: "We're not a web agency. We build or improve it as an add-on —when it fits the automation we set up with you, or if you simply need it—. It also works as the base for a chat assistant.",
-    s4_f1: 'Bespoke', s4_f2: 'Base for AI chat', s4_f3: 'On request only',
+    s4_tag: 'Website', s4_title: 'Your website',
+    s4_desc: "We build and redesign websites for practices and small businesses: clear, fast, easy to read on mobile, with up-to-date information and the required legal notices. They also serve as the base for a chat assistant or AI phone reception.",
+    s4_f1: 'New or redesign', s4_f2: 'Built for mobile', s4_f3: 'Fixed price, no subscription',
 
     mission_label: 'Our Mission',
     mission_title: 'Democratising AI for companies that want to grow',

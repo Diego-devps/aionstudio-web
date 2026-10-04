@@ -89,7 +89,7 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 2. Hero (`#hero`) — headline + subtítulo + 2 CTAs + watermark animado (sin canvas: la malla cyan se eliminó con el rediseño editorial)
 3. Por qué nosotros (`#por-que`, W23) — 4 métricas verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
 4. Marquee — banda de texto en movimiento entre métricas y servicios
-5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb como complemento fuera del frame IA** (card `--complemento`, marcada "+", W1). Titulares públicos sin marca interna (W14)
+5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb** (card `--complemento`, marcada "+", W1; **desde el 04/10/2026 el texto ya no dice «no somos agencia web»: AionWeb entra en la marca y se vende en frío a consultas dentales FR**, W30). Titulares públicos sin marca interna (W14)
 6. Cómo trabajamos (`#como-trabajamos`, W11) — mentalidad workflows especializados: "estaciones especializadas, no un bot que lo hace todo" (tríada `.prof-features`)
 7. Sectores (`#sectores`, W13) — grid de sectores destacados
 8. Misión y Visión (`#mision`) — texto + foto fundador
