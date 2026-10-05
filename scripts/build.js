@@ -17,6 +17,7 @@ const TEMPLATE_HOME = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
 const TEMPLATE_AUDITORIA = fs.readFileSync(path.join(SRC, 'auditoria.html'), 'utf8');
 const TEMPLATE_PROFUNDA = fs.readFileSync(path.join(SRC, 'auditoria-profunda.html'), 'utf8');
 const TEMPLATE_SUBVENCIONES = fs.readFileSync(path.join(SRC, 'subvenciones.html'), 'utf8');
+const TEMPLATE_WEBS = fs.readFileSync(path.join(SRC, 'webs.html'), 'utf8');
 const TEMPLATE_FOOTER = fs.readFileSync(path.join(SRC, '_footer.html'), 'utf8');
 const TRANSLATIONS = require(path.join(SRC, 'translations.js'));
 
@@ -36,6 +37,8 @@ const AUDITORIA_PATH = { es: '/auditoria/', fr: '/fr/auditoria/', en: '/en/audit
 const PROFUNDA_PATH = { es: '/auditoria-profunda/', fr: '/fr/auditoria-profunda/', en: '/en/auditoria-profunda/' };
 const SUBVENCIONES_PATH = { es: '/subvenciones/', fr: '/fr/subvenciones/', en: '/en/subvenciones/' };
 const BLOG_PATH = { es: '/blog/', fr: '/fr/blog/', en: '/en/blog/' };
+// Página de webs con precios (W32). Slug nativo por idioma, a diferencia de las demás páginas.
+const WEBS_PATH = { es: '/webs/', fr: '/fr/sites-internet/', en: '/en/websites/' };
 
 // Páginas legales (estáticas, fuera del sistema data-i18n). ES en /<slug>/, FR en /fr/<slug>/.
 // Fuente: <slug>/index.html (ES) + <slug>/index.fr.html (FR). EN no tiene página propia → cae a la ES.
@@ -67,6 +70,7 @@ function buildFooter(lang) {
     '{{HOME_URL}}': LANG_PATH[lang],
     '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
     '{{BLOG_URL}}': BLOG_PATH[lang],
+    '{{WEBS_URL}}': WEBS_PATH[lang],
     '{{LEGAL_LINKS}}': buildLegalLinks(lang),
   };
   for (const [m, v] of Object.entries(repl)) html = html.split(m).join(v);
@@ -90,6 +94,8 @@ const PAGES = [
   { name: 'auditoria',           template: TEMPLATE_AUDITORIA, outFile: 'auditoria/index.html',             seoPrefix: 'aud_' },
   { name: 'auditoria-profunda',  template: TEMPLATE_PROFUNDA,  outFile: 'auditoria-profunda/index.html',    seoPrefix: 'prof_' },
   { name: 'subvenciones',        template: TEMPLATE_SUBVENCIONES, outFile: 'subvenciones/index.html',       seoPrefix: 'sub_' },
+  // outFile por idioma (slug nativo): ES /webs/ · FR /fr/sites-internet/ · EN /en/websites/
+  { name: 'webs',                template: TEMPLATE_WEBS,      outFile: { es: 'webs/index.html', fr: 'sites-internet/index.html', en: 'websites/index.html' }, seoPrefix: 'web_' },
 ];
 
 // Posts del blog. Cada post tiene un id estable + slug por idioma (sin .html, sin paths).
@@ -123,6 +129,7 @@ function buildLangToggle(activeLang, pageName) {
   const pathMap = pageName === 'auditoria' ? AUDITORIA_PATH
     : pageName === 'auditoria-profunda' ? PROFUNDA_PATH
     : pageName === 'subvenciones' ? SUBVENCIONES_PATH
+    : pageName === 'webs' ? WEBS_PATH
     : LANG_PATH;
   return LANG_ORDER.map(l => {
     const isActive = l === activeLang;
@@ -157,6 +164,8 @@ function applyStructuralReplacements(html, lang, page) {
     ? SITE_URL + PROFUNDA_PATH[lang]
     : page.name === 'subvenciones'
     ? SITE_URL + SUBVENCIONES_PATH[lang]
+    : page.name === 'webs'
+    ? SITE_URL + WEBS_PATH[lang]
     : SITE_URL + '/' + loc.path;
 
   const replacements = {
@@ -172,6 +181,8 @@ function applyStructuralReplacements(html, lang, page) {
     '{{AUDITORIA_URL}}': AUDITORIA_PATH[lang],
     '{{PROFUNDA_URL}}': PROFUNDA_PATH[lang],
     '{{BLOG_URL}}': BLOG_PATH[lang],
+    '{{WEBS_URL}}': WEBS_PATH[lang],
+    '{{TEL_HREF}}': 'tel:+' + (WHATSAPP[lang] || WHATSAPP.es).number,
     '{{LANG_TOGGLE}}': buildLangToggle(lang, page.name),
     '{{LEGAL_LINKS}}': buildLegalLinks(lang),
     '{{FOOTER}}': buildFooter(lang),
@@ -265,7 +276,9 @@ function writePage(lang, page) {
   html = applyStructuralReplacements(html, lang, page);
   html = applyI18nReplacements(html, lang);
 
-  const outFull = path.join(DIST, LOCALES[lang].path, page.outFile);
+  // outFile puede ser común a los idiomas (string) o propio de cada uno ({ es, fr, en }).
+  const outFile = typeof page.outFile === 'string' ? page.outFile : page.outFile[lang];
+  const outFull = path.join(DIST, LOCALES[lang].path, outFile);
   ensureDir(path.dirname(outFull));
   fs.writeFileSync(outFull, html, 'utf8');
   console.log(`[build] wrote ${path.relative(ROOT, outFull)}  (${html.length} bytes)`);

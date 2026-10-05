@@ -26,6 +26,7 @@ aionstudio-web/
 │   ├── auditoria.html          ← plantilla /auditoria/ (cuestionario pre-Express)
 │   ├── auditoria-profunda.html ← plantilla /auditoria-profunda/ (W5, informativa sin precio)
 │   ├── subvenciones.html       ← plantilla /subvenciones/ (ayudas IA ES/FR · migrada al build)
+│   ├── webs.html               ← plantilla de webs con precios: /webs/ · /fr/sites-internet/ · /en/websites/ (W32)
 │   ├── translations.js         ← objeto ES/FR/EN (fuente única de copy para todas las páginas)
 │   └── blog/
 │       ├── es/                 ← 5 archivos monolingües ES (index + 4 entradas)
@@ -87,9 +88,9 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 ## Secciones home (orden actual — 13 bloques tras refactor 7.4)
 1. Nav — pill flotante: logo + links + selector ES/FR/EN (URLs físicas) + CTA "Auditoría Gratuita" → `/auditoria/`
 2. Hero (`#hero`) — headline + subtítulo + 2 CTAs + watermark animado (sin canvas: la malla cyan se eliminó con el rediseño editorial)
-3. Por qué nosotros (`#por-que`, W23) — 4 métricas verificables: 24/7 · <2s voz · sin intermediarios · compliance EU
+3. Por qué nosotros (`#por-que`, W23) — 4 compromisos: 24/7 · voz natural (probada antes de ponerla en marcha) · sin intermediarios · RGPD por contrato. **05/10/2026 (W31):** retiradas las promesas «<2s voz» y «compliance EU» porque el servicio actual no las sostiene
 4. Marquee — banda de texto en movimiento entre métricas y servicios
-5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb** (card `--complemento`, marcada "+", W1; **desde el 04/10/2026 el texto ya no dice «no somos agencia web»: AionWeb entra en la marca y se vende en frío a consultas dentales FR**, W30). Titulares públicos sin marca interna (W14)
+5. Servicios (`#servicios`) — grid 3 col: **5 cards IA numeradas 01-05** (Voz · Automatización · Texto · Estrategia · Captación) + **AionWeb** (card `--complemento`, marcada "+", W1; **desde el 04/10/2026 el texto ya no dice «no somos agencia web»: AionWeb entra en la marca y se vende en frío a consultas dentales FR**, W30). Titulares públicos sin marca interna (W14). **05/10/2026:** la tarjeta Web lleva el botón «Voir les tarifs / Ver precios / See prices» → página de webs (W32)
 6. Cómo trabajamos (`#como-trabajamos`, W11) — mentalidad workflows especializados: "estaciones especializadas, no un bot que lo hace todo" (tríada `.prof-features`)
 7. Sectores (`#sectores`, W13) — grid de sectores destacados
 8. Misión y Visión (`#mision`) — texto + foto fundador
@@ -97,7 +98,7 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 10. Comparativa (`#comparativa`, W20) — Con / Sin Aion
 11. FAQ (`#faq`, W22) — acordeón de 8 preguntas
 12. CTA Auditoría Express (`#contacto`) — card grande con link a `/auditoria/`
-13. Footer — links + legal + ubicación + redes
+13. Footer — links + legal + ubicación. **Sin iconos de redes desde el 05/10/2026** (apuntaban a `#`; volver a ponerlos solo con perfiles activos, W29). «Sites internet / Páginas web / Websites» enlaza a la página de webs
 + WhatsApp flotante (W18) — href por idioma inyectado por el build
 
 ## Página /auditoria (W3 + W9 + W19 aplicadas 7.4a Bloque 2)
@@ -117,6 +118,12 @@ Definida como variables CSS en `css/styles.css` (`:root`). El cyan viejo se elim
 - Guía de ayudas IA con **tabs España / France** + acordeón (Kit Digital, Kit Consulting, Bpifrance "Osez l'IA", Pionniers de l'IA, AD'OCC Occitanie, i-Nov…). El contenido de cada tab es fijo en su idioma (ES/FR); el chrome (hero, stats, CTA) se traduce vía `translations.js` (`sub_*`).
 - Migrada desde una página standalone antigua (i18n en runtime + paleta cyan/Inter). Hoy usa nav/footer y paleta editorial como el resto del sitio. JS de tabs/acordeón en `initSubvenciones` (`js/main.js`).
 - **Oculta de momento (decisión Diego 02/06):** `<meta robots noindex,nofollow>` + fuera del sitemap + sin link en nav. No debe aparecer en web hasta desbloquear W8 (KIT Digital, sesión 7.6). Para publicarla: robots → `index,follow` + re-añadir las 3 URLs al sitemap + link en nav. La plantilla y el build quedan listos.
+
+## Página de webs con precios (W32 — decisión de Diego 05/10/2026: publicar el precio)
+- Template `src/webs.html`, seoPrefix `web_` → ES `/webs/` · FR `/fr/sites-internet/` · EN `/en/websites/`. **Única página con slug nativo por idioma:** `outFile` es un objeto `{ es, fr, en }` en `PAGES` y el mapa `WEBS_PATH` de `scripts/build.js` alimenta canonical, selector de idioma, `{{WEBS_URL}}` (home + footer) y `{{TEL_HREF}}` (FR +33, ES/EN +34, el mismo mapa que WhatsApp).
+- Indexable (`index, follow`) y en `sitemap.xml`.
+- Contenido: packs Essentiel 1.500 € · Confort 2.100 € · Bilingue 2.590 €, opciones, mantenimiento aparte y opcional (29 €/mes o 290 €/año · Sérénité 59 €/mes), proceso y pago 50/50, bloque de consultas dentales, qué no hacemos, FAQ y CTA llamar/escribir. **Fuente de verdad de la oferta:** `business-os/agencia/servicios/aionweb/fr/captacion-dental-fr.md` §9. Cambiar un precio = cambiarlo allí y aquí en el mismo movimiento.
+- Reglas de copy: nada de «conforme», ni posicionamiento, ni «más pacientes», ni testimonios o casos de clientes.
 
 ## Animaciones (`js/main.js`, vanilla)
 - Cards de servicios: borde resaltado + leve elevación al hover

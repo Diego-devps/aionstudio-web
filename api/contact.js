@@ -133,11 +133,11 @@ Merci d'avoir envoyé le questionnaire. Je l'ai reçu et je vais le revoir perso
 Voici ce qui se passe maintenant :
 
 1. Je relis ce que vous m'avez raconté et je prépare la conversation.
-2. Je vous écris sous 24h ouvrées avec deux options :
+2. Je vous écris sous 2 jours ouvrés avec deux options :
    — Si je vois qu'il y a du sens à continuer, je vous propose trois créneaux concrets pour l'appel de 30 minutes.
    — Si à la lecture de votre questionnaire je vois qu'Aion n'est pas le meilleur fit pour vous, je vous le dis directement et je vous oriente vers ce qui le serait, sans vous faire perdre du temps ni m'en faire perdre.
 
-L'appel se fait en visioconférence (Google Meet), il est gratuit, et à la fin nous repartons avec un rapport court d'une page qui vous arrive sous 24h avec ce que j'ai observé et les pistes possibles.
+L'appel se fait en visioconférence (Google Meet), il est gratuit, et à la fin nous repartons avec un rapport court d'une page qui vous arrive sous 2 jours ouvrés avec ce que j'ai observé et les pistes possibles.
 
 Si entre-temps vous avez quelque chose à ajouter au questionnaire, répondez simplement à ce mail.
 
@@ -153,11 +153,11 @@ Thanks for sending the questionnaire. I've received it and I'll personally revie
 Here's what happens next:
 
 1. I read through what you've told me and prepare the conversation.
-2. I'll write to you within 24 working hours with two options:
+2. I'll write to you within 2 working days with two options:
    — If I see it makes sense to continue, I'll propose three concrete slots for the 30-minute call.
    — If from your questionnaire I see that Aion isn't the best fit for you, I'll tell you directly and point you towards something that would be, without wasting your time or mine.
 
-The call is by video (Google Meet), free of charge, and at the end you'll receive a short one-page report within 24h with what I've observed and the possible paths forward.
+The call is by video (Google Meet), free of charge, and at the end you'll receive a short one-page report within 2 working days with what I've observed and the possible paths forward.
 
 If in the meantime you have anything to add to the questionnaire, just reply to this email.
 
@@ -174,11 +174,11 @@ Gracias por enviar el cuestionario. Lo he recibido y voy a revisarlo personalmen
 Lo que pasa ahora:
 
 1. Reviso lo que me cuentas y preparo la conversación.
-2. Te escribo en menos de 24h laborables con dos opciones:
+2. Te escribo en menos de 2 días laborables con dos opciones:
    — Si veo que tiene sentido seguir, te propongo tres horarios concretos para la llamada de 30 minutos.
    — Si por lo que cuentas veo que Aion no es el mejor encaje para ti, te lo digo directo y te oriento hacia algo que sí lo sea, sin perder tu tiempo ni el mío.
 
-La llamada es por videoconferencia (Google Meet), gratuita, y al final salimos con un informe corto de una página que te llega en 24h con lo que he visto y los caminos posibles.
+La llamada es por videoconferencia (Google Meet), gratuita, y al final salimos con un informe corto de una página que te llega en menos de 2 días laborables con lo que he visto y los caminos posibles.
 
 Si entre tanto te surge algo que añadir al cuestionario, respóndeme a este mismo correo.
 
