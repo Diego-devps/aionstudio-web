@@ -157,6 +157,28 @@
     }
     .web-dental .eyebrow { margin-bottom: 18px; }
 
+    /* Fórmula mensual (W34) — tarjeta ancha: precio a la izquierda, contenido a la derecha */
+    .web-month {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 16px 36px;
+      padding: 30px 28px;
+    }
+    .web-month-head { display: flex; flex-direction: column; gap: 10px; }
+    .web-month-tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--accent-tint);
+    }
+    .web-month-terms {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+    .web-month-terms strong { color: var(--ink); font-weight: 600; }
+
     .web-cta-actions {
       display: flex;
       flex-wrap: wrap;
@@ -165,7 +187,7 @@
     }
 
     @media (max-width: 860px) {
-      .web-packs, .web-maint { grid-template-columns: 1fr; }
+      .web-packs, .web-maint, .web-month { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .web-options li { grid-template-columns: 1fr auto; gap: 4px 14px; }
@@ -227,11 +249,27 @@
 
       <p class="prof-lead" data-i18n="web_intro"></p>
 
-      <!-- PACKS -->
+      <!-- FÓRMULA MENSUAL (W34, decisión de Diego 24/11/2026) -->
+      <div class="prof-block">
+        <div class="eyebrow" data-i18n="web_month_eyebrow"></div>
+        <div class="web-pack web-pack--main web-month">
+          <div class="web-month-head">
+            <div class="web-pack-name" data-i18n="web_month_name"></div>
+            <div class="web-pack-price" data-i18n="web_month_price"></div>
+            <div class="web-month-tag" data-i18n="web_month_tag"></div>
+            <p class="web-pack-desc" data-i18n="web_month_desc"></p>
+          </div>
+          <ul class="web-list" data-i18n="web_month_list"></ul>
+          <ul class="web-list web-month-terms" data-i18n="web_month_terms"></ul>
+        </div>
+        <p class="web-note" data-i18n="web_price_note"></p>
+      </div>
+
+      <!-- PACKS (compra) -->
       <div class="prof-block">
         <div class="eyebrow" data-i18n="web_packs_eyebrow"></div>
         <div class="web-packs">
-          <div class="web-pack web-pack--main">
+          <div class="web-pack">
             <div class="web-pack-name" data-i18n="web_p1_name"></div>
             <div class="web-pack-price" data-i18n="web_p1_price"></div>
             <p class="web-pack-desc" data-i18n="web_p1_desc"></p>
@@ -301,6 +339,14 @@
       <div class="prof-block">
         <div class="eyebrow" data-i18n="web_faq_eyebrow"></div>
         <div class="faq-list" style="margin: 0;">
+          <details class="faq-item">
+            <summary class="faq-q"><span data-i18n="web_faqm1_q"></span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="faq-a"><p data-i18n="web_faqm1_a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><span data-i18n="web_faqm2_q"></span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="faq-a"><p data-i18n="web_faqm2_a"></p></div>
+          </details>
           <details class="faq-item">
             <summary class="faq-q"><span data-i18n="web_faq1_q"></span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
             <div class="faq-a"><p data-i18n="web_faq1_a"></p></div>
